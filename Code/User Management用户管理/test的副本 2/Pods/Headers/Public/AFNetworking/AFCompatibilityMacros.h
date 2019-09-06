@@ -1,0 +1,5 @@
+XSym
+0058
+18fe0c0374c5cdaa27411b26e9b33cae
+../../../AFNetworking/AFNetworking/AFCompatibilityMacros.h
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                     
