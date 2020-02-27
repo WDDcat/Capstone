@@ -11,6 +11,6 @@
 #endif
 
 
-FOUNDATION_EXPORT double Pods_CapStoneProjectVersionNumber;
-FOUNDATION_EXPORT const unsigned char Pods_CapStoneProjectVersionString[];
+FOUNDATION_EXPORT double Pods_CapstoneProjectVersionNumber;
+FOUNDATION_EXPORT const unsigned char Pods_CapstoneProjectVersionString[];
 

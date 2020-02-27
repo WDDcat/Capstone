@@ -7,128 +7,159 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		89A2138B7677922884ED9052 /* Pods_CapStoneProject.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FFCE01BA43993222D34F59B9 /* Pods_CapStoneProject.framework */; };
-		DDEDD9DE240560D50014D7B3 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDEDD9DD240560D50014D7B3 /* AppDelegate.swift */; };
-		DDEDD9E0240560D50014D7B3 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDEDD9DF240560D50014D7B3 /* SceneDelegate.swift */; };
-		DDEDD9E2240560D50014D7B3 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDEDD9E1240560D50014D7B3 /* ViewController.swift */; };
-		DDEDD9E5240560D50014D7B3 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = DDEDD9E3240560D50014D7B3 /* Main.storyboard */; };
-		DDEDD9E7240560D60014D7B3 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = DDEDD9E6240560D60014D7B3 /* Assets.xcassets */; };
-		DDEDD9EA240560D60014D7B3 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = DDEDD9E8240560D60014D7B3 /* LaunchScreen.storyboard */; };
+		1EEC75438D2BF77F87FEB59E /* Pods_CapstoneProject.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E96DBE2538AB16B79EA0375F /* Pods_CapstoneProject.framework */; };
+		DD73FA8424080AE900469726 /* TargetType.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD73FA8324080AE900469726 /* TargetType.swift */; };
+		DD73FA8624080B9E00469726 /* RequestClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD73FA8524080B9E00469726 /* RequestClient.swift */; };
+		DD73FA8824080BE900469726 /* ALTools.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD73FA8724080BE900469726 /* ALTools.swift */; };
+		DD73FA8B24080F1400469726 /* SearchCompanyController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD73FA8A24080F1400469726 /* SearchCompanyController.swift */; };
+		DD73FA8D24080F2A00469726 /* CompanyItemCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD73FA8C24080F2A00469726 /* CompanyItemCell.swift */; };
+		DDDB7A2724078A4B0030178A /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDDB7A2624078A4B0030178A /* AppDelegate.swift */; };
+		DDDB7A2924078A4B0030178A /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDDB7A2824078A4B0030178A /* SceneDelegate.swift */; };
+		DDDB7A2B24078A4B0030178A /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDDB7A2A24078A4B0030178A /* ViewController.swift */; };
+		DDDB7A2E24078A4B0030178A /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = DDDB7A2C24078A4B0030178A /* Main.storyboard */; };
+		DDDB7A3024078A4E0030178A /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = DDDB7A2F24078A4E0030178A /* Assets.xcassets */; };
+		DDDB7A3324078A4E0030178A /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = DDDB7A3124078A4E0030178A /* LaunchScreen.storyboard */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		474FB48B4A597659AE27FFED /* Pods-CapStoneProject.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-CapStoneProject.debug.xcconfig"; path = "Pods/Target Support Files/Pods-CapStoneProject/Pods-CapStoneProject.debug.xcconfig"; sourceTree = "<group>"; };
-		747954206F2327228638D33A /* Pods-CapStoneProject.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-CapStoneProject.release.xcconfig"; path = "Pods/Target Support Files/Pods-CapStoneProject/Pods-CapStoneProject.release.xcconfig"; sourceTree = "<group>"; };
-		DDEDD9DA240560D50014D7B3 /* CapStoneProject.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = CapStoneProject.app; sourceTree = BUILT_PRODUCTS_DIR; };
-		DDEDD9DD240560D50014D7B3 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		DDEDD9DF240560D50014D7B3 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
-		DDEDD9E1240560D50014D7B3 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
-		DDEDD9E4240560D50014D7B3 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
-		DDEDD9E6240560D60014D7B3 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
-		DDEDD9E9240560D60014D7B3 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
-		DDEDD9EB240560D60014D7B3 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		FFCE01BA43993222D34F59B9 /* Pods_CapStoneProject.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_CapStoneProject.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		9924FAEE87ED36BFB434EB87 /* Pods-CapstoneProject.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-CapstoneProject.release.xcconfig"; path = "Pods/Target Support Files/Pods-CapstoneProject/Pods-CapstoneProject.release.xcconfig"; sourceTree = "<group>"; };
+		CDD32372810ED8DF38367EE8 /* Pods-CapstoneProject.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-CapstoneProject.debug.xcconfig"; path = "Pods/Target Support Files/Pods-CapstoneProject/Pods-CapstoneProject.debug.xcconfig"; sourceTree = "<group>"; };
+		DD73FA8324080AE900469726 /* TargetType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TargetType.swift; sourceTree = "<group>"; };
+		DD73FA8524080B9E00469726 /* RequestClient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RequestClient.swift; sourceTree = "<group>"; };
+		DD73FA8724080BE900469726 /* ALTools.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ALTools.swift; sourceTree = "<group>"; };
+		DD73FA8A24080F1400469726 /* SearchCompanyController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchCompanyController.swift; sourceTree = "<group>"; };
+		DD73FA8C24080F2A00469726 /* CompanyItemCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CompanyItemCell.swift; sourceTree = "<group>"; };
+		DDDB7A2324078A4B0030178A /* CapstoneProject.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = CapstoneProject.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		DDDB7A2624078A4B0030178A /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		DDDB7A2824078A4B0030178A /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
+		DDDB7A2A24078A4B0030178A /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		DDDB7A2D24078A4B0030178A /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		DDDB7A2F24078A4E0030178A /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		DDDB7A3224078A4E0030178A /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
+		DDDB7A3424078A4E0030178A /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		E96DBE2538AB16B79EA0375F /* Pods_CapstoneProject.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_CapstoneProject.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
-		DDEDD9D7240560D50014D7B3 /* Frameworks */ = {
+		DDDB7A2024078A4B0030178A /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				89A2138B7677922884ED9052 /* Pods_CapStoneProject.framework in Frameworks */,
+				1EEC75438D2BF77F87FEB59E /* Pods_CapstoneProject.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		5C083B2DBADF8F9076D4E81D /* Pods */ = {
+		9F5B95751C132EEDDA56E7C4 /* Pods */ = {
 			isa = PBXGroup;
 			children = (
-				474FB48B4A597659AE27FFED /* Pods-CapStoneProject.debug.xcconfig */,
-				747954206F2327228638D33A /* Pods-CapStoneProject.release.xcconfig */,
+				CDD32372810ED8DF38367EE8 /* Pods-CapstoneProject.debug.xcconfig */,
+				9924FAEE87ED36BFB434EB87 /* Pods-CapstoneProject.release.xcconfig */,
 			);
 			name = Pods;
 			sourceTree = "<group>";
 		};
-		DDEDD9D1240560D50014D7B3 = {
+		A62E7866A331402B56D729B6 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
-				DDEDD9DC240560D50014D7B3 /* CapStoneProject */,
-				DDEDD9DB240560D50014D7B3 /* Products */,
-				5C083B2DBADF8F9076D4E81D /* Pods */,
-				F01D9E7CAE60AB002837C802 /* Frameworks */,
+				E96DBE2538AB16B79EA0375F /* Pods_CapstoneProject.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		DD73FA8F24080F9500469726 /* NetworkTools */ = {
+			isa = PBXGroup;
+			children = (
+				DD73FA8324080AE900469726 /* TargetType.swift */,
+				DD73FA8524080B9E00469726 /* RequestClient.swift */,
+				DD73FA8724080BE900469726 /* ALTools.swift */,
+			);
+			name = NetworkTools;
+			sourceTree = "<group>";
+		};
+		DD73FA9124080FB500469726 /* SearchCompany */ = {
+			isa = PBXGroup;
+			children = (
+				DD73FA8A24080F1400469726 /* SearchCompanyController.swift */,
+				DD73FA8C24080F2A00469726 /* CompanyItemCell.swift */,
+			);
+			name = SearchCompany;
+			sourceTree = "<group>";
+		};
+		DDDB7A1A24078A4B0030178A = {
+			isa = PBXGroup;
+			children = (
+				DDDB7A2524078A4B0030178A /* CapstoneProject */,
+				DDDB7A2424078A4B0030178A /* Products */,
+				9F5B95751C132EEDDA56E7C4 /* Pods */,
+				A62E7866A331402B56D729B6 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
-		DDEDD9DB240560D50014D7B3 /* Products */ = {
+		DDDB7A2424078A4B0030178A /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				DDEDD9DA240560D50014D7B3 /* CapStoneProject.app */,
+				DDDB7A2324078A4B0030178A /* CapstoneProject.app */,
 			);
 			name = Products;
 			sourceTree = "<group>";
 		};
-		DDEDD9DC240560D50014D7B3 /* CapStoneProject */ = {
+		DDDB7A2524078A4B0030178A /* CapstoneProject */ = {
 			isa = PBXGroup;
 			children = (
-				DDEDD9DD240560D50014D7B3 /* AppDelegate.swift */,
-				DDEDD9DF240560D50014D7B3 /* SceneDelegate.swift */,
-				DDEDD9E1240560D50014D7B3 /* ViewController.swift */,
-				DDEDD9E3240560D50014D7B3 /* Main.storyboard */,
-				DDEDD9E6240560D60014D7B3 /* Assets.xcassets */,
-				DDEDD9E8240560D60014D7B3 /* LaunchScreen.storyboard */,
-				DDEDD9EB240560D60014D7B3 /* Info.plist */,
+				DD73FA9124080FB500469726 /* SearchCompany */,
+				DD73FA8F24080F9500469726 /* NetworkTools */,
+				DDDB7A2624078A4B0030178A /* AppDelegate.swift */,
+				DDDB7A2824078A4B0030178A /* SceneDelegate.swift */,
+				DDDB7A2A24078A4B0030178A /* ViewController.swift */,
+				DDDB7A2C24078A4B0030178A /* Main.storyboard */,
+				DDDB7A2F24078A4E0030178A /* Assets.xcassets */,
+				DDDB7A3124078A4E0030178A /* LaunchScreen.storyboard */,
+				DDDB7A3424078A4E0030178A /* Info.plist */,
 			);
-			path = CapStoneProject;
-			sourceTree = "<group>";
-		};
-		F01D9E7CAE60AB002837C802 /* Frameworks */ = {
-			isa = PBXGroup;
-			children = (
-				FFCE01BA43993222D34F59B9 /* Pods_CapStoneProject.framework */,
-			);
-			name = Frameworks;
+			path = CapstoneProject;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
-		DDEDD9D9240560D50014D7B3 /* CapStoneProject */ = {
+		DDDB7A2224078A4B0030178A /* CapstoneProject */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = DDEDD9EE240560D60014D7B3 /* Build configuration list for PBXNativeTarget "CapStoneProject" */;
+			buildConfigurationList = DDDB7A3724078A4E0030178A /* Build configuration list for PBXNativeTarget "CapstoneProject" */;
 			buildPhases = (
-				70B52C2481AF5363874B65FD /* [CP] Check Pods Manifest.lock */,
-				DDEDD9D6240560D50014D7B3 /* Sources */,
-				DDEDD9D7240560D50014D7B3 /* Frameworks */,
-				DDEDD9D8240560D50014D7B3 /* Resources */,
-				4D03328AB8DE61ADB765E8BA /* [CP] Embed Pods Frameworks */,
+				4FEF933E25148CE1F1D6472F /* [CP] Check Pods Manifest.lock */,
+				DDDB7A1F24078A4B0030178A /* Sources */,
+				DDDB7A2024078A4B0030178A /* Frameworks */,
+				DDDB7A2124078A4B0030178A /* Resources */,
+				9725AF9C9E2C73CD1FE0E752 /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
 			dependencies = (
 			);
-			name = CapStoneProject;
-			productName = CapStoneProject;
-			productReference = DDEDD9DA240560D50014D7B3 /* CapStoneProject.app */;
+			name = CapstoneProject;
+			productName = CapstoneProject;
+			productReference = DDDB7A2324078A4B0030178A /* CapstoneProject.app */;
 			productType = "com.apple.product-type.application";
 		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
-		DDEDD9D2240560D50014D7B3 /* Project object */ = {
+		DDDB7A1B24078A4B0030178A /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
 				LastSwiftUpdateCheck = 1130;
 				LastUpgradeCheck = 1130;
 				ORGANIZATIONNAME = "Shiyu Wang";
 				TargetAttributes = {
-					DDEDD9D9240560D50014D7B3 = {
+					DDDB7A2224078A4B0030178A = {
 						CreatedOnToolsVersion = 11.3.1;
 					};
 				};
 			};
-			buildConfigurationList = DDEDD9D5240560D50014D7B3 /* Build configuration list for PBXProject "CapStoneProject" */;
+			buildConfigurationList = DDDB7A1E24078A4B0030178A /* Build configuration list for PBXProject "CapstoneProject" */;
 			compatibilityVersion = "Xcode 9.3";
 			developmentRegion = en;
 			hasScannedForEncodings = 0;
@@ -136,55 +167,31 @@
 				en,
 				Base,
 			);
-			mainGroup = DDEDD9D1240560D50014D7B3;
-			productRefGroup = DDEDD9DB240560D50014D7B3 /* Products */;
+			mainGroup = DDDB7A1A24078A4B0030178A;
+			productRefGroup = DDDB7A2424078A4B0030178A /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				DDEDD9D9240560D50014D7B3 /* CapStoneProject */,
+				DDDB7A2224078A4B0030178A /* CapstoneProject */,
 			);
 		};
 /* End PBXProject section */
 
 /* Begin PBXResourcesBuildPhase section */
-		DDEDD9D8240560D50014D7B3 /* Resources */ = {
+		DDDB7A2124078A4B0030178A /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				DDEDD9EA240560D60014D7B3 /* LaunchScreen.storyboard in Resources */,
-				DDEDD9E7240560D60014D7B3 /* Assets.xcassets in Resources */,
-				DDEDD9E5240560D50014D7B3 /* Main.storyboard in Resources */,
+				DDDB7A3324078A4E0030178A /* LaunchScreen.storyboard in Resources */,
+				DDDB7A3024078A4E0030178A /* Assets.xcassets in Resources */,
+				DDDB7A2E24078A4B0030178A /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
-		4D03328AB8DE61ADB765E8BA /* [CP] Embed Pods Frameworks */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-				"${SRCROOT}/Pods/Target Support Files/Pods-CapStoneProject/Pods-CapStoneProject-frameworks.sh",
-				"${BUILT_PRODUCTS_DIR}/Alamofire/Alamofire.framework",
-				"${BUILT_PRODUCTS_DIR}/RxSwift/RxSwift.framework",
-				"${BUILT_PRODUCTS_DIR}/SVProgressHUD/SVProgressHUD.framework",
-				"${BUILT_PRODUCTS_DIR}/SwiftyJSON/SwiftyJSON.framework",
-			);
-			name = "[CP] Embed Pods Frameworks";
-			outputPaths = (
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Alamofire.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/RxSwift.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SVProgressHUD.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SwiftyJSON.framework",
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-CapStoneProject/Pods-CapStoneProject-frameworks.sh\"\n";
-			showEnvVarsInLog = 0;
-		};
-		70B52C2481AF5363874B65FD /* [CP] Check Pods Manifest.lock */ = {
+		4FEF933E25148CE1F1D6472F /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -195,41 +202,68 @@
 			);
 			name = "[CP] Check Pods Manifest.lock";
 			outputPaths = (
-				"$(DERIVED_FILE_DIR)/Pods-CapStoneProject-checkManifestLockResult.txt",
+				"$(DERIVED_FILE_DIR)/Pods-CapstoneProject-checkManifestLockResult.txt",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
 			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
 			showEnvVarsInLog = 0;
 		};
+		9725AF9C9E2C73CD1FE0E752 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"${SRCROOT}/Pods/Target Support Files/Pods-CapstoneProject/Pods-CapstoneProject-frameworks.sh",
+				"${BUILT_PRODUCTS_DIR}/Alamofire/Alamofire.framework",
+				"${BUILT_PRODUCTS_DIR}/SVProgressHUD/SVProgressHUD.framework",
+				"${BUILT_PRODUCTS_DIR}/SwiftyJSON/SwiftyJSON.framework",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputPaths = (
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Alamofire.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SVProgressHUD.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SwiftyJSON.framework",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-CapstoneProject/Pods-CapstoneProject-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
 /* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
-		DDEDD9D6240560D50014D7B3 /* Sources */ = {
+		DDDB7A1F24078A4B0030178A /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				DDEDD9E2240560D50014D7B3 /* ViewController.swift in Sources */,
-				DDEDD9DE240560D50014D7B3 /* AppDelegate.swift in Sources */,
-				DDEDD9E0240560D50014D7B3 /* SceneDelegate.swift in Sources */,
+				DD73FA8824080BE900469726 /* ALTools.swift in Sources */,
+				DD73FA8624080B9E00469726 /* RequestClient.swift in Sources */,
+				DD73FA8424080AE900469726 /* TargetType.swift in Sources */,
+				DDDB7A2B24078A4B0030178A /* ViewController.swift in Sources */,
+				DD73FA8B24080F1400469726 /* SearchCompanyController.swift in Sources */,
+				DDDB7A2724078A4B0030178A /* AppDelegate.swift in Sources */,
+				DD73FA8D24080F2A00469726 /* CompanyItemCell.swift in Sources */,
+				DDDB7A2924078A4B0030178A /* SceneDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXVariantGroup section */
-		DDEDD9E3240560D50014D7B3 /* Main.storyboard */ = {
+		DDDB7A2C24078A4B0030178A /* Main.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (
-				DDEDD9E4240560D50014D7B3 /* Base */,
+				DDDB7A2D24078A4B0030178A /* Base */,
 			);
 			name = Main.storyboard;
 			sourceTree = "<group>";
 		};
-		DDEDD9E8240560D60014D7B3 /* LaunchScreen.storyboard */ = {
+		DDDB7A3124078A4E0030178A /* LaunchScreen.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (
-				DDEDD9E9240560D60014D7B3 /* Base */,
+				DDDB7A3224078A4E0030178A /* Base */,
 			);
 			name = LaunchScreen.storyboard;
 			sourceTree = "<group>";
@@ -237,7 +271,7 @@
 /* End PBXVariantGroup section */
 
 /* Begin XCBuildConfiguration section */
-		DDEDD9EC240560D60014D7B3 /* Debug */ = {
+		DDDB7A3524078A4E0030178A /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
@@ -297,7 +331,7 @@
 			};
 			name = Debug;
 		};
-		DDEDD9ED240560D60014D7B3 /* Release */ = {
+		DDDB7A3624078A4E0030178A /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
@@ -351,38 +385,38 @@
 			};
 			name = Release;
 		};
-		DDEDD9EF240560D60014D7B3 /* Debug */ = {
+		DDDB7A3824078A4E0030178A /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 474FB48B4A597659AE27FFED /* Pods-CapStoneProject.debug.xcconfig */;
+			baseConfigurationReference = CDD32372810ED8DF38367EE8 /* Pods-CapstoneProject.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
-				INFOPLIST_FILE = CapStoneProject/Info.plist;
+				INFOPLIST_FILE = CapstoneProject/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = com.BJUT.CapStoneProject;
+				PRODUCT_BUNDLE_IDENTIFIER = com.BJUT.CapstoneProject;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_VERSION = 5.0;
+				SWIFT_VERSION = 4.2;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Debug;
 		};
-		DDEDD9F0240560D60014D7B3 /* Release */ = {
+		DDDB7A3924078A4E0030178A /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 747954206F2327228638D33A /* Pods-CapStoneProject.release.xcconfig */;
+			baseConfigurationReference = 9924FAEE87ED36BFB434EB87 /* Pods-CapstoneProject.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
-				INFOPLIST_FILE = CapStoneProject/Info.plist;
+				INFOPLIST_FILE = CapstoneProject/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = com.BJUT.CapStoneProject;
+				PRODUCT_BUNDLE_IDENTIFIER = com.BJUT.CapstoneProject;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_VERSION = 5.0;
+				SWIFT_VERSION = 4.2;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Release;
@@ -390,25 +424,25 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		DDEDD9D5240560D50014D7B3 /* Build configuration list for PBXProject "CapStoneProject" */ = {
+		DDDB7A1E24078A4B0030178A /* Build configuration list for PBXProject "CapstoneProject" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				DDEDD9EC240560D60014D7B3 /* Debug */,
-				DDEDD9ED240560D60014D7B3 /* Release */,
+				DDDB7A3524078A4E0030178A /* Debug */,
+				DDDB7A3624078A4E0030178A /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		DDEDD9EE240560D60014D7B3 /* Build configuration list for PBXNativeTarget "CapStoneProject" */ = {
+		DDDB7A3724078A4E0030178A /* Build configuration list for PBXNativeTarget "CapstoneProject" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				DDEDD9EF240560D60014D7B3 /* Debug */,
-				DDEDD9F0240560D60014D7B3 /* Release */,
+				DDDB7A3824078A4E0030178A /* Debug */,
+				DDDB7A3924078A4E0030178A /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
-	rootObject = DDEDD9D2240560D50014D7B3 /* Project object */;
+	rootObject = DDDB7A1B24078A4B0030178A /* Project object */;
 }

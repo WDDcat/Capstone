@@ -1,5 +1,5 @@
 #import <Foundation/Foundation.h>
-@interface PodsDummy_Pods_CapStoneProject : NSObject
+@interface PodsDummy_Pods_CapstoneProject : NSObject
 @end
-@implementation PodsDummy_Pods_CapStoneProject
+@implementation PodsDummy_Pods_CapstoneProject
 @end

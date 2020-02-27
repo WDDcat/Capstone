@@ -1,8 +1,8 @@
 //
 //  SceneDelegate.swift
-//  CapStoneProject
+//  CapstoneProject
 //
-//  Created by Shiyu Wang on 2020/2/25.
+//  Created by Shiyu Wang on 2020/2/27.
 //  Copyright © 2020 Shiyu Wang. All rights reserved.
 //
 

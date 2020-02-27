@@ -1,16 +1,15 @@
-project 'CapStoneProject.xcodeproj'
+project 'CapstoneProject.xcodeproj'
 
 # Uncomment the next line to define a global platform for your project
-# platform :ios, '9.0'
+platform :ios, '9.0'
 
-target 'CapStoneProject' do
+target 'CapstoneProject' do
   # Comment the next line if you're not using Swift and don't want to use dynamic frameworks
   use_frameworks!
 
-  # Pods for CapStoneProject
+  # Pods for CapstoneProject
+  pod 'SwiftyJSON'
+  pod 'Alamofire'
   pod 'SVProgressHUD'
-  pod 'Alamofire', '~> 4.7.3' 
-  pod 'SwiftyJSON', '~> 4.2.0'
-  pod 'RxSwift'
 
 end

@@ -9,12 +9,7 @@
 			<key>isShown</key>
 			<false/>
 		</dict>
-		<key>Pods-CapStoneProject.xcscheme</key>
-		<dict>
-			<key>isShown</key>
-			<false/>
-		</dict>
-		<key>RxSwift.xcscheme</key>
+		<key>Pods-CapstoneProject.xcscheme</key>
 		<dict>
 			<key>isShown</key>
 			<false/>
