@@ -11,8 +11,8 @@ import UIKit
 class CompanyItemCell: UITableViewCell {
 
     @IBOutlet var label_companyName: UILabel!
-    @IBOutlet var label_legalPerson: UILabel!
     @IBOutlet var label_address: UILabel!
+    @IBOutlet var label_legalPerson: UILabel!
     
     override func awakeFromNib() {
         super.awakeFromNib()

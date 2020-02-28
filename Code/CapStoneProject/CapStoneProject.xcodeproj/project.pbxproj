@@ -13,6 +13,8 @@
 		DD73FA8824080BE900469726 /* ALTools.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD73FA8724080BE900469726 /* ALTools.swift */; };
 		DD73FA8B24080F1400469726 /* SearchCompanyController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD73FA8A24080F1400469726 /* SearchCompanyController.swift */; };
 		DD73FA8D24080F2A00469726 /* CompanyItemCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD73FA8C24080F2A00469726 /* CompanyItemCell.swift */; };
+		DDA905E42408D99D00D113C5 /* SearchCompanyModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDA905E32408D99D00D113C5 /* SearchCompanyModel.swift */; };
+		DDA905E62408D9F100D113C5 /* SearchCompanyContract.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDA905E52408D9F100D113C5 /* SearchCompanyContract.swift */; };
 		DDDB7A2724078A4B0030178A /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDDB7A2624078A4B0030178A /* AppDelegate.swift */; };
 		DDDB7A2924078A4B0030178A /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDDB7A2824078A4B0030178A /* SceneDelegate.swift */; };
 		DDDB7A2B24078A4B0030178A /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDDB7A2A24078A4B0030178A /* ViewController.swift */; };
@@ -29,6 +31,8 @@
 		DD73FA8724080BE900469726 /* ALTools.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ALTools.swift; sourceTree = "<group>"; };
 		DD73FA8A24080F1400469726 /* SearchCompanyController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchCompanyController.swift; sourceTree = "<group>"; };
 		DD73FA8C24080F2A00469726 /* CompanyItemCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CompanyItemCell.swift; sourceTree = "<group>"; };
+		DDA905E32408D99D00D113C5 /* SearchCompanyModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchCompanyModel.swift; sourceTree = "<group>"; };
+		DDA905E52408D9F100D113C5 /* SearchCompanyContract.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchCompanyContract.swift; sourceTree = "<group>"; };
 		DDDB7A2324078A4B0030178A /* CapstoneProject.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = CapstoneProject.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		DDDB7A2624078A4B0030178A /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		DDDB7A2824078A4B0030178A /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -82,6 +86,8 @@
 		DD73FA9124080FB500469726 /* SearchCompany */ = {
 			isa = PBXGroup;
 			children = (
+				DDA905E52408D9F100D113C5 /* SearchCompanyContract.swift */,
+				DDA905E32408D99D00D113C5 /* SearchCompanyModel.swift */,
 				DD73FA8A24080F1400469726 /* SearchCompanyController.swift */,
 				DD73FA8C24080F2A00469726 /* CompanyItemCell.swift */,
 			);
@@ -241,10 +247,12 @@
 				DD73FA8824080BE900469726 /* ALTools.swift in Sources */,
 				DD73FA8624080B9E00469726 /* RequestClient.swift in Sources */,
 				DD73FA8424080AE900469726 /* TargetType.swift in Sources */,
+				DDA905E62408D9F100D113C5 /* SearchCompanyContract.swift in Sources */,
 				DDDB7A2B24078A4B0030178A /* ViewController.swift in Sources */,
 				DD73FA8B24080F1400469726 /* SearchCompanyController.swift in Sources */,
 				DDDB7A2724078A4B0030178A /* AppDelegate.swift in Sources */,
 				DD73FA8D24080F2A00469726 /* CompanyItemCell.swift in Sources */,
+				DDA905E42408D99D00D113C5 /* SearchCompanyModel.swift in Sources */,
 				DDDB7A2924078A4B0030178A /* SceneDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -391,6 +399,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = U64M85Q3K5;
 				INFOPLIST_FILE = CapstoneProject/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -409,6 +418,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = U64M85Q3K5;
 				INFOPLIST_FILE = CapstoneProject/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",

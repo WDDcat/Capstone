@@ -11,59 +11,36 @@ import Alamofire
 import SwiftyJSON
 import SVProgressHUD
 
+var companyNameList:[String] = []
+var addressList:[String] = []
+var legalPersonList:[String] = []
 
-class SearchCompanyController: UITableViewController {
-
-    private var companyNameList:[String] = []
-    private var addressList:[String] = []
-    private var legalPersonList:[String] = []
+class SearchCompanyController: UITableViewController, UISearchBarDelegate {
+    
+    var mPresenter = SearchCompanyModel()
+    
+    @IBOutlet weak var searchBar: UISearchBar!
+    
     private var mData:JSON = []
     private var page = 0
-    private var count = 0
+    
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        mPresenter.mView = self
+        searchBar.delegate = self
         // Uncomment the following line to preserve selection between presentations
         // self.clearsSelectionOnViewWillAppear = false
 
         // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
         // self.navigationItem.rightBarButtonItem = self.editButtonItem
         
-        //SVProgressHUD.show()
-        self.getData()
+        mPresenter.getPerPageInfo(keyword: searchBar.text!, limit:10, page: page)
     }
     
-    func getData(){
-        let param:[String:Any] = ["keyword":"海南", "limit": 10, "page": page]          //海南航空：10 海南：2230 A:133
-        Alamofire.request(URL(string :"http://47.92.50.218:8881/api1/search_company")!, parameters: param, headers: header)
-            .responseJSON { response in
-                switch response.result.isSuccess{
-                case true:
-                    if let data = response.result.value {
-                        let json = JSON(data)
-                        let result = json["result"]
-                        self.count = json["count"].intValue
-                        print("\(result.count + (self.page * 10))/\(json["count"])")
-                        
-                        for i in 0...9 {
-                            if i > result.count { break }
-                            self.companyNameList.append(result[i][1].string ?? "")
-                            self.addressList.append(result[i][4].string ?? "")
-                            self.legalPersonList.append(result[i][2].string ?? "")
-                        }
-                        self.tableView.reloadData()
-                    }
-                    //SVProgressHUD.dismiss()
-                case false:
-                    //SVProgressHUD.showError(withStatus: "获取失败")
-                    print("fail")
-                }
-        }
-    }
+    
 
     // MARK: - Table view data source
-
     override func numberOfSections(in tableView: UITableView) -> Int {
         // #warning Incomplete implementation, return the number of sections
         return 1
@@ -78,7 +55,7 @@ class SearchCompanyController: UITableViewController {
         let cell = tableView.dequeueReusableCell(withIdentifier: "companyItem", for: indexPath) as! CompanyItemCell
         
         cell.label_companyName.text = companyNameList[indexPath.row]
-        cell.label_address.text = addressList[indexPath.row]
+        cell.label_address.text = "地址：\(addressList[indexPath.row])"
         cell.label_legalPerson.text = "法人：\(legalPersonList[indexPath.row])"
 
         return cell
@@ -86,14 +63,35 @@ class SearchCompanyController: UITableViewController {
     
     override func tableView(_ tableView: UITableView, willDisplay cell: UITableViewCell, forRowAt indexPath: IndexPath) {
         if indexPath.row == (page * 10 + 9){
-            if ((self.page + 1) * 10) >= self.count { return }
+            print("refresh")
             page = page + 1
-            getData()
+            mPresenter.getPerPageInfo(keyword: searchBar.text!, limit:10, page: page)
         }
     }
     
+    // MARK: - Table view response set
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         tableView.deselectRow(at: indexPath, animated: true)
+    }
+    
+    // MARK: - Search Bar set
+    func searchBarTextDidBeginEditing(_ searchBar: UISearchBar) {
+        searchBar.becomeFirstResponder()
+        searchBar.enablesReturnKeyAutomatically = true
+    }
+    
+    func searchBarCancelButtonClicked(_ searchBar: UISearchBar) {
+        searchBar.text = ""
+        searchBar.resignFirstResponder()
+    }
+    
+    func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
+        searchBar.resignFirstResponder()
+        page = 0
+        companyNameList.removeAll()
+        addressList.removeAll()
+        legalPersonList.removeAll()
+        mPresenter.getPerPageInfo(keyword: searchBar.text!, limit:10, page: page)
     }
 
     /*
@@ -106,4 +104,10 @@ class SearchCompanyController: UITableViewController {
     }
     */
 
+}
+
+extension SearchCompanyController: SearchCompanyView {
+    func refreshCompanyList() {
+        self.tableView.reloadData()
+    }
 }
