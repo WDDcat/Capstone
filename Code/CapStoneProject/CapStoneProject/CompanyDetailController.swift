@@ -18,31 +18,12 @@ class CompanyDetailController: UIViewController {
     @IBOutlet weak var label_financialReport: UIButton!
     @IBOutlet weak var label_businessOpportunity: UIButton!
     
-    @IBAction func btn_financialReport(_ sender: UIButton) {
-        
-    }
-    
-    @IBAction func btn_businessOpportunity(_ sender: UIButton) {
-        
-    }
-    
-    
     override func viewDidLoad() {
         super.viewDidLoad()
         mPresenter.mView = self
+        self.setCompanyName(name: remoteGetCompanyName())
         mPresenter.getInfo()
     }
-    
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
-    }
-    */
 
 }
 

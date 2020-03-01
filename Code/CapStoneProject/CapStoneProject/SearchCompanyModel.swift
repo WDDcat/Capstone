@@ -17,7 +17,7 @@ class SearchCompanyModel: SearchCompanyPresenter {
     private var count = 0
     
     func getPerPageInfo(keyword: String, limit:Int, page: Int){
-        let param:[String:Any] = ["keyword": "上海奉贤", "limit": 10, "page": page]          //海南航空：10 海南：2230 A:133
+        let param:[String:Any] = ["keyword": "北京中外名人", "limit": 10, "page": page]          //海南航空：10 海南：2230 A:133   "HANG SANG" 北京中外名人
         Alamofire.request(URL(string :"http://47.92.50.218:8881/api1/search_company")!, parameters: param, headers: header)
             .responseJSON { response in
                 switch response.result.isSuccess{

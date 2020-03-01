@@ -11,8 +11,12 @@ import Foundation
 public let BASEURL = "http://47.92.50.218:8881/api1/"
 
 private var companyId:String = ""
-public func setCompanyId(id: String) { companyId = id }
-public func getCompanyId() -> String { return companyId }
+public func remoteSetCompanyId(id: String) { companyId = id }
+public func remoteGetCompanyId() -> String { return companyId }
+
+private var companyName:String = ""
+public func remoteSetCompanyName(name: String) { companyName = name }
+public func remoteGetCompanyName() -> String { return companyName }
 
 
 //let titleLabel = UILabel(frame: CGRect(x: 0, y: 0, width: UIScreen.main.bounds.size.width, height: 40))

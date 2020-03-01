@@ -14,7 +14,7 @@ import SVProgressHUD
 var companyNameList:[String] = []
 var addressList:[String] = []
 var legalPersonList:[String] = []
-var starList:[String] = ["", "1", "1"]
+var starList:[String] = []
 var cidList:[String] = []
 
 class SearchCompanyController: UITableViewController, UISearchBarDelegate {
@@ -26,16 +26,10 @@ class SearchCompanyController: UITableViewController, UISearchBarDelegate {
     private var mData:JSON = []
     private var page = 0
     
-    
     override func viewDidLoad() {
         super.viewDidLoad()
         mPresenter.mView = self
         searchBar.delegate = self
-        // Uncomment the following line to preserve selection between presentations
-        // self.clearsSelectionOnViewWillAppear = false
-
-        // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
-        // self.navigationItem.rightBarButtonItem = self.editButtonItem
         
         mPresenter.getPerPageInfo(keyword: searchBar.text!, limit:10, page: page)
     }
@@ -76,7 +70,8 @@ class SearchCompanyController: UITableViewController, UISearchBarDelegate {
     // MARK: - Table view response set
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         tableView.deselectRow(at: indexPath, animated: true)
-        setCompanyId(id: cidList[indexPath.row])
+        remoteSetCompanyId(id: cidList[indexPath.row])
+        remoteSetCompanyName(name: companyNameList[indexPath.row])
         print("didSelect")
     }
     

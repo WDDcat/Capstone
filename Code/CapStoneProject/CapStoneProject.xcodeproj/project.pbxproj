@@ -122,6 +122,14 @@
 		DDA905F0240BB3C600D113C5 /* FinancialReport */ = {
 			isa = PBXGroup;
 			children = (
+				DDA905F8240C0EA700D113C5 /* FinancialReport */,
+			);
+			name = FinancialReport;
+			sourceTree = "<group>";
+		};
+		DDA905F8240C0EA700D113C5 /* FinancialReport */ = {
+			isa = PBXGroup;
+			children = (
 				DDA905F3240BE87F00D113C5 /* FinancialReportContract.swift */,
 				DDA905F6240BE8BB00D113C5 /* FinancialReportModel.swift */,
 				DDA905F1240BB40100D113C5 /* FinancialReportController.swift */,

@@ -9,7 +9,14 @@
 import Foundation
 
 protocol FinancialReportView {
-    
+    func setCompanyName(name: String)
+    func setTags(tags:[String])
+    func setgroupName(name: String)
+    func setLegalPerson(name: String)
+    func setShareHolder(company: String, percent: String)
+    func setHistory(paragraph: String)
+    func setManager(names: String)
+    func setBusinessInfo(paragraph: String)
 }
 
 protocol FinancialReportPresent {

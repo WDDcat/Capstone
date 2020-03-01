@@ -15,7 +15,7 @@ class CompanyDetailModel: CompanyDetailPresent {
     var mView:CompanyDetailView?
     
     func getInfo() {
-        let param:[String:Any] = ["c_id": getCompanyId()]          //海南航空：10 海南：2230 A:133
+        let param:[String:Any] = ["c_id": remoteGetCompanyId()]          //海南航空：10 海南：2230 A:133
         Alamofire.request(URL(string :"http://47.92.50.218:8881/api1/financing_index")!, parameters: param, headers: header)
             .responseJSON { response in
                 switch response.result.isSuccess{
