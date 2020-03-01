@@ -10,8 +10,6 @@ import Foundation
 import SVProgressHUD
 import Alamofire
 
-let BASEURL = "http://47.92.50.218:8881/api1/"
-
 class ALTools: RequestClient {
     var host: String {
         return BASEURL

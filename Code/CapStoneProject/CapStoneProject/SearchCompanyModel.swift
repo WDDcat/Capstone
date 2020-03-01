@@ -17,7 +17,7 @@ class SearchCompanyModel: SearchCompanyPresenter {
     private var count = 0
     
     func getPerPageInfo(keyword: String, limit:Int, page: Int){
-        let param:[String:Any] = ["keyword": keyword, "limit": 10, "page": page]          //海南航空：10 海南：2230 A:133
+        let param:[String:Any] = ["keyword": "上海奉贤", "limit": 10, "page": page]          //海南航空：10 海南：2230 A:133
         Alamofire.request(URL(string :"http://47.92.50.218:8881/api1/search_company")!, parameters: param, headers: header)
             .responseJSON { response in
                 switch response.result.isSuccess{
@@ -28,9 +28,11 @@ class SearchCompanyModel: SearchCompanyPresenter {
                         print("\(result.count + (page * 10))/\(json["count"])")
                         for i in 0...9 {
                             if i >= result.count { break }
+                            cidList.append(result[i][0].string ?? "")
                             companyNameList.append(result[i][1].string ?? "")
-                            addressList.append(result[i][4].string ?? "")
                             legalPersonList.append(result[i][2].string ?? "")
+                            addressList.append(result[i][4].string ?? "")
+                            starList.append(result[i][5].string ?? "")
                         }
                         self.mView?.refreshCompanyList()
                     }
@@ -38,5 +40,15 @@ class SearchCompanyModel: SearchCompanyPresenter {
                     print("fail")
                 }
         }
+    }
+    
+    func postAddCollect(c_id: String, name: String, recordName: String) -> Bool {
+        print("stared company:\"\(name)\" with id:(\(c_id))")
+        return true
+    }
+    
+    func postCancelCollect(c_id: String, name: String, recordName: String) -> Bool {
+        print("unstared company:\"\(name)\" with id:(\(c_id))")
+        return true
     }
 }

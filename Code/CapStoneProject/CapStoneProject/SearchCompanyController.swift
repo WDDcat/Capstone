@@ -14,6 +14,8 @@ import SVProgressHUD
 var companyNameList:[String] = []
 var addressList:[String] = []
 var legalPersonList:[String] = []
+var starList:[String] = ["", "1", "1"]
+var cidList:[String] = []
 
 class SearchCompanyController: UITableViewController, UISearchBarDelegate {
     
@@ -37,8 +39,6 @@ class SearchCompanyController: UITableViewController, UISearchBarDelegate {
         
         mPresenter.getPerPageInfo(keyword: searchBar.text!, limit:10, page: page)
     }
-    
-    
 
     // MARK: - Table view data source
     override func numberOfSections(in tableView: UITableView) -> Int {
@@ -53,10 +53,14 @@ class SearchCompanyController: UITableViewController, UISearchBarDelegate {
 
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "companyItem", for: indexPath) as! CompanyItemCell
+        cell.mPresenter = SearchCompanyModel()
         
         cell.label_companyName.text = companyNameList[indexPath.row]
         cell.label_address.text = "地址：\(addressList[indexPath.row])"
         cell.label_legalPerson.text = "法人：\(legalPersonList[indexPath.row])"
+        let image = starList[indexPath.row] == "1" ? "star.fill" : "star"
+        cell.btn_star.setImage(UIImage(systemName: image), for: .normal)
+        cell.c_id = cidList[indexPath.row]
 
         return cell
     }
@@ -72,6 +76,8 @@ class SearchCompanyController: UITableViewController, UISearchBarDelegate {
     // MARK: - Table view response set
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         tableView.deselectRow(at: indexPath, animated: true)
+        setCompanyId(id: cidList[indexPath.row])
+        print("didSelect")
     }
     
     // MARK: - Search Bar set

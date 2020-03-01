@@ -15,6 +15,13 @@
 		DD73FA8D24080F2A00469726 /* CompanyItemCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD73FA8C24080F2A00469726 /* CompanyItemCell.swift */; };
 		DDA905E42408D99D00D113C5 /* SearchCompanyModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDA905E32408D99D00D113C5 /* SearchCompanyModel.swift */; };
 		DDA905E62408D9F100D113C5 /* SearchCompanyContract.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDA905E52408D9F100D113C5 /* SearchCompanyContract.swift */; };
+		DDA905E9240B9AA400D113C5 /* CompanyDetailContract.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDA905E8240B9AA400D113C5 /* CompanyDetailContract.swift */; };
+		DDA905EB240B9AD300D113C5 /* CompanyDetailModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDA905EA240B9AD300D113C5 /* CompanyDetailModel.swift */; };
+		DDA905ED240B9B1E00D113C5 /* CompanyDetailController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDA905EC240B9B1E00D113C5 /* CompanyDetailController.swift */; };
+		DDA905EF240BA43800D113C5 /* remote.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDA905EE240BA43800D113C5 /* remote.swift */; };
+		DDA905F2240BB40100D113C5 /* FinancialReportController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDA905F1240BB40100D113C5 /* FinancialReportController.swift */; };
+		DDA905F4240BE87F00D113C5 /* FinancialReportContract.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDA905F3240BE87F00D113C5 /* FinancialReportContract.swift */; };
+		DDA905F7240BE8BB00D113C5 /* FinancialReportModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDA905F6240BE8BB00D113C5 /* FinancialReportModel.swift */; };
 		DDDB7A2724078A4B0030178A /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDDB7A2624078A4B0030178A /* AppDelegate.swift */; };
 		DDDB7A2924078A4B0030178A /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDDB7A2824078A4B0030178A /* SceneDelegate.swift */; };
 		DDDB7A2B24078A4B0030178A /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDDB7A2A24078A4B0030178A /* ViewController.swift */; };
@@ -33,6 +40,13 @@
 		DD73FA8C24080F2A00469726 /* CompanyItemCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CompanyItemCell.swift; sourceTree = "<group>"; };
 		DDA905E32408D99D00D113C5 /* SearchCompanyModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchCompanyModel.swift; sourceTree = "<group>"; };
 		DDA905E52408D9F100D113C5 /* SearchCompanyContract.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchCompanyContract.swift; sourceTree = "<group>"; };
+		DDA905E8240B9AA400D113C5 /* CompanyDetailContract.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CompanyDetailContract.swift; sourceTree = "<group>"; };
+		DDA905EA240B9AD300D113C5 /* CompanyDetailModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CompanyDetailModel.swift; sourceTree = "<group>"; };
+		DDA905EC240B9B1E00D113C5 /* CompanyDetailController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CompanyDetailController.swift; sourceTree = "<group>"; };
+		DDA905EE240BA43800D113C5 /* remote.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = remote.swift; sourceTree = "<group>"; };
+		DDA905F1240BB40100D113C5 /* FinancialReportController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FinancialReportController.swift; sourceTree = "<group>"; };
+		DDA905F3240BE87F00D113C5 /* FinancialReportContract.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FinancialReportContract.swift; sourceTree = "<group>"; };
+		DDA905F6240BE8BB00D113C5 /* FinancialReportModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FinancialReportModel.swift; sourceTree = "<group>"; };
 		DDDB7A2324078A4B0030178A /* CapstoneProject.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = CapstoneProject.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		DDDB7A2624078A4B0030178A /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		DDDB7A2824078A4B0030178A /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -79,6 +93,7 @@
 				DD73FA8324080AE900469726 /* TargetType.swift */,
 				DD73FA8524080B9E00469726 /* RequestClient.swift */,
 				DD73FA8724080BE900469726 /* ALTools.swift */,
+				DDA905EE240BA43800D113C5 /* remote.swift */,
 			);
 			name = NetworkTools;
 			sourceTree = "<group>";
@@ -92,6 +107,26 @@
 				DD73FA8C24080F2A00469726 /* CompanyItemCell.swift */,
 			);
 			name = SearchCompany;
+			sourceTree = "<group>";
+		};
+		DDA905E7240B9A7200D113C5 /* CompanyDetail */ = {
+			isa = PBXGroup;
+			children = (
+				DDA905E8240B9AA400D113C5 /* CompanyDetailContract.swift */,
+				DDA905EA240B9AD300D113C5 /* CompanyDetailModel.swift */,
+				DDA905EC240B9B1E00D113C5 /* CompanyDetailController.swift */,
+			);
+			name = CompanyDetail;
+			sourceTree = "<group>";
+		};
+		DDA905F0240BB3C600D113C5 /* FinancialReport */ = {
+			isa = PBXGroup;
+			children = (
+				DDA905F3240BE87F00D113C5 /* FinancialReportContract.swift */,
+				DDA905F6240BE8BB00D113C5 /* FinancialReportModel.swift */,
+				DDA905F1240BB40100D113C5 /* FinancialReportController.swift */,
+			);
+			name = FinancialReport;
 			sourceTree = "<group>";
 		};
 		DDDB7A1A24078A4B0030178A = {
@@ -115,6 +150,8 @@
 		DDDB7A2524078A4B0030178A /* CapstoneProject */ = {
 			isa = PBXGroup;
 			children = (
+				DDA905E7240B9A7200D113C5 /* CompanyDetail */,
+				DDA905F0240BB3C600D113C5 /* FinancialReport */,
 				DD73FA9124080FB500469726 /* SearchCompany */,
 				DD73FA8F24080F9500469726 /* NetworkTools */,
 				DDDB7A2624078A4B0030178A /* AppDelegate.swift */,
@@ -244,12 +281,19 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				DDA905E9240B9AA400D113C5 /* CompanyDetailContract.swift in Sources */,
 				DD73FA8824080BE900469726 /* ALTools.swift in Sources */,
 				DD73FA8624080B9E00469726 /* RequestClient.swift in Sources */,
+				DDA905F2240BB40100D113C5 /* FinancialReportController.swift in Sources */,
+				DDA905F7240BE8BB00D113C5 /* FinancialReportModel.swift in Sources */,
 				DD73FA8424080AE900469726 /* TargetType.swift in Sources */,
 				DDA905E62408D9F100D113C5 /* SearchCompanyContract.swift in Sources */,
 				DDDB7A2B24078A4B0030178A /* ViewController.swift in Sources */,
+				DDA905F4240BE87F00D113C5 /* FinancialReportContract.swift in Sources */,
+				DDA905ED240B9B1E00D113C5 /* CompanyDetailController.swift in Sources */,
+				DDA905EB240B9AD300D113C5 /* CompanyDetailModel.swift in Sources */,
 				DD73FA8B24080F1400469726 /* SearchCompanyController.swift in Sources */,
+				DDA905EF240BA43800D113C5 /* remote.swift in Sources */,
 				DDDB7A2724078A4B0030178A /* AppDelegate.swift in Sources */,
 				DD73FA8D24080F2A00469726 /* CompanyItemCell.swift in Sources */,
 				DDA905E42408D99D00D113C5 /* SearchCompanyModel.swift in Sources */,
