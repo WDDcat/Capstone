@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		1EEC75438D2BF77F87FEB59E /* Pods_CapstoneProject.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E96DBE2538AB16B79EA0375F /* Pods_CapstoneProject.framework */; };
+		DD397CC8240CB436002E28E1 /* Judgement.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD397CC7240CB436002E28E1 /* Judgement.swift */; };
 		DD73FA8424080AE900469726 /* TargetType.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD73FA8324080AE900469726 /* TargetType.swift */; };
 		DD73FA8624080B9E00469726 /* RequestClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD73FA8524080B9E00469726 /* RequestClient.swift */; };
 		DD73FA8824080BE900469726 /* ALTools.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD73FA8724080BE900469726 /* ALTools.swift */; };
@@ -33,6 +34,7 @@
 /* Begin PBXFileReference section */
 		9924FAEE87ED36BFB434EB87 /* Pods-CapstoneProject.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-CapstoneProject.release.xcconfig"; path = "Pods/Target Support Files/Pods-CapstoneProject/Pods-CapstoneProject.release.xcconfig"; sourceTree = "<group>"; };
 		CDD32372810ED8DF38367EE8 /* Pods-CapstoneProject.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-CapstoneProject.debug.xcconfig"; path = "Pods/Target Support Files/Pods-CapstoneProject/Pods-CapstoneProject.debug.xcconfig"; sourceTree = "<group>"; };
+		DD397CC7240CB436002E28E1 /* Judgement.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Judgement.swift; sourceTree = "<group>"; };
 		DD73FA8324080AE900469726 /* TargetType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TargetType.swift; sourceTree = "<group>"; };
 		DD73FA8524080B9E00469726 /* RequestClient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RequestClient.swift; sourceTree = "<group>"; };
 		DD73FA8724080BE900469726 /* ALTools.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ALTools.swift; sourceTree = "<group>"; };
@@ -169,6 +171,7 @@
 				DDDB7A2F24078A4E0030178A /* Assets.xcassets */,
 				DDDB7A3124078A4E0030178A /* LaunchScreen.storyboard */,
 				DDDB7A3424078A4E0030178A /* Info.plist */,
+				DD397CC7240CB436002E28E1 /* Judgement.swift */,
 			);
 			path = CapstoneProject;
 			sourceTree = "<group>";
@@ -292,6 +295,7 @@
 				DDA905E9240B9AA400D113C5 /* CompanyDetailContract.swift in Sources */,
 				DD73FA8824080BE900469726 /* ALTools.swift in Sources */,
 				DD73FA8624080B9E00469726 /* RequestClient.swift in Sources */,
+				DD397CC8240CB436002E28E1 /* Judgement.swift in Sources */,
 				DDA905F2240BB40100D113C5 /* FinancialReportController.swift in Sources */,
 				DDA905F7240BE8BB00D113C5 /* FinancialReportModel.swift in Sources */,
 				DD73FA8424080AE900469726 /* TargetType.swift in Sources */,

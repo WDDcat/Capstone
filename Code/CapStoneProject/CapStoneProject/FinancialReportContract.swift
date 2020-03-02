@@ -13,10 +13,11 @@ protocol FinancialReportView {
     func setTags(tags:[String])
     func setgroupName(name: String)
     func setLegalPerson(name: String)
-    func setShareHolder(company: String, percent: String)
+    func setShareHolder(company: String, percent: Float)
     func setHistory(paragraph: String)
     func setManager(names: String)
     func setBusinessInfo(paragraph: String)
+    func setProductList(productList: [[String : String]])
 }
 
 protocol FinancialReportPresent {

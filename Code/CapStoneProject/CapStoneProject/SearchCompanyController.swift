@@ -23,7 +23,6 @@ class SearchCompanyController: UITableViewController, UISearchBarDelegate {
     
     @IBOutlet weak var searchBar: UISearchBar!
     
-    private var mData:JSON = []
     private var page = 0
     
     override func viewDidLoad() {
