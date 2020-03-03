@@ -12,7 +12,6 @@ class FinancialReportController: UIViewController {
 
     var mPresenter = FinancialReportModel()
     
-    
     @IBOutlet weak var scrollView: UIScrollView!
     // MARK: -标题栏
     @IBOutlet weak var label_companyNameTitle: UILabel!
@@ -35,7 +34,13 @@ class FinancialReportController: UIViewController {
     @IBOutlet weak var label_managers: UILabel!
     //MARK: -生产经营情况
     @IBOutlet weak var label_businessInfo: UILabel!
-    @IBOutlet weak var table_productList: UITableView!
+    @IBOutlet var stack_productList: UIStackView!
+    @IBOutlet var stack_locationList: UIStackView!
+    //MARK: -财务情况
+    @IBOutlet weak var label_financingInfo: UILabel!
+    //MARK: -融资情况
+    @IBOutlet weak var label_rasingInfo: UILabel!
+    
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -50,17 +55,6 @@ class FinancialReportController: UIViewController {
         self.navigationController?.navigationBar.isTranslucent = true
         //self.navigationController?.navigationBar.tintColor = .white
     }
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
-    }
-    */
-
 }
 
 extension FinancialReportController: FinancialReportView {
@@ -68,7 +62,7 @@ extension FinancialReportController: FinancialReportView {
     func setCompanyName(name: String) {
         label_companyNameTitle.text = name
         label_companyName.text = name
-        label_companyName.backgroundColor = .white
+        label_companyName.backgroundColor = .systemBackground
     }
     
     func setTags(tags: [String]) {
@@ -82,21 +76,21 @@ extension FinancialReportController: FinancialReportView {
     //MARK: -公司基本情况
     func setgroupName(name: String) {
         label_groupName.text = name
-        label_groupName.backgroundColor = .white
+        label_groupName.backgroundColor = .systemBackground
     }
     
     func setLegalPerson(name: String) {
         label_legalPerson.text = name
-        label_legalPerson.backgroundColor = .white
+        label_legalPerson.backgroundColor = .systemBackground
     }
     //MARK: -股东信息
     func setShareHolder(company: String, percent: Float) {
         label_stockHolder.text = company
-        label_stockHolder.backgroundColor = .white
+        label_stockHolder.backgroundColor = .systemBackground
         if percent == -1 { label_stockHolderPercent.text = "-" }
         else { label_stockHolderPercent.text = "\(percent)%" }
         
-        label_stockHolderPercent.backgroundColor = .white
+        label_stockHolderPercent.backgroundColor = .systemBackground
     }
     //MARK: -历史沿革
     func setHistory(paragraph: String) {
@@ -106,23 +100,52 @@ extension FinancialReportController: FinancialReportView {
         else {
             label_history.text = paragraph
         }
-        label_history.backgroundColor = .white
+        label_history.backgroundColor = .systemBackground
     }
     //MARK: -高管信息
     func setManager(names: String) {
         label_managers.text = names
-        label_managers.backgroundColor = .white
+        label_managers.backgroundColor = .systemBackground
     }
     //MARK: -生产经营情况
     func setBusinessInfo(paragraph: String) {
         label_businessInfo.text = paragraph
-        label_businessInfo.backgroundColor = .white
+        label_businessInfo.backgroundColor = .systemBackground
     }
     
-    func setProductList(productList: [[String : String]]) {
-        let text = UILabel()
-        text.text = "产品"
-        text.frame = CGRect(x: 0, y: 0, width: UIScreen.main.bounds.size.width, height: 40)
-        table_productList.tableHeaderView = text
+    func setProductList(productList: [[String]] ) {
+        if productList.count > 0{
+            let title = UILabel()
+            title.text = "根据产品划分的前三年生产经营情况"
+            title.frame = CGRect(x: 0, y: 0, width: UIScreen.main.bounds.size.width - 16, height: 21)
+            title.backgroundColor = .gray
+            title.textColor = .white
+            stack_productList.addArrangedSubview(title)
+            
+            for i in 0...(productList.count - 1) {
+                let name = UILabel()
+                name.text = productList[i][0]
+                name.backgroundColor = .lightGray
+                name.textColor = .darkGray
+                stack_productList.addArrangedSubview(name)
+            }
+        }
+        else {
+            
+        }
+    }
+    
+    func setLocationList(locationList: [[String]]) {
+        
+    }
+    //MARK: -财务情况
+    func setFinancingInfo(paragraph: String) {
+        label_financingInfo.text = paragraph
+        label_financingInfo.backgroundColor = .systemBackground
+    }
+    //MARK: -融资情况
+    func setRaisingInfo(paragraph: String) {
+        label_rasingInfo.text = paragraph
+        label_rasingInfo.backgroundColor = .systemBackground
     }
 }

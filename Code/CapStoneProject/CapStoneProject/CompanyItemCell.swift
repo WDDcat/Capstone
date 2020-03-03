@@ -8,7 +8,7 @@
 
 import UIKit
 
-class CompanyItemCell: UITableViewCell {
+class SearchCompanyCell: UITableViewCell {
 
     var mPresenter:SearchCompanyModel?
     

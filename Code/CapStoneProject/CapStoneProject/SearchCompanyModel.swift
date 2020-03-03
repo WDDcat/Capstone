@@ -12,13 +12,13 @@ import SwiftyJSON
 
 class SearchCompanyModel: SearchCompanyPresenter {
     
-    var mView:SearchCompanyView?
+    var mView: SearchCompanyView?
     
     private var count = 0
     
     func getPerPageInfo(keyword: String, limit:Int, page: Int){
-        let param:[String:Any] = ["keyword": "北京中外名人", "limit": 10, "page": page]          //海南航空：10 海南：2230 A:133   "HANG SANG" 北京中外名人
-        Alamofire.request(URL(string :"http://47.92.50.218:8881/api1/search_company")!, parameters: param, headers: header)
+        let param:[String:Any] = ["keyword": "海南", "limit": 10, "page": page]          //海南航空控股股份有限：10 海南：2230 A:133   "HANG SANG" 北京中外名人
+        Alamofire.request(URL(string :"\(BASEURL)search_company")!, parameters: param, headers: header)
             .responseJSON { response in
                 switch response.result.isSuccess{
                 case true:
@@ -26,6 +26,7 @@ class SearchCompanyModel: SearchCompanyPresenter {
                         let json = JSON(data)
                         let result = json["result"]
                         print("\(result.count + (page * 10))/\(json["count"])")
+                        self.mView?.setFooterView(count: result.count + (page * 10), total: json["count"].int ?? 0)
                         for i in 0...9 {
                             if i >= result.count { break }
                             cidList.append(result[i][0].string ?? "")

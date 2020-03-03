@@ -10,6 +10,7 @@ import Foundation
 
 protocol SearchCompanyView {
     func refreshCompanyList()
+    func setFooterView(count: Int, total:Int)
 }
 
 protocol SearchCompanyPresenter {

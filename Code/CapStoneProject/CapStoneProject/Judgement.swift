@@ -56,3 +56,10 @@ public func unitFormat(_ num: String) -> String {
     }
     return result
 }
+
+public func pointFormat(_ num: String) -> String {
+    if !isNullOrEmpty(num) {
+        return String(format: "%.2f", num)
+    }
+    return "-"
+}

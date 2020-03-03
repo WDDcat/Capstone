@@ -17,7 +17,10 @@ protocol FinancialReportView {
     func setHistory(paragraph: String)
     func setManager(names: String)
     func setBusinessInfo(paragraph: String)
-    func setProductList(productList: [[String : String]])
+    func setProductList(productList: [[String]])
+    func setLocationList(locationList: [[String]])
+    func setFinancingInfo(paragraph: String)
+    func setRaisingInfo(paragraph: String)
 }
 
 protocol FinancialReportPresent {

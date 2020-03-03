@@ -7,9 +7,6 @@
 //
 
 import UIKit
-import Alamofire
-import SwiftyJSON
-import SVProgressHUD
 
 var companyNameList:[String] = []
 var addressList:[String] = []
@@ -45,7 +42,7 @@ class SearchCompanyController: UITableViewController, UISearchBarDelegate {
     }
 
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "companyItem", for: indexPath) as! CompanyItemCell
+        let cell = tableView.dequeueReusableCell(withIdentifier: "companyItem", for: indexPath) as! SearchCompanyCell
         cell.mPresenter = SearchCompanyModel()
         
         cell.label_companyName.text = companyNameList[indexPath.row]
@@ -91,6 +88,8 @@ class SearchCompanyController: UITableViewController, UISearchBarDelegate {
         companyNameList.removeAll()
         addressList.removeAll()
         legalPersonList.removeAll()
+        starList.removeAll()
+        cidList.removeAll()
         mPresenter.getPerPageInfo(keyword: searchBar.text!, limit:10, page: page)
     }
 
@@ -109,5 +108,19 @@ class SearchCompanyController: UITableViewController, UISearchBarDelegate {
 extension SearchCompanyController: SearchCompanyView {
     func refreshCompanyList() {
         self.tableView.reloadData()
+    }
+    
+    func setFooterView(count: Int, total:Int){
+        let view = UILabel()
+        view.frame = CGRect(x: 0, y: 0, width: UIScreen.main.bounds.size.width, height: 21)
+        view.backgroundColor = .gray
+        view.textColor = .white
+        if(count == total) {
+            view.text = "共\(total)个结果"
+        }else {
+            view.text = "正在加载"
+        }
+        view.textAlignment = .center
+        tableView.tableFooterView = view
     }
 }

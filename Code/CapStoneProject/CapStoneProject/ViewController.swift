@@ -15,16 +15,33 @@ let header:HTTPHeaders = ["token-id":"a7b2668646dc11e9983300163e02e9cd"]
 
 class ViewController: UIViewController {
 
+    @IBOutlet var stackView: UIStackView!
+    
+    @IBOutlet var tableView: UITableView!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-        // Do any additional setup after loading the view.
-
-//        Alamofire.request(URL(string :"http://47.92.50.218:8881/api1/search_company")!, parameters: param, headers: header)
-//            .responseJSON { response in
-//            let data = response.data
-//            let json = JSON(data!)
-//            print(json)
-//        }
+        
+//        let view = UILabel()
+//        view.frame = CGRect(x: 0, y: 0, width: UIScreen.main.bounds.size.width - 16, height: 21)
+//        view.backgroundColor = UIColor(red: 0.86, green: 0.86, blue: 0.86, alpha: 1)
+//        view.text = "123"
+//
+//        stackView.addArrangedSubview(view)
+//
+//        let view1 = UILabel()
+//        view1.frame = CGRect(x: 0, y: 0, width: UIScreen.main.bounds.size.width - 16, height: 21)
+//        view1.backgroundColor = UIColor(red: 0.86, green: 0.86, blue: 0.86, alpha: 1)
+//        view1.text = "123"
+//
+//        stackView.addArrangedSubview(view1)
+        
+//        tableView.number
+        let indexPath = IndexPath(row: 0, section: 0)
+        let cell = tableView.cellForRow(at: indexPath)
+        
+        
+        
     }
 }
 
