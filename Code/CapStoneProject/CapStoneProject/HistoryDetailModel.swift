@@ -23,10 +23,10 @@ class HistoryDetailModel: HistoryDetailPresent {
                     if let data = response.result.value {
                         let json = JSON(data)
                         for i in 0..<json["changeinfos"].count {
-                            dateList.append(notNull(json["changeinfos"][i]["time"].string ?? ""))
-                            typeList.append(notNull(json["changeinfos"][i]["item"].string ?? ""))
-                            beforeList.append(notNull(json["changeinfos"][i]["before"].string ?? ""))
-                            afterList.append(notNull(json["changeinfos"][i]["after"].string ?? ""))
+                            historyDateList.append(notNull(json["changeinfos"][i]["time"].string ?? ""))
+                            historyTypeList.append(notNull(json["changeinfos"][i]["item"].string ?? ""))
+                            historyBeforeList.append(notNull(json["changeinfos"][i]["before"].string ?? ""))
+                            historyAfterList.append(notNull(json["changeinfos"][i]["after"].string ?? ""))
                         }
                         self.mView?.initList()
                     }

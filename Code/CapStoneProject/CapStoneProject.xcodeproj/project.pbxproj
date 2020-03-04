@@ -17,6 +17,14 @@
 		DD397CDD240EAC2A002E28E1 /* HistoryDetailCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD397CDC240EAC2A002E28E1 /* HistoryDetailCell.swift */; };
 		DD397CDF240EB293002E28E1 /* HistoryDetailContract.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD397CDE240EB293002E28E1 /* HistoryDetailContract.swift */; };
 		DD397CE1240EB49A002E28E1 /* HistoryDetailModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD397CE0240EB49A002E28E1 /* HistoryDetailModel.swift */; };
+		DD397CE4240F72D7002E28E1 /* ManagerInfoDetailCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD397CE3240F72D7002E28E1 /* ManagerInfoDetailCell.swift */; };
+		DD397CE6240F72E9002E28E1 /* ManagerInfoDetailController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD397CE5240F72E9002E28E1 /* ManagerInfoDetailController.swift */; };
+		DD397CE8240F73E7002E28E1 /* ManagerInfoDetailModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD397CE7240F73E7002E28E1 /* ManagerInfoDetailModel.swift */; };
+		DD397CEA240F73F9002E28E1 /* managerInfoDetailContract.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD397CE9240F73F9002E28E1 /* managerInfoDetailContract.swift */; };
+		DD397CED240F9B62002E28E1 /* HolderInfoDetailController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD397CEC240F9B62002E28E1 /* HolderInfoDetailController.swift */; };
+		DD397CEF240F9C13002E28E1 /* HolderInfoDetailModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD397CEE240F9C13002E28E1 /* HolderInfoDetailModel.swift */; };
+		DD397CF1240F9C2A002E28E1 /* HolderInfoDetailContract.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD397CF0240F9C2A002E28E1 /* HolderInfoDetailContract.swift */; };
+		DD397CF32410130B002E28E1 /* PercentFormatter.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD397CF22410130B002E28E1 /* PercentFormatter.swift */; };
 		DD73FA8424080AE900469726 /* TargetType.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD73FA8324080AE900469726 /* TargetType.swift */; };
 		DD73FA8624080B9E00469726 /* RequestClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD73FA8524080B9E00469726 /* RequestClient.swift */; };
 		DD73FA8824080BE900469726 /* ALTools.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD73FA8724080BE900469726 /* ALTools.swift */; };
@@ -51,6 +59,14 @@
 		DD397CDC240EAC2A002E28E1 /* HistoryDetailCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HistoryDetailCell.swift; sourceTree = "<group>"; };
 		DD397CDE240EB293002E28E1 /* HistoryDetailContract.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HistoryDetailContract.swift; sourceTree = "<group>"; };
 		DD397CE0240EB49A002E28E1 /* HistoryDetailModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HistoryDetailModel.swift; sourceTree = "<group>"; };
+		DD397CE3240F72D7002E28E1 /* ManagerInfoDetailCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ManagerInfoDetailCell.swift; sourceTree = "<group>"; };
+		DD397CE5240F72E9002E28E1 /* ManagerInfoDetailController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ManagerInfoDetailController.swift; sourceTree = "<group>"; };
+		DD397CE7240F73E7002E28E1 /* ManagerInfoDetailModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ManagerInfoDetailModel.swift; sourceTree = "<group>"; };
+		DD397CE9240F73F9002E28E1 /* managerInfoDetailContract.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = managerInfoDetailContract.swift; sourceTree = "<group>"; };
+		DD397CEC240F9B62002E28E1 /* HolderInfoDetailController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HolderInfoDetailController.swift; sourceTree = "<group>"; };
+		DD397CEE240F9C13002E28E1 /* HolderInfoDetailModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HolderInfoDetailModel.swift; sourceTree = "<group>"; };
+		DD397CF0240F9C2A002E28E1 /* HolderInfoDetailContract.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HolderInfoDetailContract.swift; sourceTree = "<group>"; };
+		DD397CF22410130B002E28E1 /* PercentFormatter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PercentFormatter.swift; sourceTree = "<group>"; };
 		DD73FA8324080AE900469726 /* TargetType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TargetType.swift; sourceTree = "<group>"; };
 		DD73FA8524080B9E00469726 /* RequestClient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RequestClient.swift; sourceTree = "<group>"; };
 		DD73FA8724080BE900469726 /* ALTools.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ALTools.swift; sourceTree = "<group>"; };
@@ -137,6 +153,28 @@
 			name = HistoryDetail;
 			sourceTree = "<group>";
 		};
+		DD397CE2240F72A5002E28E1 /* ManagerInfoDetail */ = {
+			isa = PBXGroup;
+			children = (
+				DD397CE9240F73F9002E28E1 /* managerInfoDetailContract.swift */,
+				DD397CE7240F73E7002E28E1 /* ManagerInfoDetailModel.swift */,
+				DD397CE5240F72E9002E28E1 /* ManagerInfoDetailController.swift */,
+				DD397CE3240F72D7002E28E1 /* ManagerInfoDetailCell.swift */,
+			);
+			name = ManagerInfoDetail;
+			sourceTree = "<group>";
+		};
+		DD397CEB240F8FFD002E28E1 /* HolderInfoDetail */ = {
+			isa = PBXGroup;
+			children = (
+				DD397CF0240F9C2A002E28E1 /* HolderInfoDetailContract.swift */,
+				DD397CEE240F9C13002E28E1 /* HolderInfoDetailModel.swift */,
+				DD397CEC240F9B62002E28E1 /* HolderInfoDetailController.swift */,
+				DD397CF22410130B002E28E1 /* PercentFormatter.swift */,
+			);
+			name = HolderInfoDetail;
+			sourceTree = "<group>";
+		};
 		DD73FA8F24080F9500469726 /* NetworkTools */ = {
 			isa = PBXGroup;
 			children = (
@@ -174,7 +212,9 @@
 			children = (
 				DDA905F8240C0EA700D113C5 /* FinancialReport */,
 				DD397CD2240E702F002E28E1 /* BaseInfoDetail */,
+				DD397CEB240F8FFD002E28E1 /* HolderInfoDetail */,
 				DD397CD9240EAA6C002E28E1 /* HistoryDetail */,
+				DD397CE2240F72A5002E28E1 /* ManagerInfoDetail */,
 			);
 			name = FinancialReport;
 			sourceTree = "<group>";
@@ -319,12 +359,14 @@
 			inputPaths = (
 				"${SRCROOT}/Pods/Target Support Files/Pods-CapstoneProject/Pods-CapstoneProject-frameworks.sh",
 				"${BUILT_PRODUCTS_DIR}/Alamofire/Alamofire.framework",
+				"${BUILT_PRODUCTS_DIR}/Charts/Charts.framework",
 				"${BUILT_PRODUCTS_DIR}/SVProgressHUD/SVProgressHUD.framework",
 				"${BUILT_PRODUCTS_DIR}/SwiftyJSON/SwiftyJSON.framework",
 			);
 			name = "[CP] Embed Pods Frameworks";
 			outputPaths = (
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Alamofire.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Charts.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SVProgressHUD.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SwiftyJSON.framework",
 			);
@@ -344,7 +386,11 @@
 				DD73FA8824080BE900469726 /* ALTools.swift in Sources */,
 				DD397CD1240E39B9002E28E1 /* Credit.swift in Sources */,
 				DD73FA8624080B9E00469726 /* RequestClient.swift in Sources */,
+				DD397CEF240F9C13002E28E1 /* HolderInfoDetailModel.swift in Sources */,
+				DD397CE8240F73E7002E28E1 /* ManagerInfoDetailModel.swift in Sources */,
+				DD397CF32410130B002E28E1 /* PercentFormatter.swift in Sources */,
 				DD397CC8240CB436002E28E1 /* Judgement.swift in Sources */,
+				DD397CE6240F72E9002E28E1 /* ManagerInfoDetailController.swift in Sources */,
 				DDA905F2240BB40100D113C5 /* FinancialReportController.swift in Sources */,
 				DDA905F7240BE8BB00D113C5 /* FinancialReportModel.swift in Sources */,
 				DD397CDD240EAC2A002E28E1 /* HistoryDetailCell.swift in Sources */,
@@ -355,15 +401,19 @@
 				DD397CDB240EAA92002E28E1 /* HistoryDetailController.swift in Sources */,
 				DD397CDF240EB293002E28E1 /* HistoryDetailContract.swift in Sources */,
 				DD397CD4240E78F4002E28E1 /* BaseInfoDetailController.swift in Sources */,
+				DD397CEA240F73F9002E28E1 /* managerInfoDetailContract.swift in Sources */,
 				DD397CD6240E7A3D002E28E1 /* BaseInfoDetailContract.swift in Sources */,
 				DDA905ED240B9B1E00D113C5 /* CompanyDetailController.swift in Sources */,
 				DDA905EB240B9AD300D113C5 /* CompanyDetailModel.swift in Sources */,
 				DD73FA8B24080F1400469726 /* SearchCompanyController.swift in Sources */,
 				DDA905EF240BA43800D113C5 /* remote.swift in Sources */,
+				DD397CED240F9B62002E28E1 /* HolderInfoDetailController.swift in Sources */,
 				DD397CD8240E7CB2002E28E1 /* BaseInfoDetailModel.swift in Sources */,
 				DDDB7A2724078A4B0030178A /* AppDelegate.swift in Sources */,
 				DD73FA8D24080F2A00469726 /* CompanyItemCell.swift in Sources */,
 				DD397CE1240EB49A002E28E1 /* HistoryDetailModel.swift in Sources */,
+				DD397CF1240F9C2A002E28E1 /* HolderInfoDetailContract.swift in Sources */,
+				DD397CE4240F72D7002E28E1 /* ManagerInfoDetailCell.swift in Sources */,
 				DDA905E42408D99D00D113C5 /* SearchCompanyModel.swift in Sources */,
 				DDDB7A2924078A4B0030178A /* SceneDelegate.swift in Sources */,
 			);

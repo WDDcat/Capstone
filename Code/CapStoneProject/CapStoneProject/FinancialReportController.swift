@@ -41,19 +41,27 @@ class FinancialReportController: UIViewController {
     //MARK: -融资情况
     @IBOutlet weak var label_rasingInfo: UILabel!
     
+    var defaultBackgroundImage: UIImage?
+    var defaultShadowImage: UIImage?
     
     override func viewDidLoad() {
         super.viewDidLoad()
         mPresenter.mView = self
         stack_tags.alpha = 0
-        //scrollView.contentSize = CGSize(width: 375, height: 1050)
         self.setCompanyName(name: remoteGetCompanyName())
         mPresenter.getInfo()
-        
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
         self.navigationController?.navigationBar.setBackgroundImage(UIImage(), for: UIBarMetrics.default)
         self.navigationController?.navigationBar.shadowImage = UIImage()
         self.navigationController?.navigationBar.isTranslucent = true
-        //self.navigationController?.navigationBar.tintColor = .white
+    }
+    
+    override func viewWillDisappear(_ animated: Bool) {
+        self.navigationController?.navigationBar.setBackgroundImage(nil, for: UIBarMetrics.default)
+        self.navigationController?.navigationBar.shadowImage = nil
+        self.navigationController?.navigationBar.isTranslucent = true
     }
 }
 

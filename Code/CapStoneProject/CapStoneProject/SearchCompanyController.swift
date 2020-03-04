@@ -8,11 +8,11 @@
 
 import UIKit
 
-var companyNameList:[String] = []
-var addressList:[String] = []
-var legalPersonList:[String] = []
-var starList:[String] = []
-var cidList:[String] = []
+var SearchCompanyNameList:[String] = []
+var SearchCompanyAddressList:[String] = []
+var SearchCompanyLegalPersonList:[String] = []
+var SearchCompanyStarList:[String] = []
+var SearchCompanyCidList:[String] = []
 
 class SearchCompanyController: UITableViewController, UISearchBarDelegate {
     
@@ -27,6 +27,11 @@ class SearchCompanyController: UITableViewController, UISearchBarDelegate {
         mPresenter.mView = self
         searchBar.delegate = self
         
+        SearchCompanyNameList.removeAll()
+        SearchCompanyAddressList.removeAll()
+        SearchCompanyLegalPersonList.removeAll()
+        SearchCompanyStarList.removeAll()
+        SearchCompanyCidList.removeAll()
         mPresenter.getPerPageInfo(keyword: searchBar.text!, limit:10, page: page)
     }
 
@@ -38,19 +43,19 @@ class SearchCompanyController: UITableViewController, UISearchBarDelegate {
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         // #warning Incomplete implementation, return the number of rows
-        return companyNameList.count
+        return SearchCompanyNameList.count
     }
 
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "companyItem", for: indexPath) as! SearchCompanyCell
         cell.mPresenter = SearchCompanyModel()
         
-        cell.label_companyName.text = companyNameList[indexPath.row]
-        cell.label_address.text = "地址：\(addressList[indexPath.row])"
-        cell.label_legalPerson.text = "法人：\(legalPersonList[indexPath.row])"
-        let image = starList[indexPath.row] == "1" ? "star.fill" : "star"
+        cell.label_companyName.text = SearchCompanyNameList[indexPath.row]
+        cell.label_address.text = "地址：\(SearchCompanyAddressList[indexPath.row])"
+        cell.label_legalPerson.text = "法人：\(SearchCompanyLegalPersonList[indexPath.row])"
+        let image = SearchCompanyStarList[indexPath.row] == "1" ? "star.fill" : "star"
         cell.btn_star.setImage(UIImage(systemName: image), for: .normal)
-        cell.c_id = cidList[indexPath.row]
+        cell.c_id = SearchCompanyCidList[indexPath.row]
 
         return cell
     }
@@ -66,8 +71,8 @@ class SearchCompanyController: UITableViewController, UISearchBarDelegate {
     // MARK: - Table view response set
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         tableView.deselectRow(at: indexPath, animated: true)
-        remoteSetCompanyId(id: cidList[indexPath.row])
-        remoteSetCompanyName(name: companyNameList[indexPath.row])
+        remoteSetCompanyId(id: SearchCompanyCidList[indexPath.row])
+        remoteSetCompanyName(name: SearchCompanyNameList[indexPath.row])
         print("didSelect")
     }
     
@@ -85,11 +90,11 @@ class SearchCompanyController: UITableViewController, UISearchBarDelegate {
     func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
         searchBar.resignFirstResponder()
         page = 0
-        companyNameList.removeAll()
-        addressList.removeAll()
-        legalPersonList.removeAll()
-        starList.removeAll()
-        cidList.removeAll()
+        SearchCompanyNameList.removeAll()
+        SearchCompanyAddressList.removeAll()
+        SearchCompanyLegalPersonList.removeAll()
+        SearchCompanyStarList.removeAll()
+        SearchCompanyCidList.removeAll()
         mPresenter.getPerPageInfo(keyword: searchBar.text!, limit:10, page: page)
     }
 

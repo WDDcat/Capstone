@@ -11,5 +11,6 @@ target 'CapstoneProject' do
   pod 'SwiftyJSON'
   pod 'Alamofire'
   pod 'SVProgressHUD'
+  pod 'Charts'
 
 end

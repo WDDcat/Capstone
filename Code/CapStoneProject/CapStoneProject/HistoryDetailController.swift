@@ -8,10 +8,10 @@
 
 import UIKit
 
-var dateList:[String] = []
-var typeList:[String] = []
-var beforeList:[String] = []
-var afterList:[String] = []
+var historyDateList:[String] = []
+var historyTypeList:[String] = []
+var historyBeforeList:[String] = []
+var historyAfterList:[String] = []
 
 class HistoryDetailController: UITableViewController {
 
@@ -21,11 +21,10 @@ class HistoryDetailController: UITableViewController {
         super.viewDidLoad()
         mPresenter.mView = self
         
-        dateList.removeAll()
-        typeList.removeAll()
-        beforeList.removeAll()
-        afterList.removeAll()
-        
+        historyDateList.removeAll()
+        historyTypeList.removeAll()
+        historyBeforeList.removeAll()
+        historyAfterList.removeAll()
         mPresenter.getInfo()
     }
 
@@ -38,18 +37,22 @@ class HistoryDetailController: UITableViewController {
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         // #warning Incomplete implementation, return the number of rows
-        return dateList.count
+        return historyDateList.count
     }
 
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "historyItem", for: indexPath) as! HistoryDetailCell
 
-        cell.label_changeDate.text = dateList[indexPath.row]
-        cell.label_changeType.text = typeList[indexPath.row]
-        cell.label_beforeChange.text = beforeList[indexPath.row]
-        cell.label_afterChange.text = afterList[indexPath.row]
+        cell.label_changeDate.text = historyDateList[indexPath.row]
+        cell.label_changeType.text = historyTypeList[indexPath.row]
+        cell.label_beforeChange.text = historyBeforeList[indexPath.row]
+        cell.label_afterChange.text = historyAfterList[indexPath.row]
 
         return cell
+    }
+    
+    override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        tableView.deselectRow(at: indexPath, animated: true)
     }
 }
 

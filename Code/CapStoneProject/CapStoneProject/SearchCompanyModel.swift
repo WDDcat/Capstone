@@ -17,7 +17,7 @@ class SearchCompanyModel: SearchCompanyPresenter {
     private var count = 0
     
     func getPerPageInfo(keyword: String, limit:Int, page: Int){
-        let param:[String:Any] = ["keyword": "海南", "limit": 10, "page": page]          //海南航空控股股份有限：10 海南：2230 A:133   "HANG SANG" 北京中外名人
+        let param:[String:Any] = ["keyword": "海南航空控股股份有限", "limit": 10, "page": page]          //海南航空控股股份有限：10 海南：2230 A:133   "HANG SANG" 北京中外名人
         Alamofire.request(URL(string :"\(BASEURL)search_company")!, parameters: param, headers: header)
             .responseJSON { response in
                 switch response.result.isSuccess{
@@ -29,11 +29,11 @@ class SearchCompanyModel: SearchCompanyPresenter {
                         self.mView?.setFooterView(count: result.count + (page * 10), total: json["count"].int ?? 0)
                         for i in 0...9 {
                             if i >= result.count { break }
-                            cidList.append(result[i][0].string ?? "")
-                            companyNameList.append(result[i][1].string ?? "")
-                            legalPersonList.append(result[i][2].string ?? "")
-                            addressList.append(result[i][4].string ?? "")
-                            starList.append(result[i][5].string ?? "")
+                            SearchCompanyCidList.append(result[i][0].string ?? "")
+                            SearchCompanyNameList.append(result[i][1].string ?? "")
+                            SearchCompanyLegalPersonList.append(result[i][2].string ?? "")
+                            SearchCompanyAddressList.append(result[i][4].string ?? "")
+                            SearchCompanyStarList.append(result[i][5].string ?? "")
                         }
                         self.mView?.refreshCompanyList()
                     }
