@@ -25,7 +25,9 @@ class SearchCompanyCell: UITableViewCell {
             }
         }
         else {
-            btn_star.setImage(UIImage(systemName: "star"), for: .normal)
+            if (mPresenter?.postCancelCollect(c_id: c_id, name: label_companyName.text!, recordName: "iOS"))!{
+                btn_star.setImage(UIImage(systemName: "star"), for: .normal)
+            }
         }
     }
     

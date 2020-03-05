@@ -8,7 +8,7 @@
 
 import Foundation
 
-class Credit {
+public class Credit {
     private var priority: Int  //1:人民币 2:美元 3:欧元 4:日元 5:其他
     private var currency: String
     private var used: String

@@ -45,6 +45,8 @@
 		DDDB7A2E24078A4B0030178A /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = DDDB7A2C24078A4B0030178A /* Main.storyboard */; };
 		DDDB7A3024078A4E0030178A /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = DDDB7A2F24078A4E0030178A /* Assets.xcassets */; };
 		DDDB7A3324078A4E0030178A /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = DDDB7A3124078A4E0030178A /* LaunchScreen.storyboard */; };
+		DDE1541F2410CD97009C65A3 /* MyTable.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDE1541E2410CD97009C65A3 /* MyTable.swift */; };
+		DDE154232410E30B009C65A3 /* UserTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDE154222410E30B009C65A3 /* UserTableViewCell.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -89,6 +91,8 @@
 		DDDB7A2F24078A4E0030178A /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		DDDB7A3224078A4E0030178A /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		DDDB7A3424078A4E0030178A /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		DDE1541E2410CD97009C65A3 /* MyTable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyTable.swift; sourceTree = "<group>"; };
+		DDE154222410E30B009C65A3 /* UserTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = UserTableViewCell.swift; path = /Users/shiyuwang/Desktop/Capstone/Code/CapstoneProject/CapstoneProject/UserTableViewCell.swift; sourceTree = "<absolute>"; };
 		E96DBE2538AB16B79EA0375F /* Pods_CapstoneProject.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_CapstoneProject.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
@@ -119,17 +123,6 @@
 				E96DBE2538AB16B79EA0375F /* Pods_CapstoneProject.framework */,
 			);
 			name = Frameworks;
-			sourceTree = "<group>";
-		};
-		DD397CCF240E3974002E28E1 /* SopportFile */ = {
-			isa = PBXGroup;
-			children = (
-				DDDB7A2624078A4B0030178A /* AppDelegate.swift */,
-				DDDB7A3424078A4E0030178A /* Info.plist */,
-				DD397CC7240CB436002E28E1 /* Judgement.swift */,
-				DD397CD0240E39B9002E28E1 /* Credit.swift */,
-			);
-			name = SopportFile;
 			sourceTree = "<group>";
 		};
 		DD397CD2240E702F002E28E1 /* BaseInfoDetail */ = {
@@ -254,14 +247,27 @@
 				DDA905E7240B9A7200D113C5 /* CompanyDetail */,
 				DDA905F0240BB3C600D113C5 /* FinancialReport */,
 				DD73FA8F24080F9500469726 /* NetworkTools */,
-				DD397CCF240E3974002E28E1 /* SopportFile */,
+				DDE1541D2410CD1E009C65A3 /* View */,
+				DDDB7A2624078A4B0030178A /* AppDelegate.swift */,
 				DDDB7A2824078A4B0030178A /* SceneDelegate.swift */,
+				DDDB7A3424078A4E0030178A /* Info.plist */,
+				DDE1541E2410CD97009C65A3 /* MyTable.swift */,
+				DD397CD0240E39B9002E28E1 /* Credit.swift */,
+				DD397CC7240CB436002E28E1 /* Judgement.swift */,
 				DDDB7A2A24078A4B0030178A /* ViewController.swift */,
+				DDE154222410E30B009C65A3 /* UserTableViewCell.swift */,
+			);
+			path = CapstoneProject;
+			sourceTree = "<group>";
+		};
+		DDE1541D2410CD1E009C65A3 /* View */ = {
+			isa = PBXGroup;
+			children = (
 				DDDB7A2C24078A4B0030178A /* Main.storyboard */,
 				DDDB7A2F24078A4E0030178A /* Assets.xcassets */,
 				DDDB7A3124078A4E0030178A /* LaunchScreen.storyboard */,
 			);
-			path = CapstoneProject;
+			name = View;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -362,6 +368,7 @@
 				"${BUILT_PRODUCTS_DIR}/Charts/Charts.framework",
 				"${BUILT_PRODUCTS_DIR}/SVProgressHUD/SVProgressHUD.framework",
 				"${BUILT_PRODUCTS_DIR}/SwiftyJSON/SwiftyJSON.framework",
+				"${BUILT_PRODUCTS_DIR}/TableKit/TableKit.framework",
 			);
 			name = "[CP] Embed Pods Frameworks";
 			outputPaths = (
@@ -369,6 +376,7 @@
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Charts.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SVProgressHUD.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SwiftyJSON.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/TableKit.framework",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
@@ -403,12 +411,14 @@
 				DD397CD4240E78F4002E28E1 /* BaseInfoDetailController.swift in Sources */,
 				DD397CEA240F73F9002E28E1 /* managerInfoDetailContract.swift in Sources */,
 				DD397CD6240E7A3D002E28E1 /* BaseInfoDetailContract.swift in Sources */,
+				DDE1541F2410CD97009C65A3 /* MyTable.swift in Sources */,
 				DDA905ED240B9B1E00D113C5 /* CompanyDetailController.swift in Sources */,
 				DDA905EB240B9AD300D113C5 /* CompanyDetailModel.swift in Sources */,
 				DD73FA8B24080F1400469726 /* SearchCompanyController.swift in Sources */,
 				DDA905EF240BA43800D113C5 /* remote.swift in Sources */,
 				DD397CED240F9B62002E28E1 /* HolderInfoDetailController.swift in Sources */,
 				DD397CD8240E7CB2002E28E1 /* BaseInfoDetailModel.swift in Sources */,
+				DDE154232410E30B009C65A3 /* UserTableViewCell.swift in Sources */,
 				DDDB7A2724078A4B0030178A /* AppDelegate.swift in Sources */,
 				DD73FA8D24080F2A00469726 /* CompanyItemCell.swift in Sources */,
 				DD397CE1240EB49A002E28E1 /* HistoryDetailModel.swift in Sources */,

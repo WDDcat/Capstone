@@ -123,6 +123,8 @@ extension FinancialReportController: FinancialReportView {
     
     func setProductList(productList: [[String]] ) {
         if productList.count > 0{
+            stack_productList.superview!.addConstraint(NSLayoutConstraint(item: stack_productList, attribute: .top, relatedBy: .equal, toItem: label_businessInfo, attribute: .bottom, multiplier: 1.0, constant: 20))
+            
             let title = UILabel()
             title.text = "根据产品划分的前三年生产经营情况"
             title.frame = CGRect(x: 0, y: 0, width: UIScreen.main.bounds.size.width - 16, height: 21)
@@ -131,20 +133,64 @@ extension FinancialReportController: FinancialReportView {
             stack_productList.addArrangedSubview(title)
             
             for i in 0...(productList.count - 1) {
+                let stack = UIStackView()
+                stack.axis = .horizontal
+                
                 let name = UILabel()
-                name.text = productList[i][0]
-                name.backgroundColor = .lightGray
+                name.text = "\(productList[i][0])"
+                name.backgroundColor = UIColor(red: 0.86, green: 0.86, blue: 0.86, alpha: 1)
                 name.textColor = .darkGray
-                stack_productList.addArrangedSubview(name)
+                
+                let rate = UILabel()
+                rate.text = "\(productList[i][1])"
+                rate.backgroundColor = UIColor(red: 0.86, green: 0.86, blue: 0.86, alpha: 1)
+                rate.textColor = .darkGray
+                
+                stack.addArrangedSubview(name)
+                stack.addArrangedSubview(rate)
+                stack.frame = CGRect(x: 0, y: 0, width: UIScreen.main.bounds.size.width - 16, height: 21)
+                stack_productList.addArrangedSubview(stack)
             }
         }
         else {
-            
+            stack_productList.superview!.addConstraint(NSLayoutConstraint(item: stack_productList, attribute: .top, relatedBy: .equal, toItem: label_businessInfo, attribute: .bottom, multiplier: 1.0, constant: 0))
         }
     }
     
     func setLocationList(locationList: [[String]]) {
-        
+        if locationList.count > 0{
+            stack_locationList.superview!.addConstraint(NSLayoutConstraint(item: stack_locationList, attribute: .top, relatedBy: .equal, toItem: stack_productList, attribute: .bottom, multiplier: 1.0, constant: 20))
+            
+            let title = UILabel()
+            title.text = "根据其他地区划分的前三年生产经营情况"
+            title.frame = CGRect(x: 0, y: 0, width: UIScreen.main.bounds.size.width - 16, height: 21)
+            title.backgroundColor = .gray
+            title.textColor = .white
+            stack_locationList.addArrangedSubview(title)
+            
+            for i in 0...(locationList.count - 1) {
+                let stack = UIStackView()
+                stack.axis = .horizontal
+                
+                let name = UILabel()
+                name.text = "\(locationList[i][0])"
+                name.backgroundColor = UIColor(red: 0.86, green: 0.86, blue: 0.86, alpha: 1)
+                name.textColor = .darkGray
+                
+                let rate = UILabel()
+                rate.text = "\(locationList[i][1])"
+                rate.backgroundColor = UIColor(red: 0.86, green: 0.86, blue: 0.86, alpha: 1)
+                rate.textColor = .darkGray
+                
+                stack.addArrangedSubview(name)
+                stack.addArrangedSubview(rate)
+                stack.frame = CGRect(x: 0, y: 0, width: UIScreen.main.bounds.size.width - 16, height: 21)
+                stack_locationList.addArrangedSubview(stack)
+            }
+        }
+        else {
+            stack_locationList.superview!.addConstraint(NSLayoutConstraint(item: stack_locationList, attribute: .top, relatedBy: .equal, toItem: stack_productList, attribute: .bottom, multiplier: 1.0, constant: 0))
+        }
     }
     //MARK: -财务情况
     func setFinancingInfo(paragraph: String) {

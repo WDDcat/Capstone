@@ -5,12 +5,14 @@ PODS:
   - Charts/Core (3.4.0)
   - SVProgressHUD (2.2.5)
   - SwiftyJSON (4.3.0)
+  - TableKit (2.10.0)
 
 DEPENDENCIES:
   - Alamofire
   - Charts
   - SVProgressHUD
   - SwiftyJSON
+  - TableKit
 
 SPEC REPOS:
   https://github.com/cocoapods/specs.git:
@@ -18,13 +20,15 @@ SPEC REPOS:
     - Charts
     - SVProgressHUD
     - SwiftyJSON
+    - TableKit
 
 SPEC CHECKSUMS:
   Alamofire: 85e8a02c69d6020a0d734f6054870d7ecb75cf18
   Charts: 74c9f256eaf0460c0c416522d1cf8c634ea6b286
   SVProgressHUD: 1428aafac632c1f86f62aa4243ec12008d7a51d6
   SwiftyJSON: 6faa0040f8b59dead0ee07436cbf76b73c08fd08
+  TableKit: 65645d0dd786e21dc61464da59ad770c60a07282
 
-PODFILE CHECKSUM: 6bcbff298f2eacf3c5829ed577a4c03519d462bf
+PODFILE CHECKSUM: faa85bd6498a81521e4133696c606267799ccc1b
 
 COCOAPODS: 1.5.2

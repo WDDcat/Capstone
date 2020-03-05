@@ -73,7 +73,7 @@ class SearchCompanyController: UITableViewController, UISearchBarDelegate {
         tableView.deselectRow(at: indexPath, animated: true)
         remoteSetCompanyId(id: SearchCompanyCidList[indexPath.row])
         remoteSetCompanyName(name: SearchCompanyNameList[indexPath.row])
-        print("didSelect")
+        print("didSelect:\(SearchCompanyNameList[indexPath.row])")
     }
     
     // MARK: - Search Bar set
@@ -123,7 +123,7 @@ extension SearchCompanyController: SearchCompanyView {
         if(count == total) {
             view.text = "共\(total)个结果"
         }else {
-            view.text = "正在加载"
+            view.text = "正在加载..."
         }
         view.textAlignment = .center
         tableView.tableFooterView = view

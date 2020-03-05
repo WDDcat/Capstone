@@ -7,41 +7,39 @@
 //
 
 import UIKit
-import SwiftyJSON
-import Alamofire
-
-let GETURL = "http://47.92.50.218:8881/api1/condition_search_company?keyword=A"
-let header:HTTPHeaders = ["token-id":"a7b2668646dc11e9983300163e02e9cd"]
+import TableKit
 
 class ViewController: UIViewController {
-
-    @IBOutlet var stackView: UIStackView!
     
-    @IBOutlet var tableView: UITableView!
+    @IBOutlet var tableView: UITableView! {
+        didSet {
+            tableDirector = TableDirector(tableView: tableView)
+        }
+    }
+    @IBOutlet var stack_productList: UIStackView!
+    
+    var tableDirector: TableDirector!
     
     override func viewDidLoad() {
+        tableView.frame = CGRect(x: 0, y: 0, width: 500, height: 500)
         super.viewDidLoad()
         
-//        let view = UILabel()
-//        view.frame = CGRect(x: 0, y: 0, width: UIScreen.main.bounds.size.width - 16, height: 21)
-//        view.backgroundColor = UIColor(red: 0.86, green: 0.86, blue: 0.86, alpha: 1)
-//        view.text = "123"
-//
-//        stackView.addArrangedSubview(view)
-//
-//        let view1 = UILabel()
-//        view1.frame = CGRect(x: 0, y: 0, width: UIScreen.main.bounds.size.width - 16, height: 21)
-//        view1.backgroundColor = UIColor(red: 0.86, green: 0.86, blue: 0.86, alpha: 1)
-//        view1.text = "123"
-//
-//        stackView.addArrangedSubview(view1)
+        let row1 = TableRow<StringTableViewCell>(item: "1")
         
-//        tableView.number
-        let indexPath = IndexPath(row: 0, section: 0)
-        let cell = tableView.cellForRow(at: indexPath)
+        tableDirector += row1
+        tableDirector += row1
+        tableDirector += row1
+        tableDirector += row1
+        tableDirector += row1
         
-        
-        
+        for i in 0...3 {
+            let name = UILabel()
+            name.text = "num:\(i)"
+            name.backgroundColor = .cyan
+            name.textColor = .darkGray
+            name.frame = CGRect(x: 0, y: 0, width: UIScreen.main.bounds.size.width - 16, height: 21)
+            stack_productList.addArrangedSubview(name)
+        }
     }
 }
 

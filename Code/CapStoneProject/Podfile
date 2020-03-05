@@ -12,5 +12,6 @@ target 'CapstoneProject' do
   pod 'Alamofire'
   pod 'SVProgressHUD'
   pod 'Charts'
+  pod 'TableKit'
 
 end

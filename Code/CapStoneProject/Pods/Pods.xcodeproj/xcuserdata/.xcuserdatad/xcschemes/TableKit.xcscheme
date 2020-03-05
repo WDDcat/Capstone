@@ -14,10 +14,10 @@
             buildForArchiving = "YES">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "23AE521F940135398890BEDB5929E471"
-               BlueprintName = "Pods-CapstoneProject"
+               BlueprintIdentifier = "3E89DE9271446BD7FF86DC2BA394B844"
+               BlueprintName = "TableKit"
                ReferencedContainer = "container:Pods.xcodeproj"
-               BuildableName = "Pods-CapstoneProject.framework">
+               BuildableName = "TableKit.framework">
             </BuildableReference>
          </BuildActionEntry>
       </BuildActionEntries>
