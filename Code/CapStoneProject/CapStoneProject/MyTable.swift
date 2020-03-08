@@ -9,65 +9,67 @@
 import Foundation
 import UIKit
 
+private let darkGray: UIColor = UIColor(red: 160/255, green: 160/255, blue: 160/255, alpha: 1)
+private let gray: UIColor = UIColor(red: 210/255, green: 210/255, blue: 210/255, alpha: 1)
+private let lightGray: UIColor = UIColor(red: 230/255, green: 230/255, blue: 230/255, alpha: 1)
+
 public class MyTable {
     
-    private var currentView: UIView
-    private var width: CGFloat = 0.0
+    private var curView: UIStackView
+    private var columnNum: Int?
+    private var rowUnit: UIStackView?
+    private var num_of_row = 1
+    private var num_of_column = 1
     
-    init(view: UIView) {//}, width: Float) {
-        currentView = view
+    init(rootView: UIStackView) {
+        curView = rootView
+        curView.axis = .vertical
+        curView.spacing = 2
+        curView.distribution = .fillEqually
+    }
+    
+    func setColumn(num: Int) {
+        columnNum = num
+    }
+    
+    func add(_ text: String) {
+        if num_of_column == 1 {
+            rowUnit = UIStackView()
+            rowUnit?.axis = .horizontal
+            if num_of_row == 1 { rowUnit?.spacing = 0 }
+            else { rowUnit?.spacing = 2 }
+        }
         
+        let textLabel = UILabel()
+        textLabel.numberOfLines = 0
+        textLabel.font = UIFont.systemFont(ofSize: 13)
+        textLabel.text = text
+        textLabel.textColor = .black
+        if num_of_row == 1 {
+            textLabel.backgroundColor =  darkGray
+            textLabel.textColor = .white
+        }
+        else if num_of_row % 2 == 1 { textLabel.backgroundColor = gray }
+        else { textLabel.backgroundColor = lightGray }
+//        textLabel.frame.size = CGSize(width: 50, height: 50)
+        textLabel.textAlignment = .center
         
+        rowUnit?.addArrangedSubview(textLabel)
         
-        currentView.backgroundColor = .black
-    }
-    
-    
-}
-
-extension UIView {
-    var size: CGSize {
-        get { return self.frame.size }
-        set(newValue) {
-            self.frame.size = CGSize(width: newValue.width, height: newValue.height)
+        num_of_column += 1
+        
+        if num_of_column > columnNum! {
+            rowUnit?.frame = CGRect(x: 0, y: 0, width: curView.frame.size.width, height: 40	)
+            curView.addArrangedSubview(rowUnit!)
+            
+//            let horizonialDivider = UIView(frame: .zero)
+//            horizonialDivider.translatesAutoresizingMaskIntoConstraints = false
+//            horizonialDivider.heightAnchor.constraint(equalToConstant: 2).isActive = true
+//            horizonialDivider.backgroundColor = darkGray
+//            rowUnit?.addArrangedSubview(horizonialDivider)
+            
+            num_of_row += 1
+            num_of_column = 1
         }
     }
-    
-    var x: CGFloat {
-        get { return frame.origin.x }
-        set(newValue) {
-            var tempFrame: CGRect = frame
-            tempFrame.origin.x    = newValue
-            frame                 = tempFrame
-        }
-    }
-    
-    var y: CGFloat {
-        get { return frame.origin.y }
-        set(newValue) {
-            var tempFrame: CGRect = frame
-            tempFrame.origin.y    = newValue
-            frame                 = tempFrame
-        }
-    }
-    
-    var height: CGFloat {
-        get { return frame.size.height }
-        set(newValue) {
-            var tempFrame: CGRect = frame
-            tempFrame.size.height = newValue
-            frame                 = tempFrame
-        }
-    }
-    
-    var width: CGFloat {
-        get { return frame.size.width }
-        set(newValue) {
-            var tempFrame: CGRect = frame
-            tempFrame.size.width  = newValue
-            frame                 = tempFrame
-        }
-    }
-    
-    
 }

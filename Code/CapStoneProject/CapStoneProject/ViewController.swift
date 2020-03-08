@@ -7,39 +7,27 @@
 //
 
 import UIKit
-import TableKit
 
+let testList:[String] = ["债券名称", "起始日期", "期限（日）", "价格（%）", "金额（亿元）", "19凤凰机场CP001", "20190321", "11", "7.30", "10.00", "18海航Y5", "20181125", "36", "7.30", "14.00", "18海航Y4", "20181101", "36", "7.35", "8.00", "18海航Y3", "20181017", "36", "7.45", "15.00", "18海航Y2", "20180925", "36", "7.60", "5.00", "18海航Y1", "20180912", "36", "7.60", "5.00", "17凤凰MTN002", "20171219", "36", "8.00", "5.00"]
 class ViewController: UIViewController {
     
-    @IBOutlet var tableView: UITableView! {
-        didSet {
-            tableDirector = TableDirector(tableView: tableView)
-        }
-    }
     @IBOutlet var stack_productList: UIStackView!
     
-    var tableDirector: TableDirector!
-    
     override func viewDidLoad() {
-        tableView.frame = CGRect(x: 0, y: 0, width: 500, height: 500)
         super.viewDidLoad()
         
-        let row1 = TableRow<StringTableViewCell>(item: "1")
+        let mt = MyTable(rootView: stack_productList)
         
-        tableDirector += row1
-        tableDirector += row1
-        tableDirector += row1
-        tableDirector += row1
-        tableDirector += row1
+        mt.setColumn(num: 5)
+//        mt.setWeight(weight: []	)
         
-        for i in 0...3 {
-            let name = UILabel()
-            name.text = "num:\(i)"
-            name.backgroundColor = .cyan
-            name.textColor = .darkGray
-            name.frame = CGRect(x: 0, y: 0, width: UIScreen.main.bounds.size.width - 16, height: 21)
-            stack_productList.addArrangedSubview(name)
+        for i in 0..<testList.count {
+            mt.add(testList[i])
         }
+        
+//        for _ in 0..<10 {
+//            mt.add(text: "我爱你我爱你我爱你")
+//        }
     }
 }
 

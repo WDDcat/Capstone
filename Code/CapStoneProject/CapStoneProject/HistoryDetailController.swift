@@ -58,6 +58,17 @@ class HistoryDetailController: UITableViewController {
 
 extension HistoryDetailController: HistoryDetailView {
     func initList() {
-        self.tableView.reloadData()
+        if(historyDateList.count == 0){
+            let label = UILabel()
+            label.frame = CGRect(x: 0, y: 0, width: UIScreen.main.bounds.size.width, height: 21)
+            label.backgroundColor = .gray
+            label.textColor = .white
+            label.text = "暂无数据"
+            label.textAlignment = .center
+            tableView.tableFooterView = label
+        }
+        else {
+            self.tableView.reloadData()
+        }
     }
 }

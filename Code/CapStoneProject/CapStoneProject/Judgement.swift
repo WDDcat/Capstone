@@ -7,6 +7,7 @@
 //
 
 import Foundation
+import UIKit
 
 public func isNullOrEmpty(_ str: String) -> Bool {
     if(str == "None" || str == "--" || str == "" || str == "null") {
@@ -50,6 +51,9 @@ public func unitFormat(_ num: String) -> String {
             number = Double(num.replacingOccurrences(of: "%", with: "")) ?? 0.0
             result = String(format: "%.2f", number) + "%"
         }
+        else if num.contains(","){
+            result = date2String(num)
+        }
         else {
             result = num
         }
@@ -62,4 +66,39 @@ public func pointFormat(_ num: String) -> String {
         return String(format: "%.2f", num)
     }
     return "-"
+}
+
+func date2String(_ date: String) -> String {
+    var year: String = ""
+    var month: String = ""
+    var day: String = ""
+    
+    let timeStr: Array<Substring> = date.split(separator: " ")
+    
+    for i in (1..<timeStr.count).reversed() {
+        if i == 1 {
+            day = "\(timeStr[i])"
+        }
+        else if i == 2 {
+            month = "\(timeStr[i])"
+            switch month {
+            case "Jan":
+                month = "1"
+            case "Feb":
+                month = "2"
+            case "Mar":
+                month = "3"
+            case "Apr":
+                month = "4"
+            case "May":
+                month = "5"
+            default:
+                month = ""
+            }
+        }
+        else if i == 3 {
+            year = "\(timeStr[i])"
+        }
+    }
+    return "\(year)年\(month)月\(day)日"
 }

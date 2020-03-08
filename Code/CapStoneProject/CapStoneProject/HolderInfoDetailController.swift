@@ -15,6 +15,7 @@ class HolderInfoDetailController: UIViewController {
 
     var mPresenter = HolderInfoDetailModel()
     
+    @IBOutlet weak var baseScrollView: UIScrollView!
     @IBOutlet weak var label_firstHolder: UILabel!
     @IBOutlet weak var label_hodlerName: UILabel!
     @IBOutlet weak var label_stockList: UILabel!
@@ -25,7 +26,13 @@ class HolderInfoDetailController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         mPresenter.mView = self
+        holderInfoPieChartEntry.removeAll()
         mPresenter.getInfo()
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        self.baseScrollView.contentSize = CGSize(width: self.view.frame.size.width, height: self.view.frame.size.height + 50)
     }
 }
 

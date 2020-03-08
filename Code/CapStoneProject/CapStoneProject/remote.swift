@@ -11,8 +11,9 @@ import Alamofire
 
 public let BASEURL = "http://47.92.50.218:8881/api1/"
 public let header:HTTPHeaders = ["token-id":"a7b2668646dc11e9983300163e02e9cd"]
+private let id = "918551a38b7bb58df883e8df0f156ed4"
 
-private var companyId:String = ""
+private var companyId:String = id
 public func remoteSetCompanyId(id: String) { companyId = id }
 public func remoteGetCompanyId() -> String { return companyId }
 

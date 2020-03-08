@@ -75,10 +75,30 @@ extension FinancialReportController: FinancialReportView {
     
     func setTags(tags: [String]) {
         if tags[0] != "1" { tag_bond.removeFromSuperview() }
+        else {
+            tag_bond.layer.masksToBounds = true
+            tag_bond.layer.cornerRadius = 3
+        }
         if tags[1] != "1" { tag_gov.removeFromSuperview() }
+        else {
+            tag_gov.layer.masksToBounds = true
+            tag_gov.layer.cornerRadius = 3
+        }
         if tags[2] != "1" { tag_listed.removeFromSuperview() }
+        else {
+            tag_listed.layer.masksToBounds = true
+            tag_listed.layer.cornerRadius = 3
+        }
         if tags[3] != "1" { tag_loc.removeFromSuperview() }
+        else {
+            tag_loc.layer.masksToBounds = true
+            tag_loc.layer.cornerRadius = 3
+        }
         if tags[4] != "1" { tag_stateOwned.removeFromSuperview() }
+        else {
+            tag_stateOwned.layer.masksToBounds = true
+            tag_stateOwned.layer.cornerRadius = 3
+        }
         stack_tags.alpha = 1
     }
     //MARK: -公司基本情况
@@ -184,7 +204,6 @@ extension FinancialReportController: FinancialReportView {
                 
                 stack.addArrangedSubview(name)
                 stack.addArrangedSubview(rate)
-                stack.frame = CGRect(x: 0, y: 0, width: UIScreen.main.bounds.size.width - 16, height: 21)
                 stack_locationList.addArrangedSubview(stack)
             }
         }

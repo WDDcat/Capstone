@@ -8,6 +8,10 @@
 
 /* Begin PBXBuildFile section */
 		1EEC75438D2BF77F87FEB59E /* Pods_CapstoneProject.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E96DBE2538AB16B79EA0375F /* Pods_CapstoneProject.framework */; };
+		DD186D372411CF4800BDEBDE /* ProductionManagementDetailContract.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD186D362411CF4800BDEBDE /* ProductionManagementDetailContract.swift */; };
+		DD186D392411CFD600BDEBDE /* ProductionManagementDetailModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD186D382411CFD600BDEBDE /* ProductionManagementDetailModel.swift */; };
+		DD186D3B2411F23900BDEBDE /* ProductionManagementController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD186D3A2411F23900BDEBDE /* ProductionManagementController.swift */; };
+		DD186D3D2413801D00BDEBDE /* MyScrollTable.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD186D3C2413801D00BDEBDE /* MyScrollTable.swift */; };
 		DD397CC8240CB436002E28E1 /* Judgement.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD397CC7240CB436002E28E1 /* Judgement.swift */; };
 		DD397CD1240E39B9002E28E1 /* Credit.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD397CD0240E39B9002E28E1 /* Credit.swift */; };
 		DD397CD4240E78F4002E28E1 /* BaseInfoDetailController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD397CD3240E78F4002E28E1 /* BaseInfoDetailController.swift */; };
@@ -46,12 +50,15 @@
 		DDDB7A3024078A4E0030178A /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = DDDB7A2F24078A4E0030178A /* Assets.xcassets */; };
 		DDDB7A3324078A4E0030178A /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = DDDB7A3124078A4E0030178A /* LaunchScreen.storyboard */; };
 		DDE1541F2410CD97009C65A3 /* MyTable.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDE1541E2410CD97009C65A3 /* MyTable.swift */; };
-		DDE154232410E30B009C65A3 /* UserTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDE154222410E30B009C65A3 /* UserTableViewCell.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		9924FAEE87ED36BFB434EB87 /* Pods-CapstoneProject.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-CapstoneProject.release.xcconfig"; path = "Pods/Target Support Files/Pods-CapstoneProject/Pods-CapstoneProject.release.xcconfig"; sourceTree = "<group>"; };
 		CDD32372810ED8DF38367EE8 /* Pods-CapstoneProject.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-CapstoneProject.debug.xcconfig"; path = "Pods/Target Support Files/Pods-CapstoneProject/Pods-CapstoneProject.debug.xcconfig"; sourceTree = "<group>"; };
+		DD186D362411CF4800BDEBDE /* ProductionManagementDetailContract.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductionManagementDetailContract.swift; sourceTree = "<group>"; };
+		DD186D382411CFD600BDEBDE /* ProductionManagementDetailModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductionManagementDetailModel.swift; sourceTree = "<group>"; };
+		DD186D3A2411F23900BDEBDE /* ProductionManagementController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductionManagementController.swift; sourceTree = "<group>"; };
+		DD186D3C2413801D00BDEBDE /* MyScrollTable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyScrollTable.swift; sourceTree = "<group>"; };
 		DD397CC7240CB436002E28E1 /* Judgement.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Judgement.swift; sourceTree = "<group>"; };
 		DD397CD0240E39B9002E28E1 /* Credit.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Credit.swift; sourceTree = "<group>"; };
 		DD397CD3240E78F4002E28E1 /* BaseInfoDetailController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseInfoDetailController.swift; sourceTree = "<group>"; };
@@ -92,7 +99,6 @@
 		DDDB7A3224078A4E0030178A /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		DDDB7A3424078A4E0030178A /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		DDE1541E2410CD97009C65A3 /* MyTable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyTable.swift; sourceTree = "<group>"; };
-		DDE154222410E30B009C65A3 /* UserTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = UserTableViewCell.swift; path = /Users/shiyuwang/Desktop/Capstone/Code/CapstoneProject/CapstoneProject/UserTableViewCell.swift; sourceTree = "<absolute>"; };
 		E96DBE2538AB16B79EA0375F /* Pods_CapstoneProject.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_CapstoneProject.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
@@ -123,6 +129,16 @@
 				E96DBE2538AB16B79EA0375F /* Pods_CapstoneProject.framework */,
 			);
 			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		DD186D352411CCAB00BDEBDE /* ProductionManagementDetail */ = {
+			isa = PBXGroup;
+			children = (
+				DD186D362411CF4800BDEBDE /* ProductionManagementDetailContract.swift */,
+				DD186D382411CFD600BDEBDE /* ProductionManagementDetailModel.swift */,
+				DD186D3A2411F23900BDEBDE /* ProductionManagementController.swift */,
+			);
+			name = ProductionManagementDetail;
 			sourceTree = "<group>";
 		};
 		DD397CD2240E702F002E28E1 /* BaseInfoDetail */ = {
@@ -208,6 +224,7 @@
 				DD397CEB240F8FFD002E28E1 /* HolderInfoDetail */,
 				DD397CD9240EAA6C002E28E1 /* HistoryDetail */,
 				DD397CE2240F72A5002E28E1 /* ManagerInfoDetail */,
+				DD186D352411CCAB00BDEBDE /* ProductionManagementDetail */,
 			);
 			name = FinancialReport;
 			sourceTree = "<group>";
@@ -252,10 +269,10 @@
 				DDDB7A2824078A4B0030178A /* SceneDelegate.swift */,
 				DDDB7A3424078A4E0030178A /* Info.plist */,
 				DDE1541E2410CD97009C65A3 /* MyTable.swift */,
+				DD186D3C2413801D00BDEBDE /* MyScrollTable.swift */,
 				DD397CD0240E39B9002E28E1 /* Credit.swift */,
 				DD397CC7240CB436002E28E1 /* Judgement.swift */,
 				DDDB7A2A24078A4B0030178A /* ViewController.swift */,
-				DDE154222410E30B009C65A3 /* UserTableViewCell.swift */,
 			);
 			path = CapstoneProject;
 			sourceTree = "<group>";
@@ -368,7 +385,6 @@
 				"${BUILT_PRODUCTS_DIR}/Charts/Charts.framework",
 				"${BUILT_PRODUCTS_DIR}/SVProgressHUD/SVProgressHUD.framework",
 				"${BUILT_PRODUCTS_DIR}/SwiftyJSON/SwiftyJSON.framework",
-				"${BUILT_PRODUCTS_DIR}/TableKit/TableKit.framework",
 			);
 			name = "[CP] Embed Pods Frameworks";
 			outputPaths = (
@@ -376,7 +392,6 @@
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Charts.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SVProgressHUD.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SwiftyJSON.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/TableKit.framework",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
@@ -398,6 +413,7 @@
 				DD397CE8240F73E7002E28E1 /* ManagerInfoDetailModel.swift in Sources */,
 				DD397CF32410130B002E28E1 /* PercentFormatter.swift in Sources */,
 				DD397CC8240CB436002E28E1 /* Judgement.swift in Sources */,
+				DD186D3D2413801D00BDEBDE /* MyScrollTable.swift in Sources */,
 				DD397CE6240F72E9002E28E1 /* ManagerInfoDetailController.swift in Sources */,
 				DDA905F2240BB40100D113C5 /* FinancialReportController.swift in Sources */,
 				DDA905F7240BE8BB00D113C5 /* FinancialReportModel.swift in Sources */,
@@ -410,7 +426,10 @@
 				DD397CDF240EB293002E28E1 /* HistoryDetailContract.swift in Sources */,
 				DD397CD4240E78F4002E28E1 /* BaseInfoDetailController.swift in Sources */,
 				DD397CEA240F73F9002E28E1 /* managerInfoDetailContract.swift in Sources */,
+				DD186D392411CFD600BDEBDE /* ProductionManagementDetailModel.swift in Sources */,
 				DD397CD6240E7A3D002E28E1 /* BaseInfoDetailContract.swift in Sources */,
+				DD186D372411CF4800BDEBDE /* ProductionManagementDetailContract.swift in Sources */,
+				DD186D3B2411F23900BDEBDE /* ProductionManagementController.swift in Sources */,
 				DDE1541F2410CD97009C65A3 /* MyTable.swift in Sources */,
 				DDA905ED240B9B1E00D113C5 /* CompanyDetailController.swift in Sources */,
 				DDA905EB240B9AD300D113C5 /* CompanyDetailModel.swift in Sources */,
@@ -418,7 +437,6 @@
 				DDA905EF240BA43800D113C5 /* remote.swift in Sources */,
 				DD397CED240F9B62002E28E1 /* HolderInfoDetailController.swift in Sources */,
 				DD397CD8240E7CB2002E28E1 /* BaseInfoDetailModel.swift in Sources */,
-				DDE154232410E30B009C65A3 /* UserTableViewCell.swift in Sources */,
 				DDDB7A2724078A4B0030178A /* AppDelegate.swift in Sources */,
 				DD73FA8D24080F2A00469726 /* CompanyItemCell.swift in Sources */,
 				DD397CE1240EB49A002E28E1 /* HistoryDetailModel.swift in Sources */,

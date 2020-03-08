@@ -41,7 +41,7 @@ class ManagerInfoDetailController: UITableViewController {
 
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "managerInfoItem", for: indexPath) as! ManagerInfoDetailCell
-
+        
         cell.label_managerName.text = ManagerInfoNameList[indexPath.row]
         cell.label_position.text = ManagerInfoPositionList[indexPath.row]
         cell.label_introductionInfo.text = ManagerInfoIntroductionList[indexPath.row]
