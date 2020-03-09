@@ -25,16 +25,8 @@ class ProductionManagementController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         mPresenter.mView = self
-        
         mPresenter.getInfo()
     }
-    
-    override func viewWillAppear(_ animated: Bool) {
-        super.viewWillAppear(animated)
-        (stack_productTable.superview as! UIScrollView).contentSize = CGSize(width: stack_productTable.frame.size.width + 20, height: stack_productTable.frame.size.height)
-        (stack_areaTable.superview as! UIScrollView).contentSize = CGSize(width: stack_areaTable.frame.size.width + 20, height: stack_areaTable.frame.size.height)
-    }
-
 }
 
 extension ProductionManagementController: ProductionManagementDetailView {
@@ -46,20 +38,18 @@ extension ProductionManagementController: ProductionManagementDetailView {
     }
     
     func setProductTable() {
-        let mst = MyScrollTable(rootView: stack_productTable)
+        let mst = MyScrollTable(rootView: stack_productTable.superview as! UIScrollView)
         for i in 0..<productionManagementProductList.count {
             mst.add(unitFormat(productionManagementProductList[i]))
         }
         mst.finish(content: view_productContent)
-        viewWillAppear(true)
     }
     
     func setAreaTable() {
-        let mst = MyScrollTable(rootView: stack_areaTable)
+        let mst = MyScrollTable(rootView: stack_areaTable.superview as! UIScrollView)
         for i in 0..<productionManagementAreaList.count {
             mst.add(unitFormat(productionManagementAreaList[i]))
         }
         mst.finish(content: view_areaContent)
-        viewWillAppear(true)
     }
 }

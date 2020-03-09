@@ -14,20 +14,22 @@ private let lightGray: UIColor = UIColor(red: 230/255, green: 230/255, blue: 230
 
 class MyScrollTable {
     
-//    private var rootView: UIScrollView?
+    private var rootView: UIScrollView
     private var curView: UIStackView
     private var rowNum: Int
     private var columnUnit: UIStackView?
     private var num_of_row = 1
     private var num_of_column = 1
         
-    init(rootView: UIStackView) {
-//        self.rootView = rootView
-        curView = rootView
+    init(rootView: UIScrollView) {
+        self.rootView = rootView
+        curView = UIStackView()
         curView.axis = .horizontal
         curView.spacing = 2
         curView.distribution = .fillEqually
         rowNum = 10
+        num_of_row = 1
+        num_of_column = 1
     }
     
     func add(_ text: String) {
@@ -60,17 +62,8 @@ class MyScrollTable {
     }
     
     func finish(content: UIView) {
-        curView.frame.size = CGSize(width: num_of_column*40+(num_of_column-1)*2, height: num_of_row*40+(num_of_row-1)*2)
-        content.frame.size = CGSize(width: num_of_column*40+(num_of_column-1)*2, height: num_of_row*40+(num_of_row-1)*2)
-        
-        (curView.superview as! UIScrollView).contentSize = CGSize(width: curView.frame.size.width + 20, height: curView.frame.size.height)
+        curView.frame.size = CGSize(width: num_of_column*100+(num_of_column-1)*2, height: rowNum*40+(rowNum-1)*2)
+        rootView.addSubview(curView)
+        (curView.superview as! UIScrollView).contentSize = curView.frame.size
     }
-
-
-//        print(stack.frame.width)
-//        stack_list.frame = CGRect(x: 0, y: 0, width: 6*40+5*2, height: 418)
-//        sv_list.addSubview(stack_list)
-//        print(stack_list.frame.size.width)
-//        sv_list.contentSize = CGSize(width: sv_list.frame.size.width + 20, height: stack_list.frame.size.height)
-//    }
 }
