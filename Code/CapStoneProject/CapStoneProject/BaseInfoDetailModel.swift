@@ -15,7 +15,7 @@ class BaseInfoDetailModel: BaseInfoDetailPresent {
     var mView: BaseInfoDetailView?
     
     func getInfo(){
-        let param:[String:Any] = ["c_id": remoteGetCompanyId()]          //海南航空：10 海南：2230 A:133
+        let param:[String:Any] = ["c_id": remoteGetCompanyId()]
         Alamofire.request(URL(string :"\(BASEURL)baseinfo")!, parameters: param, headers: header)
             .responseJSON { response in
                 switch response.result.isSuccess{
@@ -43,7 +43,7 @@ class BaseInfoDetailModel: BaseInfoDetailPresent {
                         self.mView?.setListedInfo(list: shareList)
                         
                         if (json["money"].double ?? -1) != -1 {
-                            self.mView?.setResgisteredCapital(capital: unitFormat(String((json["money"].int ?? 0) / 10000)))
+                            self.mView?.setResgisteredCapital(capital: unitFormat(Double(json["money"].int ?? 0) / 10000))
                         } else {
                             self.mView?.setResgisteredCapital(capital: "暂无数据")
                         }

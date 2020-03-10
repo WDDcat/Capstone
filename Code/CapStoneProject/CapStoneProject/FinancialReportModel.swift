@@ -39,7 +39,7 @@ class FinancialReportModel: FinancialReportPresent {
                         self.mView?.setgroupName(name: notNull(json["group_name"].string ?? ""))
                         self.mView?.setLegalPerson(name: notNull(json["legal_name"].string ?? ""))
                         //MARK: -股东信息
-                        self.mView?.setShareHolder(company: notNull(json["first_holder_name"].string ?? ""), percent: json["first_holder_rate"].float ?? -1)
+                        self.mView?.setShareHolder(company: notNull(json["first_holder_name"].string ?? ""), percent: unitFormat(json["first_holder_rate"].double ?? 0))
                         //MARK: -历史沿革
                         self.mView?.setHistory(paragraph: notNull(json["estab_date"].string ?? ""))
                         //MARK: -高管信息
@@ -96,13 +96,13 @@ class FinancialReportModel: FinancialReportPresent {
                             businessString += "该公司暂无生产经营情况。"
                         }
                         else {
-                            businessString += "\(businessJSON["year"])实现营业额\(unitFormat(String(businessJSON["operate_rev"].double ?? 0)))元人民币，同比"
+                            businessString += "\(businessJSON["year"])实现营业额\(unitFormat(businessJSON["operate_rev"].double ?? 0))元人民币，同比"
                             if (businessJSON["operate_rev_YOY"].string ?? "").contains("-") {
                                 businessString += "减少\(((businessJSON["operate_rev_YOY"].string ?? "-") as NSString).substring(from: 1))；"
                             } else {
                                 businessString += "增加\(businessJSON["operate_rev_YOY"])；"
                             }
-                            businessString += "实现了利润总额\(unitFormat(String(businessJSON["profit"].double ?? 0)))元人民币，同比"
+                            businessString += "实现了利润总额\(unitFormat(businessJSON["profit"].double ?? 0))元人民币，同比"
                             if (businessJSON["profit_YOY"].string ?? "").contains("-") {
                                 businessString += "减少\(((businessJSON["profit_YOY"].string ?? "-") as NSString).substring(from: 1))。"
                             } else {
@@ -136,20 +136,20 @@ class FinancialReportModel: FinancialReportPresent {
                         if(!isNullOrEmpty(financialJSON["year"].string ?? "")) {
                             if (json["is_a_h"].int ?? 0) == 1 {
                                 financingStateString += "截止\(financialJSON["year"])，"
-                                financingStateString += "公司总资产\(unitFormat(String(financialJSON["sum_asset"].double ?? 0)))元，"
-                                financingStateString += "总负债\(unitFormat(String(financialJSON["sum_debt"].double ?? 0)))元，"
-                                financingStateString += "所有者权益\(unitFormat(String(financialJSON["sum_owners_equity"].double ?? 0)))元"
+                                financingStateString += "公司总资产\(unitFormat(financialJSON["sum_asset"].double ?? 0))元，"
+                                financingStateString += "总负债\(unitFormat(financialJSON["sum_debt"].double ?? 0))元，"
+                                financingStateString += "所有者权益\(unitFormat(financialJSON["sum_owners_equity"].double ?? 0))元"
                                 financingStateString += "资产负债率\(financialJSON["asset_debt_ratio"])。"
                                 
                                 financingStateString += financialJSON["year"].string ?? ""
-                                financingStateString += "实现营业额收入\(unitFormat(String(financialJSON["operate_rev"].double ?? 0)))元，"
+                                financingStateString += "实现营业额收入\(unitFormat(financialJSON["operate_rev"].double ?? 0))元，"
                                 if (financialJSON["operate_rev_YOY"].string ?? "").contains("-") {
                                     financingStateString += "同比减少\(((financialJSON["operate_rev_YOY"].string ?? "-") as NSString).substring(from: 1))，"
                                 } else {
                                     financingStateString += "同比增长\(financialJSON["operate_rev_YOY"])，"
                                 }
                                 
-                                financingStateString += "实现净润\(unitFormat(String(financialJSON["net_profit"].double ?? 0)))元，"
+                                financingStateString += "实现净润\(unitFormat(financialJSON["net_profit"].double ?? 0))元，"
                                 if (financialJSON["net_profit_YOY"].string ?? "").contains("-") {
                                     financingStateString += "同比减少\(((financialJSON["net_profit_YOY"].string ?? "-") as NSString).substring(from: 1))。"
                                 } else {
@@ -210,9 +210,9 @@ class FinancialReportModel: FinancialReportPresent {
                                 financingString += "用信\(unitFormat(credit.getUsed()))亿元。"
                             }
                             if json["debt"]["last"].count != 0 {
-                                financingString += "根据公开信息显示，该企业存量债券\(unitFormat(String(json["bond_total"]["total"].double ?? 0)))亿元，"
-                                financingString += "短期借款\(unitFormat(String(json["debt"]["last"][1].int ?? 0)))元，"
-                                financingString += "长期借款\(unitFormat(String(json["debt"]["last"][4].int ?? 0)))元。"
+                                financingString += "根据公开信息显示，该企业存量债券\(unitFormat(json["bond_total"]["total"].double ?? 0))亿元，"
+                                financingString += "短期借款\(unitFormat(json["debt"]["last"][1].int ?? 0))元，"
+                                financingString += "长期借款\(unitFormat(json["debt"]["last"][4].int ?? 0))元。"
                                 
                             }
                         } else {

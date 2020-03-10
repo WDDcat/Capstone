@@ -37,9 +37,16 @@ class FinancialReportController: UIViewController {
     @IBOutlet var stack_productList: UIStackView!
     @IBOutlet var stack_locationList: UIStackView!
     //MARK: -财务情况
+    @IBOutlet weak var tag_financingInfo: UILabel!
     @IBOutlet weak var label_financingInfo: UILabel!
     //MARK: -融资情况
     @IBOutlet weak var label_rasingInfo: UILabel!
+    //MARK: -PDF
+    @IBOutlet weak var btn_PDFCreate: UIButton!
+    
+    @IBAction func btn_detail(_ sender: Any) {
+        
+    }
     
     var defaultBackgroundImage: UIImage?
     var defaultShadowImage: UIImage?
@@ -50,6 +57,7 @@ class FinancialReportController: UIViewController {
         stack_tags.alpha = 0
         self.setCompanyName(name: remoteGetCompanyName())
         mPresenter.getInfo()
+        view.isUserInteractionEnabled = true
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -62,6 +70,10 @@ class FinancialReportController: UIViewController {
         self.navigationController?.navigationBar.setBackgroundImage(nil, for: UIBarMetrics.default)
         self.navigationController?.navigationBar.shadowImage = nil
         self.navigationController?.navigationBar.isTranslucent = true
+    }
+    
+    override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
+        
     }
 }
 
@@ -112,11 +124,10 @@ extension FinancialReportController: FinancialReportView {
         label_legalPerson.backgroundColor = .systemBackground
     }
     //MARK: -股东信息
-    func setShareHolder(company: String, percent: Float) {
+    func setShareHolder(company: String, percent: String) {
         label_stockHolder.text = company
         label_stockHolder.backgroundColor = .systemBackground
-        if percent == -1 { label_stockHolderPercent.text = "-" }
-        else { label_stockHolderPercent.text = "\(percent)%" }
+        label_stockHolderPercent.text = "\(percent)%"
         
         label_stockHolderPercent.backgroundColor = .systemBackground
     }
@@ -142,7 +153,7 @@ extension FinancialReportController: FinancialReportView {
     }
     
     func setProductList(productList: [[String]] ) {
-        if productList.count > 0{
+        if productList.count > 0 {
             stack_productList.superview!.addConstraint(NSLayoutConstraint(item: stack_productList, attribute: .top, relatedBy: .equal, toItem: label_businessInfo, attribute: .bottom, multiplier: 1.0, constant: 20))
             
             let title = UILabel()
@@ -173,7 +184,7 @@ extension FinancialReportController: FinancialReportView {
             }
         }
         else {
-            stack_productList.superview!.addConstraint(NSLayoutConstraint(item: stack_productList, attribute: .top, relatedBy: .equal, toItem: label_businessInfo, attribute: .bottom, multiplier: 1.0, constant: 0))
+            stack_productList.superview!.addConstraint(NSLayoutConstraint(item: stack_locationList, attribute: .top, relatedBy: .equal, toItem: label_businessInfo, attribute: .bottom, multiplier: 1.0, constant: 20))
         }
     }
     
@@ -208,7 +219,12 @@ extension FinancialReportController: FinancialReportView {
             }
         }
         else {
-            stack_locationList.superview!.addConstraint(NSLayoutConstraint(item: stack_locationList, attribute: .top, relatedBy: .equal, toItem: stack_productList, attribute: .bottom, multiplier: 1.0, constant: 0))
+//            if productList.count > 0 {
+                stack_locationList.superview!.addConstraint(NSLayoutConstraint(item: tag_financingInfo, attribute: .top, relatedBy: .equal, toItem: stack_productList, attribute: .bottom, multiplier: 1, constant: 20))
+//            }
+//            else {
+                
+//            }
         }
     }
     //MARK: -财务情况
@@ -220,5 +236,8 @@ extension FinancialReportController: FinancialReportView {
     func setRaisingInfo(paragraph: String) {
         label_rasingInfo.text = paragraph
         label_rasingInfo.backgroundColor = .systemBackground
+        print(btn_PDFCreate.frame)
+        print(btn_PDFCreate.superview!.frame)
+        btn_PDFCreate.superview!.frame.size = CGSize(width: btn_PDFCreate.superview!.frame.size.width, height: btn_PDFCreate.superview!.frame.size.height + 200)
     }
 }

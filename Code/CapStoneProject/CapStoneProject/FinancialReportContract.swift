@@ -13,7 +13,7 @@ protocol FinancialReportView {
     func setTags(tags:[String])
     func setgroupName(name: String)
     func setLegalPerson(name: String)
-    func setShareHolder(company: String, percent: Float)
+    func setShareHolder(company: String, percent: String)
     func setHistory(paragraph: String)
     func setManager(names: String)
     func setBusinessInfo(paragraph: String)

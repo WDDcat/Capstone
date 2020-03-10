@@ -15,7 +15,7 @@ class ProductionManagementDetailModel: ProductionManagementDetailPresent {
     var mView: ProductionManagementDetailView?
     
     func getInfo() {
-        let param:[String:Any] = ["c_id": remoteGetCompanyId()]          //海南航空：10 海南：2230 A:133
+        let param:[String:Any] = ["c_id": remoteGetCompanyId()]
         Alamofire.request(URL(string :"\(BASEURL)business")!, parameters: param, headers: header)
             .responseJSON { response in
                 switch response.result.isSuccess{
@@ -39,7 +39,7 @@ class ProductionManagementDetailModel: ProductionManagementDetailPresent {
                             }
                             businessString += "等几个板块。"
                             if (json["operate_rev"].int ?? 0) != 0 {
-                                businessString += "\(json["year"])年实现营业额\(unitFormat(String(json["operate_rev"].int ?? 0)))元人民币，"
+                                businessString += "\(json["year"])年实现营业额\(unitFormat(json["operate_rev"].int ?? 0))元人民币，"
                             }
                             if (json["operate_rev_YOY"].string ?? "") != "" {
                                 if (json["operate_rev_YOY"].string ?? "").contains("-") {
@@ -47,7 +47,7 @@ class ProductionManagementDetailModel: ProductionManagementDetailPresent {
                                 } else {
                                     businessString += "同比增长\(json["operate_rev_YOY"])；"
                                 }
-                                businessString += "实现了总利润额\(unitFormat(String(json["profit"].int ?? 0)))元人民币，"
+                                businessString += "实现了总利润额\(unitFormat(json["profit"].int ?? 0))元人民币，"
                             }
                             if (json["profit_YOY"].string ?? "") != "" {
                                 if (json["profit_YOY"].string ?? "").contains("-") {
