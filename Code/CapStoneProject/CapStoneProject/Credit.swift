@@ -27,7 +27,7 @@ public class Credit {
     
     func getCurrency() -> String { return self.currency }
     
-    func getUsed() -> String { return self.unused }
+    func getUsed() -> String { return self.used }
     
     func getAmont() -> String { return self.amount }
     

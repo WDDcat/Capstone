@@ -23,6 +23,24 @@ public func notNull(_ str: String) -> String {
     return str
 }
 
+public func unitFormat(_ num: Int) -> String {
+    if num == 0 {
+       return "-"
+    }
+    else {
+        return unitFormat(String(num))
+    }
+}
+
+public func unitFormat(_ num: Double) -> String {
+    if num == 0 {
+       return "-"
+    }
+    else {
+        return unitFormat(String(num))
+    }
+}
+
 public func unitFormat(_ num: String) -> String {
     var number: Double
     var result: String = ""

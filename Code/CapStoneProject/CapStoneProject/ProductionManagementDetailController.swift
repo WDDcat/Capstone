@@ -11,7 +11,7 @@ import UIKit
 var productionManagementProductList: [String] = []
 var productionManagementAreaList: [String] = []
 
-class ProductionManagementController: UIViewController {
+class ProductionManagementDetailController: UIViewController {
 
     var mPresenter = ProductionManagementDetailModel()
     
@@ -29,7 +29,7 @@ class ProductionManagementController: UIViewController {
     }
 }
 
-extension ProductionManagementController: ProductionManagementDetailView {
+extension ProductionManagementDetailController: ProductionManagementDetailView {
     func setBusinessInfo(businessInfo: String) {
         label_productionManagementInfo.text = businessInfo
         label_productionManagementInfo.backgroundColor = .systemBackground

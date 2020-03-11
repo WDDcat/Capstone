@@ -10,8 +10,14 @@
 		1EEC75438D2BF77F87FEB59E /* Pods_CapstoneProject.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E96DBE2538AB16B79EA0375F /* Pods_CapstoneProject.framework */; };
 		DD186D372411CF4800BDEBDE /* ProductionManagementDetailContract.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD186D362411CF4800BDEBDE /* ProductionManagementDetailContract.swift */; };
 		DD186D392411CFD600BDEBDE /* ProductionManagementDetailModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD186D382411CFD600BDEBDE /* ProductionManagementDetailModel.swift */; };
-		DD186D3B2411F23900BDEBDE /* ProductionManagementController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD186D3A2411F23900BDEBDE /* ProductionManagementController.swift */; };
+		DD186D3B2411F23900BDEBDE /* ProductionManagementDetailController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD186D3A2411F23900BDEBDE /* ProductionManagementDetailController.swift */; };
 		DD186D3D2413801D00BDEBDE /* MyScrollTable.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD186D3C2413801D00BDEBDE /* MyScrollTable.swift */; };
+		DD186D412416932700BDEBDE /* FinancingInfoDetailModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD186D402416932700BDEBDE /* FinancingInfoDetailModel.swift */; };
+		DD186D432416944300BDEBDE /* FinancingInfoDetailContract.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD186D422416944300BDEBDE /* FinancingInfoDetailContract.swift */; };
+		DD186D452416966100BDEBDE /* CapitalRaisingInfoDetailModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD186D442416966100BDEBDE /* CapitalRaisingInfoDetailModel.swift */; };
+		DD186D4724169E4A00BDEBDE /* FinancingInfoDetailController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD186D4624169E4A00BDEBDE /* FinancingInfoDetailController.swift */; };
+		DD186D492418A90A00BDEBDE /* CapitalRaisingInfoDetailController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD186D482418A90A00BDEBDE /* CapitalRaisingInfoDetailController.swift */; };
+		DD186D4B2418A92A00BDEBDE /* CapitalRaisingInfoDetailContract.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD186D4A2418A92A00BDEBDE /* CapitalRaisingInfoDetailContract.swift */; };
 		DD397CC8240CB436002E28E1 /* Judgement.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD397CC7240CB436002E28E1 /* Judgement.swift */; };
 		DD397CD1240E39B9002E28E1 /* Credit.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD397CD0240E39B9002E28E1 /* Credit.swift */; };
 		DD397CD4240E78F4002E28E1 /* BaseInfoDetailController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD397CD3240E78F4002E28E1 /* BaseInfoDetailController.swift */; };
@@ -57,8 +63,14 @@
 		CDD32372810ED8DF38367EE8 /* Pods-CapstoneProject.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-CapstoneProject.debug.xcconfig"; path = "Pods/Target Support Files/Pods-CapstoneProject/Pods-CapstoneProject.debug.xcconfig"; sourceTree = "<group>"; };
 		DD186D362411CF4800BDEBDE /* ProductionManagementDetailContract.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductionManagementDetailContract.swift; sourceTree = "<group>"; };
 		DD186D382411CFD600BDEBDE /* ProductionManagementDetailModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductionManagementDetailModel.swift; sourceTree = "<group>"; };
-		DD186D3A2411F23900BDEBDE /* ProductionManagementController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductionManagementController.swift; sourceTree = "<group>"; };
+		DD186D3A2411F23900BDEBDE /* ProductionManagementDetailController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductionManagementDetailController.swift; sourceTree = "<group>"; };
 		DD186D3C2413801D00BDEBDE /* MyScrollTable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyScrollTable.swift; sourceTree = "<group>"; };
+		DD186D402416932700BDEBDE /* FinancingInfoDetailModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FinancingInfoDetailModel.swift; sourceTree = "<group>"; };
+		DD186D422416944300BDEBDE /* FinancingInfoDetailContract.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = FinancingInfoDetailContract.swift; path = /Users/shiyuwang/Desktop/Capstone/Code/CapstoneProject/CapstoneProject/FinancingInfoDetailContract.swift; sourceTree = "<absolute>"; };
+		DD186D442416966100BDEBDE /* CapitalRaisingInfoDetailModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CapitalRaisingInfoDetailModel.swift; sourceTree = "<group>"; };
+		DD186D4624169E4A00BDEBDE /* FinancingInfoDetailController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FinancingInfoDetailController.swift; sourceTree = "<group>"; };
+		DD186D482418A90A00BDEBDE /* CapitalRaisingInfoDetailController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CapitalRaisingInfoDetailController.swift; sourceTree = "<group>"; };
+		DD186D4A2418A92A00BDEBDE /* CapitalRaisingInfoDetailContract.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CapitalRaisingInfoDetailContract.swift; sourceTree = "<group>"; };
 		DD397CC7240CB436002E28E1 /* Judgement.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Judgement.swift; sourceTree = "<group>"; };
 		DD397CD0240E39B9002E28E1 /* Credit.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Credit.swift; sourceTree = "<group>"; };
 		DD397CD3240E78F4002E28E1 /* BaseInfoDetailController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseInfoDetailController.swift; sourceTree = "<group>"; };
@@ -136,9 +148,29 @@
 			children = (
 				DD186D362411CF4800BDEBDE /* ProductionManagementDetailContract.swift */,
 				DD186D382411CFD600BDEBDE /* ProductionManagementDetailModel.swift */,
-				DD186D3A2411F23900BDEBDE /* ProductionManagementController.swift */,
+				DD186D3A2411F23900BDEBDE /* ProductionManagementDetailController.swift */,
 			);
 			name = ProductionManagementDetail;
+			sourceTree = "<group>";
+		};
+		DD186D3E24168F9000BDEBDE /* FinancingInfoDetail */ = {
+			isa = PBXGroup;
+			children = (
+				DD186D422416944300BDEBDE /* FinancingInfoDetailContract.swift */,
+				DD186D402416932700BDEBDE /* FinancingInfoDetailModel.swift */,
+				DD186D4624169E4A00BDEBDE /* FinancingInfoDetailController.swift */,
+			);
+			name = FinancingInfoDetail;
+			sourceTree = "<group>";
+		};
+		DD186D3F24168FA100BDEBDE /* CapitalRaisingInfoDetail */ = {
+			isa = PBXGroup;
+			children = (
+				DD186D4A2418A92A00BDEBDE /* CapitalRaisingInfoDetailContract.swift */,
+				DD186D442416966100BDEBDE /* CapitalRaisingInfoDetailModel.swift */,
+				DD186D482418A90A00BDEBDE /* CapitalRaisingInfoDetailController.swift */,
+			);
+			name = CapitalRaisingInfoDetail;
 			sourceTree = "<group>";
 		};
 		DD397CD2240E702F002E28E1 /* BaseInfoDetail */ = {
@@ -225,6 +257,8 @@
 				DD397CD9240EAA6C002E28E1 /* HistoryDetail */,
 				DD397CE2240F72A5002E28E1 /* ManagerInfoDetail */,
 				DD186D352411CCAB00BDEBDE /* ProductionManagementDetail */,
+				DD186D3E24168F9000BDEBDE /* FinancingInfoDetail */,
+				DD186D3F24168FA100BDEBDE /* CapitalRaisingInfoDetail */,
 			);
 			name = FinancialReport;
 			sourceTree = "<group>";
@@ -429,15 +463,21 @@
 				DD186D392411CFD600BDEBDE /* ProductionManagementDetailModel.swift in Sources */,
 				DD397CD6240E7A3D002E28E1 /* BaseInfoDetailContract.swift in Sources */,
 				DD186D372411CF4800BDEBDE /* ProductionManagementDetailContract.swift in Sources */,
-				DD186D3B2411F23900BDEBDE /* ProductionManagementController.swift in Sources */,
+				DD186D432416944300BDEBDE /* FinancingInfoDetailContract.swift in Sources */,
+				DD186D452416966100BDEBDE /* CapitalRaisingInfoDetailModel.swift in Sources */,
+				DD186D3B2411F23900BDEBDE /* ProductionManagementDetailController.swift in Sources */,
 				DDE1541F2410CD97009C65A3 /* MyTable.swift in Sources */,
 				DDA905ED240B9B1E00D113C5 /* CompanyDetailController.swift in Sources */,
 				DDA905EB240B9AD300D113C5 /* CompanyDetailModel.swift in Sources */,
 				DD73FA8B24080F1400469726 /* SearchCompanyController.swift in Sources */,
 				DDA905EF240BA43800D113C5 /* remote.swift in Sources */,
+				DD186D412416932700BDEBDE /* FinancingInfoDetailModel.swift in Sources */,
+				DD186D4B2418A92A00BDEBDE /* CapitalRaisingInfoDetailContract.swift in Sources */,
 				DD397CED240F9B62002E28E1 /* HolderInfoDetailController.swift in Sources */,
+				DD186D4724169E4A00BDEBDE /* FinancingInfoDetailController.swift in Sources */,
 				DD397CD8240E7CB2002E28E1 /* BaseInfoDetailModel.swift in Sources */,
 				DDDB7A2724078A4B0030178A /* AppDelegate.swift in Sources */,
+				DD186D492418A90A00BDEBDE /* CapitalRaisingInfoDetailController.swift in Sources */,
 				DD73FA8D24080F2A00469726 /* CompanyItemCell.swift in Sources */,
 				DD397CE1240EB49A002E28E1 /* HistoryDetailModel.swift in Sources */,
 				DD397CF1240F9C2A002E28E1 /* HolderInfoDetailContract.swift in Sources */,

@@ -2,6 +2,9 @@
 <Workspace
    version = "1.0">
    <FileRef
+      location = "group:/Users/shiyuwang/Desktop/Capstone/Code/CapstoneProject/CapstoneProject/FinancingInfoDetailContract.swift">
+   </FileRef>
+   <FileRef
       location = "group:CapstoneProject.xcodeproj">
    </FileRef>
    <FileRef

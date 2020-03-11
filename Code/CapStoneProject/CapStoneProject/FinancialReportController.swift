@@ -8,11 +8,15 @@
 
 import UIKit
 
+var financialReportProductList: [[String]] = []
+var financialReportLocationList: [[String]] = []
+
 class FinancialReportController: UIViewController {
 
     var mPresenter = FinancialReportModel()
     
     @IBOutlet weak var scrollView: UIScrollView!
+    @IBOutlet weak var contentView: UIView!
     // MARK: -标题栏
     @IBOutlet weak var label_companyNameTitle: UILabel!
     @IBOutlet weak var stack_tags: UIStackView!
@@ -34,12 +38,18 @@ class FinancialReportController: UIViewController {
     @IBOutlet weak var label_managers: UILabel!
     //MARK: -生产经营情况
     @IBOutlet weak var label_businessInfo: UILabel!
-    @IBOutlet var stack_productList: UIStackView!
-    @IBOutlet var stack_locationList: UIStackView!
+    @IBOutlet weak var stack_productList: UIStackView!
+    @IBOutlet weak var stack_locationList: UIStackView!
     //MARK: -财务情况
+    @IBOutlet weak var tag_financingInfo: UILabel!
     @IBOutlet weak var label_financingInfo: UILabel!
     //MARK: -融资情况
     @IBOutlet weak var label_rasingInfo: UILabel!
+    //MARK: -PDF
+    @IBOutlet weak var btn_PDFCreate: UIButton!
+    @IBOutlet weak var btn_detailBusiness: UIButton!
+    @IBOutlet weak var btn_detailFinancial: UIButton!
+    
     
     var defaultBackgroundImage: UIImage?
     var defaultShadowImage: UIImage?
@@ -50,6 +60,7 @@ class FinancialReportController: UIViewController {
         stack_tags.alpha = 0
         self.setCompanyName(name: remoteGetCompanyName())
         mPresenter.getInfo()
+        view.isUserInteractionEnabled = true
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -62,6 +73,10 @@ class FinancialReportController: UIViewController {
         self.navigationController?.navigationBar.setBackgroundImage(nil, for: UIBarMetrics.default)
         self.navigationController?.navigationBar.shadowImage = nil
         self.navigationController?.navigationBar.isTranslucent = true
+    }
+    
+    override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
+        
     }
 }
 
@@ -112,11 +127,10 @@ extension FinancialReportController: FinancialReportView {
         label_legalPerson.backgroundColor = .systemBackground
     }
     //MARK: -股东信息
-    func setShareHolder(company: String, percent: Float) {
+    func setShareHolder(company: String, percent: String) {
         label_stockHolder.text = company
         label_stockHolder.backgroundColor = .systemBackground
-        if percent == -1 { label_stockHolderPercent.text = "-" }
-        else { label_stockHolderPercent.text = "\(percent)%" }
+        label_stockHolderPercent.text = "\(percent)%"
         
         label_stockHolderPercent.backgroundColor = .systemBackground
     }
@@ -141,8 +155,8 @@ extension FinancialReportController: FinancialReportView {
         label_businessInfo.backgroundColor = .systemBackground
     }
     
-    func setProductList(productList: [[String]] ) {
-        if productList.count > 0{
+    func setProductList() {
+        if financialReportProductList.count > 0 {
             stack_productList.superview!.addConstraint(NSLayoutConstraint(item: stack_productList, attribute: .top, relatedBy: .equal, toItem: label_businessInfo, attribute: .bottom, multiplier: 1.0, constant: 20))
             
             let title = UILabel()
@@ -152,17 +166,17 @@ extension FinancialReportController: FinancialReportView {
             title.textColor = .white
             stack_productList.addArrangedSubview(title)
             
-            for i in 0...(productList.count - 1) {
+            for i in 0...(financialReportProductList.count - 1) {
                 let stack = UIStackView()
                 stack.axis = .horizontal
                 
                 let name = UILabel()
-                name.text = "\(productList[i][0])"
+                name.text = "\(financialReportProductList[i][0])"
                 name.backgroundColor = UIColor(red: 0.86, green: 0.86, blue: 0.86, alpha: 1)
                 name.textColor = .darkGray
                 
                 let rate = UILabel()
-                rate.text = "\(productList[i][1])"
+                rate.text = "\(financialReportProductList[i][1])"
                 rate.backgroundColor = UIColor(red: 0.86, green: 0.86, blue: 0.86, alpha: 1)
                 rate.textColor = .darkGray
                 
@@ -173,12 +187,12 @@ extension FinancialReportController: FinancialReportView {
             }
         }
         else {
-            stack_productList.superview!.addConstraint(NSLayoutConstraint(item: stack_productList, attribute: .top, relatedBy: .equal, toItem: label_businessInfo, attribute: .bottom, multiplier: 1.0, constant: 0))
+            stack_productList.superview!.addConstraint(NSLayoutConstraint(item: stack_locationList, attribute: .top, relatedBy: .equal, toItem: label_businessInfo, attribute: .bottom, multiplier: 1.0, constant: 20))
         }
     }
     
-    func setLocationList(locationList: [[String]]) {
-        if locationList.count > 0{
+    func setLocationList() {
+        if financialReportLocationList.count > 0{
             stack_locationList.superview!.addConstraint(NSLayoutConstraint(item: stack_locationList, attribute: .top, relatedBy: .equal, toItem: stack_productList, attribute: .bottom, multiplier: 1.0, constant: 20))
             
             let title = UILabel()
@@ -188,17 +202,17 @@ extension FinancialReportController: FinancialReportView {
             title.textColor = .white
             stack_locationList.addArrangedSubview(title)
             
-            for i in 0...(locationList.count - 1) {
+            for i in 0...(financialReportLocationList.count - 1) {
                 let stack = UIStackView()
                 stack.axis = .horizontal
                 
                 let name = UILabel()
-                name.text = "\(locationList[i][0])"
+                name.text = "\(financialReportLocationList[i][0])"
                 name.backgroundColor = UIColor(red: 0.86, green: 0.86, blue: 0.86, alpha: 1)
                 name.textColor = .darkGray
                 
                 let rate = UILabel()
-                rate.text = "\(locationList[i][1])"
+                rate.text = "\(financialReportLocationList[i][1])"
                 rate.backgroundColor = UIColor(red: 0.86, green: 0.86, blue: 0.86, alpha: 1)
                 rate.textColor = .darkGray
                 
@@ -208,7 +222,12 @@ extension FinancialReportController: FinancialReportView {
             }
         }
         else {
-            stack_locationList.superview!.addConstraint(NSLayoutConstraint(item: stack_locationList, attribute: .top, relatedBy: .equal, toItem: stack_productList, attribute: .bottom, multiplier: 1.0, constant: 0))
+            if financialReportProductList.count > 0 {
+                stack_locationList.superview!.addConstraint(NSLayoutConstraint(item: tag_financingInfo, attribute: .top, relatedBy: .equal, toItem: stack_productList, attribute: .bottom, multiplier: 1, constant: 20))
+            }
+            else {
+                stack_locationList.superview!.addConstraint(NSLayoutConstraint(item: tag_financingInfo, attribute: .top, relatedBy: .equal, toItem: label_businessInfo, attribute: .bottom, multiplier: 1, constant: 20))
+            }
         }
     }
     //MARK: -财务情况
@@ -220,5 +239,7 @@ extension FinancialReportController: FinancialReportView {
     func setRaisingInfo(paragraph: String) {
         label_rasingInfo.text = paragraph
         label_rasingInfo.backgroundColor = .systemBackground
+        
+        btn_PDFCreate.superview!.frame.size = CGSize(width: btn_PDFCreate.superview!.frame.size.width, height: scrollView.contentLayoutGuide.layoutFrame.size.height) //由于在上面的label设置了段落文字后，会使下方button的frame超出他父控件的frame，z所以这里需要重新设置父控件的frame使button有效
     }
 }
