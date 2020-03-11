@@ -25,7 +25,7 @@ public class MyTable {
         curView = rootView
         curView.axis = .vertical
         curView.spacing = 2
-        curView.distribution = .fillEqually
+        curView.distribution = .equalSpacing
     }
     
     func setColumn(num: Int) {

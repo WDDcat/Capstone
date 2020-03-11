@@ -53,7 +53,6 @@ extension FinancingInfoDetailController: FinancingInfoDetailView {
     }
     
     func setTable(data: [String]) {
-        stack_list.superview!.addConstraint(NSLayoutConstraint(item: stack_list, attribute: .top, relatedBy: .equal, toItem: label_preList, attribute: .bottom, multiplier: 1.0, constant: 40))
         let mTable = MyTable(rootView: stack_list)
         mTable.setColumn(num: columnNum)
         for i in 0..<data.count {

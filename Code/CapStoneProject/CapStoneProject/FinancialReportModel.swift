@@ -111,26 +111,24 @@ class FinancialReportModel: FinancialReportPresent {
                         }
                         self.mView?.setBusinessInfo(paragraph: businessString)
                         //MARK: -生产经营情况表格
-                        var productList: [[String]] = []
-                        var locationList: [[String]] = []
                         for i in 0..<dataJSON.count {
                             if dataJSON[i].count != 0 {
                                 if notNull(dataJSON[i][1].string ?? "") == "产品" {
                                     var map: [String] = []
                                     map.append(unitFormat(dataJSON[i][2].string ?? ""))
                                     map.append(unitFormat(dataJSON[i][4].string ?? ""))
-                                    productList.append(map)
+                                    financialReportProductList.append(map)
                                 }
                                 else if notNull(dataJSON[i][1].string ?? "") == "地区"{
                                     var map: [String] = []
                                     map.append(unitFormat(dataJSON[i][2].string ?? ""))
                                     map.append(unitFormat(dataJSON[i][4].string ?? ""))
-                                    locationList.append(map)
+                                    financialReportLocationList.append(map)
                                 }
                             }
                         }
-                        self.mView?.setProductList(productList: productList)
-                        self.mView?.setLocationList(locationList: locationList)
+                        self.mView?.setProductList()
+                        self.mView?.setLocationList()
                         //MARK: -财务情况
                         var financingStateString = ""
                         if(!isNullOrEmpty(financialJSON["year"].string ?? "")) {
