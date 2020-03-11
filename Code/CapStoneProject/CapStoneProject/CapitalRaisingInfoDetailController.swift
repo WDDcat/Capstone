@@ -41,9 +41,26 @@ extension CapitalRaisingInfoDetailController: CapitalRaisingInfoDetailView {
         label_bankCreditInfo.backgroundColor = .systemBackground
     }
     
+    func setBondCapitalRaisingInfo(para: String) {
+        label_bondCapitalRaisingInfo.text = para
+        label_bondCapitalRaisingInfo.backgroundColor = .systemBackground
+    }
+    
     func setCreditTable(dataList: [String]) {
         let title = ["银行名称", "授信额度", "已使用额度", "未使用额度", "币种", "授信到期日"]
         let mTable = MyTable(rootView: stack_bankCreditTable)
+        mTable.setColumn(num: 6)
+        for i in 0..<title.count {
+            mTable.add(title[i])
+        }
+        for i in 0..<dataList.count {
+            mTable.add(dataList[i])
+        }
+    }
+    
+    func setBondTable(dataList: [String]) {
+        let title = ["债务主体", "发行日期", "发行期限（月）", "发型规模", "主承销商", "种类"]
+        let mTable = MyTable(rootView: stack_bondCapitalRaisingTable)
         mTable.setColumn(num: 6)
         for i in 0..<title.count {
             mTable.add(title[i])

@@ -44,8 +44,7 @@ class CapitalRaisingInfoDetailModel: CapitalRaisingInfoDetailPresent {
     //MARK: -集团信息
     func getGroupInfo(gName: String, gId: String) {
         let param:[String:Any] = ["g_id": gId, "g_name": gName]
-        print(gId)
-        print(gName)
+        print("group: \(gName)with id:\(gId)")
         Alamofire.request(URL(string :"\(BASEURL)financing_group_info_0729")!, parameters: param, headers: header)
                     .responseJSON { response in
                         switch response.result.isSuccess{
@@ -214,7 +213,59 @@ class CapitalRaisingInfoDetailModel: CapitalRaisingInfoDetailPresent {
                                     //MARK: -债券融资情况
                                     var bondString = ""
                                     if (json["rating"]["organ"].string ?? "") != "" {
-                                        bondString = "经\(json["rating"]["organ"])评定，申请人的\(json["rating"]["date"].string ?? "-")"
+                                        bondString = "经\(json["rating"]["organ"])评定，申请人的\(((json["rating"]["date"].string ?? "    ") as NSString).substring(to: 4).replacingOccurrences(of: "    ", with: "-"))年主体信用等级为\(json["rating"]["rating"].string ?? "-")。较上年主体信用评级\(json["rating"]["move"])。"
+                                    }
+                                    if (json["bond_total"]["total"].int ?? -1) != -1 {
+                                        let dateformatter = DateFormatter()
+                                        dateformatter.dateFormat = "YYYY年MM月dd日"// 自定义时间格式
+                                        bondString += "\n截至\(dateformatter.string(from: Date()))，集团及其子公司尚处于存续期债券合计为\(unitFormat(json["bond_total"]["total"].int ?? 0))亿元，"
+                                        bondString += "平均期限\(unitFormat(json["bond_total"]["avg_deadline"].int ?? 0))月，"
+                                        bondString += "平均票面利率\(json["bond_total"]["avg_inter_rate"].string ?? "-")%。集团及其子公司处在存续期内的"
+                                        if json["bond_total"]["classify"].count != 0 {
+                                            for i in 0..<json["bond_total"]["classify"].count {
+                                                if (json["bond_total"]["classify"][i]["classify"].string ?? "") != "" {
+                                                    if i < (json["bond_total"]["classify"].count - 1) {
+                                                        bondString += "\(json["bond_total"]["classify"][i]["classify"].string ?? "")\(String(json["bond_total"]["classify"][i]["count"].int ?? 0))只，金额共\(unitFormat(json["bond_total"]["classify"][i]["total"].int ?? 0))亿元；"
+                                                    }
+                                                    else {
+                                                        bondString += "\(json["bond_total"]["classify"][i]["classify"].string ?? "")\(String(json["bond_total"]["classify"][i]["count"].int ?? 0))只，金额共\(unitFormat(json["bond_total"]["classify"][i]["total"].int ?? 0))亿元。具体情况如下表："
+                                                    }
+                                                }
+                                             }
+                                        }
+                                        self.mView?.setBondCapitalRaisingInfo(para: bondString)
+                                        
+                                        //MARK: -债券表格
+                                        var bondList: [String] = []
+                                        if json["bond_detail"].count != 0 {
+                                            for i in 0..<json["bond_detail"].count {
+                                                bondList.append(json["bond_detail"][i]["debt_subject"].string ?? "")
+                                                bondList.append(json["bond_detail"][i]["list_date"].string ?? "")
+                                                bondList.append(unitFormat(json["bond_detail"][i]["deadline"].int ?? 0))
+                                                bondList.append(unitFormat(json["bond_detail"][i]["total"].string ?? ""))
+                                                bondList.append(json["bond_detail"][i]["lead_underwriter"].string ?? "")
+                                                bondList.append(json["bond_detail"][i]["classify"].string ?? "")
+                                            }
+                                        }
+                                        for i in 0..<json["bond_total"]["classify"].count {
+                                            bondList.append("小计")
+                                            bondList.append("-")
+                                            bondList.append("-")
+                                            bondList.append(unitFormat(json["bond_total"]["classify"][i]["total"].int ?? 0))
+                                            bondList.append("-")
+                                            bondList.append(json["bond_total"]["classify"][i]["classify"].string ?? "")
+                                        }
+                                        bondList.append("合计")
+                                        bondList.append("-")
+                                        bondList.append("-")
+                                        bondList.append(unitFormat(json["bond_total"]["avg_deadline"].int ?? 0))
+                                        bondList.append(unitFormat(json["bond_total"]["total"].int ?? 0))
+                                        bondList.append("-")
+                                        self.mView?.setBondTable(dataList: bondList)
+                                    }
+                                    else {
+                                        bondString = "本公司暂无公开债券信息"
+                                        self.mView?.setBondCapitalRaisingInfo(para: bondString)
                                     }
                                     
                                 }

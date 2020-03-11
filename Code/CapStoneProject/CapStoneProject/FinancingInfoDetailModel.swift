@@ -120,7 +120,6 @@ class FinancingInfoDetailModel: FinancingInfoDetailPresent {
                                 self.mView?.setChartColumn(col: year + 2)
                                 columnNum = year + 2
                             }
-                            print("json\(json["statement_last"]["date"].string ?? "")")
                             if year == 0 && (json["statement_last"]["date"].string ?? "") == "" {
                                 dataList.append("")
                             }
@@ -505,18 +504,18 @@ class FinancingInfoDetailModel: FinancingInfoDetailPresent {
                                 }
                                 if json["industry_avg_info"]["info"]["indexs"].count != 0 {
                                     let indexsJSON = json["industry_avg_info"]["info"]["indexs"]
-                                    itemList.append(unitFormat(indexsJSON[11][3].int ?? 0))
+                                    itemList.append(unitFormat(indexsJSON[11][3].double ?? 0))
                                     itemList.append("-")
-                                    itemList.append(unitFormat(indexsJSON[13][3].int ?? 0))
-                                    itemList.append(unitFormat(indexsJSON[7][3].int ?? 0))
-                                    itemList.append(unitFormat(indexsJSON[22][3].int ?? 0))
-                                    itemList.append(unitFormat(indexsJSON[6][3].int ?? 0))
-                                    itemList.append(unitFormat(indexsJSON[2][3].int ?? 0))
-                                    itemList.append(unitFormat(indexsJSON[1][3].int ?? 0))
-                                    itemList.append(unitFormat(indexsJSON[0][3].int ?? 0))
-                                    itemList.append(unitFormat(indexsJSON[17][3].int ?? 0))
-                                    itemList.append(unitFormat(indexsJSON[20][3].int ?? 0))
-                                    itemList.append(unitFormat(indexsJSON[19][3].int ?? 0))
+                                    itemList.append(unitFormat(indexsJSON[13][3].double ?? 0))
+                                    itemList.append(unitFormat(indexsJSON[7][3].double ?? 0))
+                                    itemList.append(unitFormat(indexsJSON[22][3].double ?? 0))
+                                    itemList.append(unitFormat(indexsJSON[6][3].double ?? 0))
+                                    itemList.append(unitFormat(indexsJSON[2][3].double ?? 0))
+                                    itemList.append(unitFormat(indexsJSON[1][3].double ?? 0))
+                                    itemList.append(unitFormat(indexsJSON[0][3].double ?? 0))
+                                    itemList.append(unitFormat(indexsJSON[17][3].double ?? 0))
+                                    itemList.append(unitFormat(indexsJSON[20][3].double ?? 0))
+                                    itemList.append(unitFormat(indexsJSON[19][3].double ?? 0))
                                 }
                                 else {
                                     for _ in 0..<12 {

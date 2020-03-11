@@ -11,7 +11,10 @@ import Foundation
 protocol CapitalRaisingInfoDetailView {
     func setGroupCapitalRaisingOverviewInfo(para: String)
     func setGroupCreditInfo(para: String)
+    func setBondCapitalRaisingInfo(para: String)
+    
     func setCreditTable(dataList: [String])
+    func setBondTable(dataList: [String])
 }
 
 protocol CapitalRaisingInfoDetailPresent {
