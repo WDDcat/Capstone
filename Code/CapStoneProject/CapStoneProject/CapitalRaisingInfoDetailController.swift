@@ -14,15 +14,26 @@ class CapitalRaisingInfoDetailController: UIViewController {
     var mPresenter = CapitalRaisingInfoDetailModel()
     
     @IBOutlet weak var label_overview: UILabel!
+    //集团
+    //1.
     @IBOutlet weak var label_bankCreditInfo: UILabel!
     @IBOutlet weak var stack_bankCreditTable: UIStackView!
+    //2.
     @IBOutlet weak var label_bondCapitalRaisingInfo: UILabel!
     @IBOutlet weak var stack_bondCapitalRaisingTable: UIStackView!
     @IBOutlet weak var chart_totalPrice: UIView!
     @IBOutlet weak var chart_priceRate: UIView!
+    //3.
     @IBOutlet weak var label_debtInfo: UILabel!
     @IBOutlet weak var stack_debtTable: UIStackView!
     @IBOutlet weak var stack_cashFlowTable: UIStackView!
+    //4.
+    @IBOutlet weak var label_equityFinancingInfo: UILabel!
+    @IBOutlet weak var stack_equityFinancingTable: UIStackView!
+    //5.
+    @IBOutlet weak var label_assetManagementPlanInfo: UILabel!
+    @IBOutlet weak var stack_scrollTrustTable: UIStackView!
+    
     
     var totalPriceChartView = LineChartView()
     var priceRateChartView = LineChartView()
@@ -31,6 +42,7 @@ class CapitalRaisingInfoDetailController: UIViewController {
         super.viewDidLoad()
         mPresenter.mView = self
         mPresenter.getInfo()
+        
     }
 }
 
@@ -54,6 +66,16 @@ extension CapitalRaisingInfoDetailController: CapitalRaisingInfoDetailView {
     func setDebtInfo(para: String) {
         label_debtInfo.text = para
         label_debtInfo.backgroundColor = .systemBackground
+    }
+    
+    func setEquityFinancingInfo(para: String) {
+        label_equityFinancingInfo.text = para
+        label_equityFinancingInfo.backgroundColor = .systemBackground
+    }
+    
+    func setAssetManagementPlanInfo(para: String) {
+        label_assetManagementPlanInfo.text = para
+        label_assetManagementPlanInfo.backgroundColor = .systemBackground
     }
     
     //MARK: -表格
@@ -108,6 +130,27 @@ extension CapitalRaisingInfoDetailController: CapitalRaisingInfoDetailView {
         for i in 0..<dataList.count {
             mTable.add(dataList[i])
         }
+    }
+    
+    func setEquityFinancingTable(dataList: [String]) {
+        let title = ["上市公司", "上市日期", "发行类型", "上市交易所", "发行股票数量（万股）", "发行价格（元）", "募集资金（亿元）", "主承销商"]
+        let mTable = MyTable(rootView: stack_equityFinancingTable)
+        mTable.setColumn(num: 8)
+        for i in 0..<title.count {
+            mTable.add(title[i])
+        }
+        for i in 0..<dataList.count {
+            mTable.add(dataList[i])
+        }
+    }
+    
+    //MARK: -滑动表格
+    func setTrustTable(dataList: [String]){
+        let mScrollTable = MyScrollTable(rootView: stack_scrollTrustTable.superview as! UIScrollView, type: .trust)
+        for i in 0..<dataList.count {
+            mScrollTable.add(dataList[i])
+        }
+        mScrollTable.finish()
     }
     
     //MARK: -折线图

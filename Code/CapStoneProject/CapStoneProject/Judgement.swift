@@ -134,3 +134,15 @@ func date2String(_ date: String) -> String {
     }
     return "\(year)年\(month)月\(day)日"
 }
+
+func trustScale(_ num: String) -> String {
+    let pattern = "^-?[0-9]+(.[0-9]+)?$"
+    let regex = try? NSRegularExpression(pattern: pattern, options: [])
+    if let results = regex?.matches(in: num, options: [], range: NSRange(location: 0, length: num.count)), results.count != 0 {
+        for res in results {
+            let string = (num as NSString).substring(with: res.range)
+            return "\(string)万元"
+        }
+    }
+    return num
+}

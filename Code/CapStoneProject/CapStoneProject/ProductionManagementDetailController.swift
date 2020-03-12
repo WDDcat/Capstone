@@ -18,9 +18,7 @@ class ProductionManagementDetailController: UIViewController {
     @IBOutlet weak var baseScrollView: UIScrollView!
     @IBOutlet weak var label_productionManagementInfo: UILabel!
     @IBOutlet weak var stack_productTable: UIStackView!
-    @IBOutlet weak var view_productContent: UIView!
     @IBOutlet weak var stack_areaTable: UIStackView!
-    @IBOutlet weak var view_areaContent: UIView!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -38,18 +36,18 @@ extension ProductionManagementDetailController: ProductionManagementDetailView {
     }
     
     func setProductTable() {
-        let mst = MyScrollTable(rootView: stack_productTable.superview as! UIScrollView)
+        let mst = MyScrollTable(rootView: stack_productTable.superview as! UIScrollView, type: .production)
         for i in 0..<productionManagementProductList.count {
             mst.add(unitFormat(productionManagementProductList[i]))
         }
-        mst.finish(content: view_productContent)
+        mst.finish()
     }
     
     func setAreaTable() {
-        let mst = MyScrollTable(rootView: stack_areaTable.superview as! UIScrollView)
+        let mst = MyScrollTable(rootView: stack_areaTable.superview as! UIScrollView, type: .production)
         for i in 0..<productionManagementAreaList.count {
             mst.add(unitFormat(productionManagementAreaList[i]))
         }
-        mst.finish(content: view_areaContent)
+        mst.finish()
     }
 }

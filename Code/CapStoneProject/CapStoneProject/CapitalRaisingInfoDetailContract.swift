@@ -14,11 +14,16 @@ protocol CapitalRaisingInfoDetailView {
     func setGroupCreditInfo(para: String)
     func setBondCapitalRaisingInfo(para: String)
     func setDebtInfo(para: String)
+    func setEquityFinancingInfo(para: String)
+    func setAssetManagementPlanInfo(para: String)
     
     func setCreditTable(dataList: [String])
     func setBondTable(dataList: [String])
     func setDebtTable(dataList: [String], latestDate: String)
     func setCashFlowTable(dataList: [String], latestDate: String)
+    func setEquityFinancingTable(dataList: [String])
+    
+    func setTrustTable(dataList: [String])
     
     func initTotalPriceChart(valueSize: Int)
     func setTotalPriceChartData(_ yValues1: [ChartDataEntry], _ yValues2: [ChartDataEntry], _ yValues3: [ChartDataEntry], _ yValues4: [ChartDataEntry])

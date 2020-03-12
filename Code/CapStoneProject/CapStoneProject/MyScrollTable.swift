@@ -10,7 +10,18 @@ import Foundation
 import UIKit
 
 private let gray: UIColor = UIColor(red: 210/255, green: 210/255, blue: 210/255, alpha: 1)
+private let grayCG: CGColor = CGColor.init(srgbRed: 210/255, green: 210/255, blue: 210/255, alpha: 1)
 private let lightGray: UIColor = UIColor(red: 230/255, green: 230/255, blue: 230/255, alpha: 1)
+
+private let productionRowNum = 10
+private let trustRowNum = 13
+private let insuranceRowNum = 4
+
+enum ScrollTableType {
+    case production
+    case trust
+    case insurance
+}
 
 class MyScrollTable {
     
@@ -20,16 +31,34 @@ class MyScrollTable {
     private var columnUnit: UIStackView?
     private var num_of_row = 1
     private var num_of_column = 1
+    private var tableType: ScrollTableType?
+    private var cellWidth: CGFloat?
+    private var cellHeight: CGFloat?
         
-    init(rootView: UIScrollView) {
+    init(rootView: UIScrollView, type: ScrollTableType) {
         self.rootView = rootView
         curView = UIStackView()
         curView.axis = .horizontal
         curView.spacing = 2
         curView.distribution = .fillEqually
-        rowNum = 10
         num_of_row = 1
         num_of_column = 1
+        tableType = type
+        
+        switch tableType {
+        case .production:
+            rowNum = productionRowNum
+            cellWidth = 100
+            cellHeight = 40
+        case .trust:
+            rowNum = trustRowNum
+            cellWidth = 200
+            cellHeight = 80
+        case .insurance:
+            rowNum = insuranceRowNum
+        default:
+            rowNum = 0
+        }
     }
     
     func add(_ text: String) {
@@ -39,19 +68,50 @@ class MyScrollTable {
             columnUnit?.spacing = 2
             columnUnit?.distribution = .fillEqually
         }
+        
+        if tableType == ScrollTableType.trust {
+            let scroll = UIScrollView()
+            scroll.showsVerticalScrollIndicator = true
+            scroll.showsHorizontalScrollIndicator = false
+            scroll.bounces = false
+            scroll.layer.borderColor = grayCG
             
-        let textLabel = UILabel()
-        textLabel.numberOfLines = 0
-        textLabel.font = UIFont.systemFont(ofSize: 13)
-        textLabel.text = text
-        textLabel.textColor = .black
-        if num_of_column % 2 == 1 { textLabel.backgroundColor = gray }
-        else { textLabel.backgroundColor = lightGray }
-        textLabel.frame.size = CGSize(width: 40, height: 40)
-        textLabel.textAlignment = .center
+            let textLabel = UILabel()
+            textLabel.numberOfLines = 0
+            textLabel.font = UIFont.systemFont(ofSize: 13)
+            textLabel.text = text
+            textLabel.textColor = .black
+            if num_of_column % 2 == 1 { textLabel.backgroundColor = gray }
+            else { textLabel.backgroundColor = lightGray }
+            textLabel.textAlignment = .center
             
-        columnUnit?.addArrangedSubview(textLabel)
+            let labelMaxSize = CGSize(width: cellWidth!, height: cellHeight!)
+            let realSize = textLabel.sizeThatFits(labelMaxSize)
+            if realSize.width < cellWidth! && realSize.height < cellHeight! {
+                columnUnit?.addArrangedSubview(textLabel)
+            }
+            else {
+                textLabel.frame = CGRect(x: 0, y: 0, width: realSize.width, height: realSize.height)
+                
+                scroll.contentSize = CGSize(width: textLabel.frame.width, height: textLabel.frame.height)
+                scroll.addSubview(textLabel)
+                
+                columnUnit?.addArrangedSubview(scroll)
+            }
+        }
+        else {
+            let textLabel = UILabel()
+            textLabel.numberOfLines = 0
+            textLabel.font = UIFont.systemFont(ofSize: 13)
+            textLabel.text = text
+            textLabel.textColor = .black
+            if num_of_column % 2 == 1 { textLabel.backgroundColor = gray }
+            else { textLabel.backgroundColor = lightGray }
+            textLabel.textAlignment = .center
             
+            columnUnit?.addArrangedSubview(textLabel)
+        }
+        
         num_of_row += 1
         
         if num_of_row > rowNum {
@@ -61,8 +121,10 @@ class MyScrollTable {
         }
     }
     
-    func finish(content: UIView) {
-        curView.frame.size = CGSize(width: num_of_column*100+(num_of_column-1)*2, height: rowNum*40+(rowNum-1)*2)
+    func finish() {
+        let width = CGFloat(num_of_column) * cellWidth! + (CGFloat(num_of_column - 1) * 2)
+        let height = CGFloat(rowNum) * cellHeight! + CGFloat((rowNum - 1) * 2)
+        curView.frame.size = CGSize(width: width, height: height)
         rootView.addSubview(curView)
         (curView.superview as! UIScrollView).contentSize = curView.frame.size
     }

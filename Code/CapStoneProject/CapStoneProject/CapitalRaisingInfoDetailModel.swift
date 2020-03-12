@@ -53,6 +53,8 @@ class CapitalRaisingInfoDetailModel: CapitalRaisingInfoDetailPresent {
                             if let data = response.result.value {
                                 let json = JSON(data)
                                 if (json["error"].int ?? 1) == 0 {
+                                    let dateformatter = DateFormatter()
+                                    dateformatter.dateFormat = "YYYY年MM月dd日"// 自定义时间格式
                                     let creditJSON = json["credit_total"]
                                     var currencyList: [Credit] = []
                                     for i in 0..<creditJSON.count {
@@ -217,8 +219,6 @@ class CapitalRaisingInfoDetailModel: CapitalRaisingInfoDetailPresent {
                                         bondString = "经\(json["rating"]["organ"])评定，申请人的\(((json["rating"]["date"].string ?? "    ") as NSString).substring(to: 4).replacingOccurrences(of: "    ", with: "-"))年主体信用等级为\(json["rating"]["rating"].string ?? "-")。较上年主体信用评级\(json["rating"]["move"])。"
                                     }
                                     if (json["bond_total"]["total"].int ?? -1) != -1 {
-                                        let dateformatter = DateFormatter()
-                                        dateformatter.dateFormat = "YYYY年MM月dd日"// 自定义时间格式
                                         bondString += "\n截至\(dateformatter.string(from: Date()))，集团及其子公司尚处于存续期债券合计为\(unitFormat(json["bond_total"]["total"].int ?? 0))亿元，"
                                         bondString += "平均期限\(unitFormat(json["bond_total"]["avg_deadline"].int ?? 0))月，"
                                         bondString += "平均票面利率\(json["bond_total"]["avg_inter_rate"].string ?? "-")%。集团及其子公司处在存续期内的"
@@ -514,6 +514,82 @@ class CapitalRaisingInfoDetailModel: CapitalRaisingInfoDetailPresent {
                                     self.mView?.setCashFlowTable(dataList: cashList, latestDate: latest)
                                     
                                     //MARK: -股权融资情况
+                                    var sharingFinancingString = ""
+                                    if (json["share_financing_total"]["listed_num"].int ?? 0) != 0 {
+                                        sharingFinancingString = "该集团旗下有\(json["share_financing_total"]["listed_num"].int ?? 0)家上市公司，分别为"
+                                        for i in 0..<json["share_financing_total"]["listed"].count {
+                                            if i < json["share_financing_total"]["listed"].count - 1 {
+                                                sharingFinancingString += "\(json["share_financing_total"]["listed"][i])、"
+                                            }
+                                            else {
+                                                sharingFinancingString += "\(json["share_financing_total"]["listed"][i])。"
+                                            }
+                                        }
+                                        if (json["share_financing_total"]["total"].double ?? 0) != 0 {
+                                            sharingFinancingString += "根据公开信息显示，集团旗下上市公司合计通过股票市场融资\(unitFormat((json["share_financing_total"]["total"].double ?? 0) / 10000))亿元。"
+                                            for i in 0..<json["share_financing_total"]["detail"].count {
+                                                sharingFinancingString += "其中\(json["share_financing_total"]["detail"][i][0].string ?? "-")类型股票募集\(unitFormat((json["share_financing_total"]["detail"][i][1].double ?? 0) / 10000))亿元，"
+                                            }
+                                            sharingFinancingString += "股票募集资金情况如下表："
+                                        }
+                                        self.mView?.setEquityFinancingInfo(para: sharingFinancingString)
+                                        
+                                        //MARK: -股权融资表格
+                                        var sharingFinancingList: [String] = []
+                                        for i in 0..<json["share_financing_detail"].count {
+                                            for j in 0..<json["share_financing_detail"][i]["detail"].count {
+                                                sharingFinancingList.append(json["share_financing_detail"][i]["s_name"].string ?? "-")
+                                                sharingFinancingList.append(json["share_financing_detail"][i]["detail"][j][1].string ?? "-")
+                                                sharingFinancingList.append(json["share_financing_detail"][i]["detail"][j][0].string ?? "-")
+                                                sharingFinancingList.append(json["share_financing_detail"][i]["address"].string ?? "-")
+                                                sharingFinancingList.append(unitFormat(json["share_financing_detail"][i]["detail"][j][2].double ?? 0))
+                                                sharingFinancingList.append(unitFormat(json["share_financing_detail"][i]["detail"][j][3].double ?? 0))
+                                                sharingFinancingList.append(unitFormat((json["share_financing_detail"][i]["detail"][j][4].double ?? 0) / 10000))
+                                                sharingFinancingList.append(json["share_financing_detail"][i]["lead_underwriter"].string ?? "-")
+                                            }
+                                        }
+                                        self.mView?.setEquityFinancingTable(dataList: sharingFinancingList)
+                                    }
+                                    else {
+                                        sharingFinancingString = "该公司无公开股票融资情况"
+                                        self.mView?.setEquityFinancingInfo(para: sharingFinancingString)
+                                    }
+                                    
+                                    //MARK: -资产管理计划情况
+                                    var planString = ""
+                                    let trustCount = json["trust"]["count"].int ?? 0
+                                    let assetCount = json["asset"]["count"].int ?? 0
+                                    let insuranceCount = json["insurance"]["count"].int ?? 0
+                                    let planCount = trustCount + assetCount + insuranceCount
+                                    if planCount == 0 {
+                                        planString = "该公司暂无公开资产管理计划"
+                                    }
+                                    else {
+                                        planString = "截至\(dateformatter.string(from: Date()))，根据公开数据及相关大数据显示，\(json["group_name"])及其下属公司作为最终融资方公发行资产管理计划\(planCount)支，"
+                                        planString += "涉及金额\(json["trust"]["total"].string ?? "-")，"
+                                        planString += "其中信托资管计划\(trustCount)支；保险资管计划\(insuranceCount)支；证券资管计划\(assetCount)支。具体如下表："
+                                    }
+                                    self.mView?.setAssetManagementPlanInfo(para: planString)
+                                    
+                                    //MARK: -信托表
+                                    var trustList: [String] = []
+                                    for i in 0..<json["trust"]["detail"].count {
+                                        trustList.append(json["trust"]["detail"][i]["comp_name"].string ?? "")
+                                        trustList.append(json["trust"]["detail"][i]["company_name"].string ?? "")
+                                        trustList.append(json["trust"]["detail"][i]["t_name"].string ?? "")
+                                        trustList.append(json["trust"]["detail"][i]["estab_dt"].string ?? "")
+                                        trustList.append(trustScale(json["trust"]["detail"][i]["t_scale"].string ?? ""))
+                                        trustList.append(json["trust"]["detail"][i]["t_deadline"].string ?? "")
+                                        trustList.append(json["trust"]["detail"][i]["appli_way"].string ?? "")
+                                        trustList.append(json["trust"]["detail"][i]["in_distr"].string ?? "")
+                                        trustList.append(json["trust"]["detail"][i]["trustee"].string ?? "")
+                                        trustList.append(json["trust"]["detail"][i]["custodian"].string ?? "")
+                                        trustList.append(json["trust"]["detail"][i]["bank"].string ?? "")
+                                        trustList.append(json["trust"]["detail"][i]["t_manag"].string ?? "")
+                                        trustList.append(json["trust"]["detail"][i]["f_used"].string ?? "")
+                                    }
+                                    self.mView?.setTrustTable(dataList: trustList)
+                                    
                                     
                                 }
                                 else if (json["error"].int ?? 1) == 503 {
