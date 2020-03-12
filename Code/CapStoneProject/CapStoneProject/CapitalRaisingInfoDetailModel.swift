@@ -9,6 +9,7 @@
 import Foundation
 import Alamofire
 import SwiftyJSON
+import Charts
 
 class CapitalRaisingInfoDetailModel: CapitalRaisingInfoDetailPresent {
     
@@ -267,6 +268,252 @@ class CapitalRaisingInfoDetailModel: CapitalRaisingInfoDetailPresent {
                                         bondString = "本公司暂无公开债券信息"
                                         self.mView?.setBondCapitalRaisingInfo(para: bondString)
                                     }
+                                    
+                                    //MARK: -折线图
+                                    var total_1: [Double] = []
+                                    var total_2: [Double] = []
+                                    var total_3: [Double] = []
+                                    var total_4: [Double] = []
+                                    var price_1: [Double] = []
+                                    var price_2: [Double] = []
+                                    var price_3: [Double] = []
+                                    var price_4: [Double] = []
+                                    var minYear = 9999
+                                    var maxYear = 0
+                                    for i in 0..<json["bond_detail"].count {
+                                        if (json["bond_detail"][i]["list_date"].string ?? "") != "" {
+                                            let year = Int(((json["bond_detail"][i]["list_date"].string ?? "") as NSString).substring(to: 4))
+                                            if maxYear < year! { maxYear = year! }
+                                            if minYear > year! { minYear = year! }
+                                        }
+                                    }
+                                    for i in minYear..<maxYear {
+                                        var num_1: Int = 0, num_2: Int = 0, num_3: Int = 0, num_4: Int = 0
+                                        var total_year1: Double = 0.0, total_year2: Double = 0.0, total_year3: Double = 0.0, total_year4: Double = 0.0
+                                        var price_year1: Double = 0.0, price_year2: Double = 0.0, price_year3: Double = 0.0, price_year4: Double = 0.0
+                                        for j in 0..<json["bond_detail"].count {
+                                            if (json["bond_detail"][j]["list_date"].string ?? "") != "" && (json["bond_detail"][j]["deadline"].int ?? 0) != 0 {
+                                                let year = Int(((json["bond_detail"][j]["list_date"].string ?? "") as NSString).substring(to: 4))
+                                                if year == i && (json["bond_detail"][j]["inter_rate"].string ?? "") != "" {
+                                                    let deadline = Double(json["bond_detail"][j]["deadline"].double ?? 0)
+                                                    if (deadline / 12) <= 1 {
+                                                        total_year1 += Double(json["bond_detail"][j]["total"].string ?? "0")!
+                                                        price_year1 += Double(json["bond_detail"][j]["inter_rate"].string ?? "0")!
+                                                        num_1 += 1
+                                                    }
+                                                    else if (deadline / 12) <= 3 {
+                                                        total_year2 += Double(json["bond_detail"][j]["total"].string ?? "0")!
+                                                        price_year2 += Double(json["bond_detail"][j]["inter_rate"].string ?? "0")!
+                                                        num_2 += 1
+                                                    }
+                                                    else if (deadline / 12) <= 5 {
+                                                        total_year3 += Double(json["bond_detail"][j]["total"].string ?? "0")!
+                                                        price_year3 += Double(json["bond_detail"][j]["inter_rate"].string ?? "0")!
+                                                        num_3 += 1
+                                                    }
+                                                    else {
+                                                        total_year4 += Double(json["bond_detail"][j]["total"].string ?? "0")!
+                                                        price_year4 += Double(json["bond_detail"][j]["inter_rate"].string ?? "0")!
+                                                        num_4 += 1
+                                                    }
+                                                }
+                                            }
+                                        }
+                                        if num_1 == 0 {
+                                            total_1.append(0)
+                                            price_1.append(0)
+                                        }
+                                        else {
+                                            total_1.append(total_year1 / Double(num_1))
+                                            price_1.append(price_year1 / Double(num_1))
+                                        }
+                                        if num_2 == 0 {
+                                            total_2.append(0)
+                                            price_2.append(0)
+                                        }
+                                        else {
+                                            total_2.append(total_year2 / Double(num_2))
+                                            price_2.append(price_year2 / Double(num_2))
+                                        }
+                                        if num_3 == 0 {
+                                            total_3.append(0)
+                                            price_3.append(0)
+                                        }
+                                        else {
+                                            total_3.append(total_year3 / Double(num_3))
+                                            price_3.append(price_year3 / Double(num_3))
+                                        }
+                                        if num_4 == 0 {
+                                            total_4.append(0)
+                                            price_4.append(0)
+                                        }
+                                        else {
+                                            total_4.append(total_year4 / Double(num_4))
+                                            price_4.append(price_year4 / Double(num_4))
+                                        }
+                                        
+                                        var xValues: [String] = []
+                                        for _ in 0..<5 {
+                                            xValues.append("\(i):00")
+                                        }
+                                        
+                                        //MARK: -表1
+                                        var yValues1: [ChartDataEntry] = []
+                                        var yValues2: [ChartDataEntry] = []
+                                        var yValues3: [ChartDataEntry] = []
+                                        var yValues4: [ChartDataEntry] = []
+                                        for i in 0..<total_1.count {
+                                            yValues1.append(ChartDataEntry.init(x: Double(minYear + i), y: total_1[i]))
+                                        }
+                                        for i in 0..<total_2.count {
+                                            yValues2.append(ChartDataEntry.init(x: Double(minYear + i), y: total_2[i]))
+                                        }
+                                        for i in 0..<total_3.count {
+                                            yValues3.append(ChartDataEntry.init(x: Double(minYear + i), y: total_3[i]))
+                                        }
+                                        for i in 0..<total_4.count {
+                                            yValues4.append(ChartDataEntry.init(x: Double(minYear + i), y: total_4[i]))
+                                        }
+                                        
+                                        if yValues1.count == 0 { yValues1.append(ChartDataEntry.init(x: 2015, y: 0)) }
+                                        if yValues2.count == 0 { yValues2.append(ChartDataEntry.init(x: 2015, y: 0)) }
+                                        if yValues3.count == 0 { yValues3.append(ChartDataEntry.init(x: 2015, y: 0)) }
+                                        if yValues4.count == 0 { yValues4.append(ChartDataEntry.init(x: 2015, y: 0)) }
+                                        
+                                        self.mView?.initTotalPriceChart(valueSize: max(yValues1.count, yValues2.count, yValues3.count, yValues4.count))
+                                        self.mView?.setTotalPriceChartData(yValues1, yValues2, yValues3, yValues4)
+                                        //MARK: -表2
+                                        yValues1.removeAll()
+                                        yValues2.removeAll()
+                                        yValues3.removeAll()
+                                        yValues4.removeAll()
+                                        
+                                        for i in 0..<total_1.count {
+                                            yValues1.append(ChartDataEntry.init(x: Double(minYear + i), y: price_1[i]))
+                                        }
+                                        for i in 0..<total_2.count {
+                                            yValues2.append(ChartDataEntry.init(x: Double(minYear + i), y: price_2[i]))
+                                        }
+                                        for i in 0..<total_3.count {
+                                            yValues3.append(ChartDataEntry.init(x: Double(minYear + i), y: price_3[i]))
+                                        }
+                                        for i in 0..<total_4.count {
+                                            yValues4.append(ChartDataEntry.init(x: Double(minYear + i), y: price_4[i]))
+                                        }
+                                        
+                                        if yValues1.count == 0 { yValues1.append(ChartDataEntry.init(x: 2015, y: 0)) }
+                                        if yValues2.count == 0 { yValues2.append(ChartDataEntry.init(x: 2015, y: 0)) }
+                                        if yValues3.count == 0 { yValues3.append(ChartDataEntry.init(x: 2015, y: 0)) }
+                                        if yValues4.count == 0 { yValues4.append(ChartDataEntry.init(x: 2015, y: 0)) }
+                                        
+                                        self.mView?.initPriceRateChart(valueSize: max(yValues1.count, yValues2.count, yValues3.count, yValues4.count))
+                                        self.mView?.setPriceRateChartData(yValues1, yValues2, yValues3, yValues4)
+                                    }
+                                    
+                                    
+                                    //MARK: -有息负债情况
+                                    var debtString = ""
+                                    if (json["debt"]["total"].double ?? 0) != 0 {
+                                        debtString = "根据公开信息显示，在\(((json["debt"]["last"][0].string ?? "    ") as NSString).substring(to: 4).replacingOccurrences(of: "    ", with: "-"))年，"
+                                        debtString += "该集团有息负债共\(unitFormat(json["debt"]["total"].double ?? 0))元。"
+                                    }
+                                    else {
+                                        debtString = "该集团无公开有息债券信息。"
+                                    }
+                                    if json["debt"]["three_years"].count != 0 {
+                                        debtString += "近三年及最近一期有息债务集体情况如下表："
+                                    }
+                                    self.mView?.setDebtInfo(para: debtString)
+                                    
+                                    //MARK: -有息债券表格
+                                    var debtList: [String] = []
+                                    var latest = ""
+                                    let debtTitleList = ["短期借款", "应付票据", "一年内到期的非流动负债", "长期借款", "应付债款", "应付租赁款", "合计"]
+                                    if json["debt"]["three_years"].count != 0 {
+                                        for i in 0..<7 {
+                                            for j in 0..<2 {
+                                                if j == 0 {
+                                                    debtList.append(debtTitleList[i])
+                                                }
+                                                else {
+                                                    let size = json["debt"]["three_years"].count
+                                                    for k in (0..<size).reversed() {
+                                                        if i == 6 {
+                                                            debtList.append(unitFormat(json["debt"]["three_years"][k][20].double ?? 0))
+                                                            debtList.append(json["debt"]["three_years"][k][21].string ?? "-")
+                                                        }
+                                                        else {
+                                                            debtList.append(unitFormat(json["debt"]["three_years"][k][i + 1].double ?? 0))
+                                                            debtList.append(json["debt"]["three_years"][k][i + 14].string ?? "-")
+                                                        }
+                                                    }
+                                                    if size == 1 {
+                                                        debtList.append("-")
+                                                        debtList.append("-")
+                                                        debtList.append("-")
+                                                        debtList.append("-")
+                                                    }
+                                                    else if size == 2 {
+                                                        debtList.append("-")
+                                                        debtList.append("-")
+                                                    }
+                                                    
+                                                    if json["debt"]["last"].count == 0 {
+                                                        debtList.append("-")
+                                                        debtList.append("-")
+                                                    }
+                                                    else {
+                                                        if i == 6 {
+                                                            debtList.append(unitFormat(json["debt"]["last"][19].double ?? 0))
+                                                            debtList.append(json["debt"]["last"][20].string ?? "-")
+                                                        }
+                                                        else {
+                                                            debtList.append(unitFormat(json["debt"]["last"][i + 1].double ?? 0))
+                                                            debtList.append(json["debt"]["last"][i + 13].string ?? "-")
+                                                        }
+                                                        latest = json["debt"]["last"][0].string ?? "-"
+                                                    }
+                                                }
+                                            }
+                                        }
+                                    }
+                                    self.mView?.setDebtTable(dataList: debtList, latestDate: latest)
+                                    
+                                    //MARK: -现金流表格
+                                    var cashList: [String] = []
+                                    let cashTitleList = ["取得借款收到的现金", "发型债券收到的现金", "偿还债务支付的现金", "分配股利支付的现金", "净额"]
+                                    if json["debt"]["three_years"].count != 0 {
+                                        for i in 0..<5 {
+                                            for j in 0..<2 {
+                                                if j == 0 {
+                                                    cashList.append(cashTitleList[i])
+                                                }
+                                                else {
+                                                    let size = json["debt"]["three_years"].count
+                                                    for k in (0..<size).reversed() {
+                                                        cashList.append(unitFormat(json["debt"]["three_years"][k][8 + i].double ?? 0))
+                                                    }
+                                                    if size == 1 {
+                                                        debtList.append("-")
+                                                        debtList.append("-")
+                                                    }
+                                                    else if size == 2 {
+                                                        debtList.append("-")
+                                                    }
+                                                    
+                                                    if json["debt"]["last"].count == 0 {
+                                                        debtList.append("-")
+                                                    }
+                                                    else {
+                                                        cashList.append(unitFormat(json["debt"]["last"][8 + i].double ?? 0))
+                                                    }
+                                                }
+                                            }
+                                        }
+                                    }
+                                    self.mView?.setCashFlowTable(dataList: cashList, latestDate: latest)
+                                    
+                                    //MARK: -股权融资情况
                                     
                                 }
                                 else if (json["error"].int ?? 1) == 503 {
