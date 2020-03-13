@@ -32,7 +32,38 @@ class CapitalRaisingInfoDetailController: UIViewController {
     @IBOutlet weak var stack_equityFinancingTable: UIStackView!
     //5.
     @IBOutlet weak var label_assetManagementPlanInfo: UILabel!
-    @IBOutlet weak var stack_scrollTrustTable: UIStackView!
+    @IBOutlet weak var label_trustTable: UILabel!
+    @IBOutlet weak var stack_trustTable: UIStackView!
+    @IBOutlet weak var scroll_trustTable: UIScrollView!
+    
+    @IBOutlet weak var label_insuranceTable: UILabel!
+    @IBOutlet weak var stack_insuranceTable: UIStackView!
+    @IBOutlet weak var scroll_insuranceTable: UIScrollView!
+    
+    @IBOutlet weak var label_securityTable: UILabel!
+    @IBOutlet weak var stack_securityTable: UIStackView!
+    @IBOutlet weak var scroll_securityTable: UIScrollView!
+    
+    //企业
+    @IBOutlet weak var tag_company: UILabel!
+    //1.
+    @IBOutlet weak var label_corporateCreditInfo: UILabel!
+    @IBOutlet weak var stack_corporateCreditTable: UIStackView!
+    //2.
+    @IBOutlet weak var label_corporateBondInfo: UILabel!
+    @IBOutlet weak var stack_corporateBondTable: UIStackView!
+    //3.
+    @IBOutlet weak var label_corporateEquityFinancingInfo: UILabel!
+    @IBOutlet weak var stack_corporateEquityFinancingTable: UIStackView!
+    //4.
+    @IBOutlet weak var label_corporateDebtInfo: UILabel!
+    @IBOutlet weak var stack_corporateDebtTable: UIStackView!
+    @IBOutlet weak var stack_corporateCashFlowTable: UIStackView!
+    //5.
+    @IBOutlet weak var label_corporateAssetManagementPlanInfo: UILabel!
+    
+    
+    
     
     
     var totalPriceChartView = LineChartView()
@@ -78,79 +109,229 @@ extension CapitalRaisingInfoDetailController: CapitalRaisingInfoDetailView {
         label_assetManagementPlanInfo.backgroundColor = .systemBackground
     }
     
+    func setCorporateCreditInfo(para: String) {
+        label_corporateCreditInfo.text = para
+        label_corporateCreditInfo.backgroundColor = .systemBackground
+    }
+    
+    func setCorporateBondInfo(para: String) {
+        label_corporateBondInfo.text = para
+        label_corporateBondInfo.backgroundColor = .systemBackground
+    }
+    
+    func setCorporateEquityFinancingInfo(para: String) {
+        label_corporateEquityFinancingInfo.text = para
+        label_corporateEquityFinancingInfo.backgroundColor = .systemBackground
+    }
+    
+    func setCorporateDebtInfo(para: String) {
+        label_corporateDebtInfo.text = para
+        label_corporateDebtInfo.backgroundColor = .systemBackground
+    }
+    
+    func setCorporateAssetManagementPlanInfo(para: String) {
+        label_corporateAssetManagementPlanInfo.text = para
+        label_corporateAssetManagementPlanInfo.backgroundColor = .systemBackground
+    }
+    
     //MARK: -表格
     func setCreditTable(dataList: [String]) {
-        let title = ["银行名称", "授信额度", "已使用额度", "未使用额度", "币种", "授信到期日"]
-        let mTable = MyTable(rootView: stack_bankCreditTable)
-        mTable.setColumn(num: 6)
-        for i in 0..<title.count {
-            mTable.add(title[i])
-        }
-        for i in 0..<dataList.count {
-            mTable.add(dataList[i])
+        if dataList.count != 0 {
+            let title = ["银行名称", "授信额度", "已使用额度", "未使用额度", "币种", "授信到期日"]
+            let mTable = MyTable(rootView: stack_bankCreditTable)
+            mTable.setColumn(num: 6)
+            for i in 0..<title.count {
+                mTable.add(title[i])
+            }
+            for i in 0..<dataList.count {
+                mTable.add(dataList[i])
+            }
         }
     }
     
     func setBondTable(dataList: [String]) {
-        let title = ["债务主体", "发行日期", "发行期限（月）", "发型规模", "主承销商", "种类"]
-        let mTable = MyTable(rootView: stack_bondCapitalRaisingTable)
-        mTable.setColumn(num: 6)
-        for i in 0..<title.count {
-            mTable.add(title[i])
-        }
-        for i in 0..<dataList.count {
-            mTable.add(dataList[i])
+        if dataList.count != 0 {
+            let title = ["债务主体", "发行日期", "发行期限（月）", "发型规模", "主承销商", "种类"]
+            let mTable = MyTable(rootView: stack_bondCapitalRaisingTable)
+            mTable.setColumn(num: 6)
+            for i in 0..<title.count {
+                mTable.add(title[i])
+            }
+            for i in 0..<dataList.count {
+                mTable.add(dataList[i])
+            }
         }
     }
     
     func setDebtTable(dataList: [String], latestDate: String) {
-        let title = ["年份", "2015", "",  "2016", "", "2017", "", latestDate, ""]
-        let mTable = MyTable(rootView: stack_debtTable)
-        mTable.setColumn(num: 9)
-        for i in 0..<title.count {
-            mTable.add(title[i])
-        }
-        mTable.add("")
-        for _ in 0..<4 {
-            mTable.add("金额")
-            mTable.add("占总负债比例")
-        }
-        for i in 0..<dataList.count {
-            mTable.add(dataList[i])
+        if dataList.count != 0 {
+            let title = ["年份", "2015", "",  "2016", "", "2017", "", latestDate, ""]
+            let mTable = MyTable(rootView: stack_debtTable)
+            mTable.setColumn(num: 9)
+            for i in 0..<title.count {
+                mTable.add(title[i])
+            }
+            mTable.add("")
+            for _ in 0..<4 {
+                mTable.add("金额")
+                mTable.add("占总负债比例")
+            }
+            for i in 0..<dataList.count {
+                mTable.add(dataList[i])
+            }
         }
     }
     
     func setCashFlowTable(dataList: [String], latestDate: String) {
-        let title = ["年份", "2015",  "2016", "2017", latestDate]
-        let mTable = MyTable(rootView: stack_cashFlowTable)
-        mTable.setColumn(num: 5)
-        for i in 0..<title.count {
-            mTable.add(title[i])
-        }
-        for i in 0..<dataList.count {
-            mTable.add(dataList[i])
+        if dataList.count != 0 {
+            let title = ["年份", "2015",  "2016", "2017", latestDate]
+            let mTable = MyTable(rootView: stack_cashFlowTable)
+            mTable.setColumn(num: 5)
+            for i in 0..<title.count {
+                mTable.add(title[i])
+            }
+            for i in 0..<dataList.count {
+                mTable.add(dataList[i])
+            }
         }
     }
     
     func setEquityFinancingTable(dataList: [String]) {
-        let title = ["上市公司", "上市日期", "发行类型", "上市交易所", "发行股票数量（万股）", "发行价格（元）", "募集资金（亿元）", "主承销商"]
-        let mTable = MyTable(rootView: stack_equityFinancingTable)
-        mTable.setColumn(num: 8)
-        for i in 0..<title.count {
-            mTable.add(title[i])
+        if dataList.count != 0 {
+            let title = ["上市公司", "上市日期", "发行类型", "上市交易所", "发行股票数量（万股）",     "发行价格（元）", "募集资金（亿元）", "主承销商"]
+            let mTable = MyTable(rootView: stack_equityFinancingTable)
+            mTable.setColumn(num: 8)
+            for i in 0..<title.count {
+                mTable.add(title[i])
+            }
+            for i in 0..<dataList.count {
+                mTable.add(dataList[i])
+            }
         }
-        for i in 0..<dataList.count {
-            mTable.add(dataList[i])
+    }
+    
+    func setCorporateCreditTable(dataList: [String]) {
+        if dataList.count != 0 {
+            let title = ["银行名称", "授信额度", "已使用额度", "未使用额度", "币种", "授信到期日"]
+            let mTable = MyTable(rootView: stack_corporateCreditTable)
+            mTable.setColumn(num: 6)
+            for i in 0..<title.count {
+                mTable.add(title[i])
+            }
+            for i in 0..<dataList.count {
+                mTable.add(dataList[i])
+            }
+        }
+    }
+    
+    func setCorporateBondTable(dataList: [String]) {
+        if dataList.count != 0 {
+            let title = ["债务主体", "发行日期", "发行期限（月）", "发型规模", "主承销商", "种类"]
+            let mTable = MyTable(rootView: stack_corporateBondTable)
+            mTable.setColumn(num: 6)
+            for i in 0..<title.count {
+                mTable.add(title[i])
+            }
+            for i in 0..<dataList.count {
+                mTable.add(dataList[i])
+            }
+        }
+    }
+    
+    func setCorporateEquityFinancingTable(dataList: [String]) {
+        if dataList.count != 0 {
+            let title = ["上市公司", "上市日期", "发行类型", "上市交易所", "发行股票数量（万股）",     "发行价格（元）", "募集资金（亿元）", "主承销商"]
+            let mTable = MyTable(rootView: stack_corporateEquityFinancingTable)
+            mTable.setColumn(num: 8)
+            for i in 0..<title.count {
+                mTable.add(title[i])
+            }
+            for i in 0..<dataList.count {
+                mTable.add(dataList[i])
+            }
+        }
+    }
+    
+    func setCorporateDebtTable(dataList: [String], latestDate: String) {
+        if dataList.count != 0 {
+            let title = ["年份", "2015", "",  "2016", "", "2017", "", latestDate, ""]
+            let mTable = MyTable(rootView: stack_corporateDebtTable)
+            mTable.setColumn(num: 9)
+            for i in 0..<title.count {
+                mTable.add(title[i])
+            }
+            mTable.add("")
+            for _ in 0..<4 {
+                mTable.add("金额")
+                mTable.add("占总负债比例")
+            }
+            for i in 0..<dataList.count {
+                mTable.add(dataList[i])
+            }
+        }
+    }
+    
+    func setCorporateCashFlowTable(dataList: [String], latestDate: String) {
+        if dataList.count != 0 {
+            let title = ["年份", "2015",  "2016", "2017", latestDate]
+            let mTable = MyTable(rootView: stack_corporateCashFlowTable)
+            mTable.setColumn(num: 5)
+            for i in 0..<title.count {
+                mTable.add(title[i])
+            }
+            for i in 0..<dataList.count {
+                mTable.add(dataList[i])
+            }
         }
     }
     
     //MARK: -滑动表格
-    func setTrustTable(dataList: [String]){
-        let mScrollTable = MyScrollTable(rootView: stack_scrollTrustTable.superview as! UIScrollView, type: .trust)
-        for i in 0..<dataList.count {
-            mScrollTable.add(dataList[i])
+    func setTrustTable(dataList: [String]) {
+        if dataList.count != 0 {
+            let mScrollTable = MyScrollTable(rootView: scroll_trustTable, type: .trust)
+            for i in 0..<dataList.count {
+                mScrollTable.add(dataList[i])
+            }
+            mScrollTable.finish()
         }
-        mScrollTable.finish()
+        else {
+            label_trustTable.alpha = 0
+            stack_trustTable.alpha = 0
+            scroll_trustTable.alpha = 0
+            label_insuranceTable.superview?.addConstraint(NSLayoutConstraint(item: label_insuranceTable, attribute: .top, relatedBy: .equal, toItem: label_trustTable, attribute: .top, multiplier: 1.0, constant: 0))
+        }
+    }
+    
+    func setInsuranceTable(dataList: [String]) {
+        if dataList.count != 0 {
+            let mScrollTable = MyScrollTable(rootView: scroll_insuranceTable, type: .insurance)
+            for i in 0..<dataList.count {
+                mScrollTable.add(dataList[i])
+            }
+            mScrollTable.finish()
+        }
+        else {
+            label_insuranceTable.alpha = 0
+            stack_insuranceTable.alpha = 0
+            scroll_insuranceTable.alpha = 0
+            label_securityTable.superview?.addConstraint(NSLayoutConstraint(item: label_securityTable, attribute: .top, relatedBy: .equal, toItem: label_insuranceTable, attribute: .top, multiplier: 1.0, constant: 0))
+        }
+    }
+    
+    func setSecurityTable(dataList: [String]) {
+        if dataList.count != 0 {
+            let mScrollTable = MyScrollTable(rootView: scroll_securityTable, type: .security)
+            for i in 0..<dataList.count {
+                mScrollTable.add(dataList[i])
+            }
+            mScrollTable.finish()
+        }
+        else {
+            label_securityTable.alpha = 0
+            stack_securityTable.alpha = 0
+            scroll_securityTable.alpha = 0
+            tag_company.superview?.addConstraint(NSLayoutConstraint(item: tag_company, attribute: .top, relatedBy: .equal, toItem: label_securityTable, attribute: .top, multiplier: 1.0, constant: 0))
+        }
     }
     
     //MARK: -折线图

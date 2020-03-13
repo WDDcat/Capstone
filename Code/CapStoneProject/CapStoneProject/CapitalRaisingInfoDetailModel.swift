@@ -31,6 +31,8 @@ class CapitalRaisingInfoDetailModel: CapitalRaisingInfoDetailPresent {
 //                                mView.removeView()
 //                                mView.setProgressBar(false)
                             }
+                            
+                            
                         }
                         else if (json["error"].int ?? 1) == 400 {
 //                            mView.accessDenied()
@@ -590,7 +592,25 @@ class CapitalRaisingInfoDetailModel: CapitalRaisingInfoDetailPresent {
                                     }
                                     self.mView?.setTrustTable(dataList: trustList)
                                     
+                                    //MARK: -保险表
+                                    var insuranceList: [String] = []
+                                    for i in 0..<json["insurance"]["detail"].count {
+                                        insuranceList.append(json["insurance"]["detail"][i]["comp_name"].string ?? "")
+                                        insuranceList.append(json["insurance"]["detail"][i]["insur_ass_name"].string ?? "")
+                                        insuranceList.append(json["insurance"]["detail"][i]["reg_number"].string ?? "")
+                                        insuranceList.append(json["insurance"]["detail"][i]["ann_date"].string ?? "")
+                                    }
+                                    self.mView?.setInsuranceTable(dataList: insuranceList)
                                     
+                                    //MARK: -证券表
+                                    var securityList: [String] = []
+                                    for i in 0..<json["asset"]["detail"].count {
+                                        securityList.append(json["asset"]["detail"][i]["company_name"].string ?? "")
+                                        securityList.append(json["asset"]["detail"][i]["prod_name"].string ?? "")
+                                        securityList.append(json["asset"]["detail"][i]["man_name"].string ?? "")
+                                        securityList.append(json["asset"]["detail"][i]["coll_name"].string ?? "")
+                                    }
+                                    self.mView?.setSecurityTable(dataList: securityList)
                                 }
                                 else if (json["error"].int ?? 1) == 503 {
 //                                    mView.removeView()

@@ -16,11 +16,13 @@ private let lightGray: UIColor = UIColor(red: 230/255, green: 230/255, blue: 230
 private let productionRowNum = 10
 private let trustRowNum = 13
 private let insuranceRowNum = 4
+private let securityRowNum = 4
 
 enum ScrollTableType {
     case production
     case trust
     case insurance
+    case security
 }
 
 class MyScrollTable {
@@ -56,6 +58,12 @@ class MyScrollTable {
             cellHeight = 80
         case .insurance:
             rowNum = insuranceRowNum
+            cellWidth = 100
+            cellHeight = 60
+        case .security:
+            rowNum = securityRowNum
+            cellWidth = 100
+            cellHeight = 60
         default:
             rowNum = 0
         }
