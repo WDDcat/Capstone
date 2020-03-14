@@ -36,6 +36,9 @@ protocol CapitalRaisingInfoDetailView {
     func setTrustTable(dataList: [String])
     func setInsuranceTable(dataList: [String])
     func setSecurityTable(dataList: [String])
+    func setCorporateTrustTable(dataList: [String])
+    func setCorporateInsuranceTable(dataList: [String])
+    func setCorporateSecurityTable(dataList: [String])
     
     func initTotalPriceChart(valueSize: Int)
     func setTotalPriceChartData(_ yValues1: [ChartDataEntry], _ yValues2: [ChartDataEntry], _ yValues3: [ChartDataEntry], _ yValues4: [ChartDataEntry])

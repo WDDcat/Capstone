@@ -17,7 +17,9 @@ class ProductionManagementDetailController: UIViewController {
     
     @IBOutlet weak var baseScrollView: UIScrollView!
     @IBOutlet weak var label_productionManagementInfo: UILabel!
+    @IBOutlet weak var stack_productTable: UIStackView!
     @IBOutlet weak var scroll_productTable: UIScrollView!
+    @IBOutlet weak var stack_areaTable: UIStackView!
     @IBOutlet weak var scroll_areaTable: UIScrollView!
     
     override func viewDidLoad() {
@@ -36,18 +38,31 @@ extension ProductionManagementDetailController: ProductionManagementDetailView {
     }
     
     func setProductTable() {
-        let mst = MyScrollTable(rootView: scroll_productTable, type: .production)
-        for i in 0..<productionManagementProductList.count {
-            mst.add(unitFormat(productionManagementProductList[i]))
+        if productionManagementProductList.count != 0 {
+            let mst = MyScrollTable(rootView: scroll_productTable, type: .production)
+            for i in 0..<productionManagementProductList.count {
+                mst.add(unitFormat(productionManagementProductList[i]))
+            }
+            mst.finish()
         }
-        mst.finish()
+        else {
+            stack_productTable.alpha = 0
+            scroll_productTable.alpha = 0
+            stack_areaTable.superview?.addConstraint(NSLayoutConstraint(item: stack_areaTable, attribute: .top, relatedBy: .equal, toItem: stack_productTable, attribute: .top, multiplier: 1.0, constant: 0))
+        }
     }
     
     func setAreaTable() {
-        let mst = MyScrollTable(rootView: scroll_areaTable, type: .production)
-        for i in 0..<productionManagementAreaList.count {
-            mst.add(unitFormat(productionManagementAreaList[i]))
+        if productionManagementAreaList.count != 0 {
+            let mst = MyScrollTable(rootView: scroll_areaTable, type: .production)
+            for i in 0..<productionManagementAreaList.count {
+                mst.add(unitFormat(productionManagementAreaList[i]))
+            }
+            mst.finish()
         }
-        mst.finish()
+        else {
+            stack_areaTable.removeFromSuperview()
+            scroll_areaTable.removeFromSuperview()
+        }
     }
 }

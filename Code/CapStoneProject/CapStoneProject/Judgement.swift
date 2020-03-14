@@ -69,8 +69,11 @@ public func unitFormat(_ num: String) -> String {
             number = Double(num.replacingOccurrences(of: "%", with: "")) ?? 0.0
             result = String(format: "%.2f", number) + "%"
         }
-        else if num.contains(","){
+        else if num.contains(",") {
             result = date2String(num)
+        }
+        else if num == "0E-8" {
+            return "0.00"
         }
         else {
             result = num

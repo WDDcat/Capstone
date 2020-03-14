@@ -67,12 +67,14 @@ class FinancialReportController: UIViewController {
         self.navigationController?.navigationBar.setBackgroundImage(UIImage(), for: UIBarMetrics.default)
         self.navigationController?.navigationBar.shadowImage = UIImage()
         self.navigationController?.navigationBar.isTranslucent = true
+        navigationController?.navigationBar.tintColor = .lightGray
     }
     
     override func viewWillDisappear(_ animated: Bool) {
         self.navigationController?.navigationBar.setBackgroundImage(nil, for: UIBarMetrics.default)
         self.navigationController?.navigationBar.shadowImage = nil
         self.navigationController?.navigationBar.isTranslucent = true
+        navigationController?.navigationBar.tintColor = .systemRed
     }
     
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {

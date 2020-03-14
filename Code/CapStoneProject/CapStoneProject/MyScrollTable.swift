@@ -75,32 +75,33 @@ class MyScrollTable {
             columnUnit?.axis = .vertical
             columnUnit?.spacing = 2
             columnUnit?.distribution = .fillEqually
+            if num_of_column % 2 == 1 { columnUnit?.backgroundColor = gray }
+            else { columnUnit?.backgroundColor = lightGray }
         }
         
+        let textLabel = UILabel()
+        textLabel.numberOfLines = 0
+        textLabel.font = UIFont.systemFont(ofSize: 13)
+        textLabel.text = text
+        textLabel.textColor = .black
+        if num_of_column % 2 == 1 { textLabel.backgroundColor = gray }
+        else { textLabel.backgroundColor = lightGray }
+        textLabel.textAlignment = .center
+        
         if tableType == ScrollTableType.trust {
-            let scroll = UIScrollView()
-            scroll.showsVerticalScrollIndicator = true
-            scroll.showsHorizontalScrollIndicator = false
-            scroll.bounces = false
-            scroll.layer.borderColor = grayCG
-            
-            let textLabel = UILabel()
-            textLabel.numberOfLines = 0
-            textLabel.font = UIFont.systemFont(ofSize: 13)
-            textLabel.text = text
-            textLabel.textColor = .black
-            if num_of_column % 2 == 1 { textLabel.backgroundColor = gray }
-            else { textLabel.backgroundColor = lightGray }
-            textLabel.textAlignment = .center
-            
-            let labelMaxSize = CGSize(width: cellWidth!, height: cellHeight!)
+            let labelMaxSize = CGSize(width: cellWidth!, height: 9999)
             let realSize = textLabel.sizeThatFits(labelMaxSize)
-            if realSize.width < cellWidth! && realSize.height < cellHeight! {
+            if realSize.height < cellHeight! {
                 columnUnit?.addArrangedSubview(textLabel)
             }
             else {
-                textLabel.frame = CGRect(x: 0, y: 0, width: realSize.width, height: realSize.height)
+                let scroll = UIScrollView()
+                scroll.showsVerticalScrollIndicator = true
+                scroll.showsHorizontalScrollIndicator = false
+                scroll.bounces = false
+                scroll.layer.borderColor = grayCG
                 
+                textLabel.frame = CGRect(x: 0, y: 0, width: realSize.width, height: realSize.height)
                 scroll.contentSize = CGSize(width: textLabel.frame.width, height: textLabel.frame.height)
                 scroll.addSubview(textLabel)
                 
@@ -108,15 +109,6 @@ class MyScrollTable {
             }
         }
         else {
-            let textLabel = UILabel()
-            textLabel.numberOfLines = 0
-            textLabel.font = UIFont.systemFont(ofSize: 13)
-            textLabel.text = text
-            textLabel.textColor = .black
-            if num_of_column % 2 == 1 { textLabel.backgroundColor = gray }
-            else { textLabel.backgroundColor = lightGray }
-            textLabel.textAlignment = .center
-            
             columnUnit?.addArrangedSubview(textLabel)
         }
         
@@ -130,7 +122,8 @@ class MyScrollTable {
     }
     
     func finish() {
-        let width = CGFloat(num_of_column) * cellWidth! + (CGFloat(num_of_column - 1) * 2)
+        var width = CGFloat(num_of_column) * cellWidth! + (CGFloat(num_of_column - 1) * 2)
+        if width < rootView.frame.size.width { width = rootView.frame.size.width }
         let height = CGFloat(rowNum) * cellHeight! + CGFloat((rowNum - 1) * 2)
         curView.frame.size = CGSize(width: width, height: height)
         rootView.addSubview(curView)

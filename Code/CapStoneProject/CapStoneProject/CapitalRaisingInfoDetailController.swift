@@ -61,10 +61,19 @@ class CapitalRaisingInfoDetailController: UIViewController {
     @IBOutlet weak var stack_corporateCashFlowTable: UIStackView!
     //5.
     @IBOutlet weak var label_corporateAssetManagementPlanInfo: UILabel!
+    @IBOutlet weak var label_corporateTrustTable: UILabel!
+    @IBOutlet weak var stack_corporateTrustTable: UIStackView!
+    @IBOutlet weak var scroll_corporateTrustTable: UIScrollView!
     
+    @IBOutlet weak var label_corporateInsuranceTable: UILabel!
+    @IBOutlet weak var stack_corporateInsuranceTable: UIStackView!
+    @IBOutlet weak var scroll_corporateInsuranceTable: UIScrollView!
     
+    @IBOutlet weak var label_corporateSecurityTable: UILabel!
+    @IBOutlet weak var stack_corporateSecurityTable: UIStackView!
+    @IBOutlet weak var scroll_corporateSecurityTable: UIScrollView!
     
-    
+    @IBOutlet weak var view_feetView: UIView!
     
     var totalPriceChartView = LineChartView()
     var priceRateChartView = LineChartView()
@@ -198,7 +207,7 @@ extension CapitalRaisingInfoDetailController: CapitalRaisingInfoDetailView {
     
     func setEquityFinancingTable(dataList: [String]) {
         if dataList.count != 0 {
-            let title = ["上市公司", "上市日期", "发行类型", "上市交易所", "发行股票数量（万股）",     "发行价格（元）", "募集资金（亿元）", "主承销商"]
+            let title = ["上市公司", "上市日期", "发行类型", "上市交易所", "发行股票数量（万股）", "发行价格（元）", "募集金额（亿元）", "主承销商"]
             let mTable = MyTable(rootView: stack_equityFinancingTable)
             mTable.setColumn(num: 8)
             for i in 0..<title.count {
@@ -240,7 +249,7 @@ extension CapitalRaisingInfoDetailController: CapitalRaisingInfoDetailView {
     
     func setCorporateEquityFinancingTable(dataList: [String]) {
         if dataList.count != 0 {
-            let title = ["上市公司", "上市日期", "发行类型", "上市交易所", "发行股票数量（万股）",     "发行价格（元）", "募集资金（亿元）", "主承销商"]
+            let title = ["上市公司", "上市日期", "发行类型", "上市交易所", "发行股票数量（万股）", "发行价格（元）", "募集资金（亿元）", "主承销商"]
             let mTable = MyTable(rootView: stack_corporateEquityFinancingTable)
             mTable.setColumn(num: 8)
             for i in 0..<title.count {
@@ -331,6 +340,54 @@ extension CapitalRaisingInfoDetailController: CapitalRaisingInfoDetailView {
             stack_securityTable.alpha = 0
             scroll_securityTable.alpha = 0
             tag_company.superview?.addConstraint(NSLayoutConstraint(item: tag_company, attribute: .top, relatedBy: .equal, toItem: label_securityTable, attribute: .top, multiplier: 1.0, constant: 0))
+        }
+    }
+    
+    func setCorporateTrustTable(dataList: [String]) {
+        if dataList.count != 0 {
+            let mScrollTable = MyScrollTable(rootView: scroll_corporateTrustTable, type: .trust)
+            for i in 0..<dataList.count {
+                mScrollTable.add(dataList[i])
+            }
+            mScrollTable.finish()
+        }
+        else {
+            label_corporateTrustTable.alpha = 0
+            stack_corporateTrustTable.alpha = 0
+            scroll_corporateTrustTable.alpha = 0
+            label_corporateInsuranceTable.superview?.addConstraint(NSLayoutConstraint(item: label_corporateInsuranceTable, attribute: .top, relatedBy: .equal, toItem: label_corporateTrustTable, attribute: .top, multiplier: 1.0, constant: 0))
+        }
+    }
+    
+    func setCorporateInsuranceTable(dataList: [String]) {
+        if dataList.count != 0 {
+            let mScrollTable = MyScrollTable(rootView: scroll_corporateInsuranceTable, type: .insurance)
+            for i in 0..<dataList.count {
+                mScrollTable.add(dataList[i])
+            }
+            mScrollTable.finish()
+        }
+        else {
+            label_corporateInsuranceTable.alpha = 0
+            stack_corporateInsuranceTable.alpha = 0
+            scroll_corporateInsuranceTable.alpha = 0
+            label_corporateSecurityTable.superview?.addConstraint(NSLayoutConstraint(item: label_corporateSecurityTable, attribute: .top, relatedBy: .equal, toItem: label_corporateInsuranceTable, attribute: .top, multiplier: 1.0, constant: 0))
+        }
+    }
+    
+    func setCorporateSecurityTable(dataList: [String]) {
+        if dataList.count != 0 {
+            let mScrollTable = MyScrollTable(rootView: scroll_corporateSecurityTable, type: .security)
+            for i in 0..<dataList.count {
+                mScrollTable.add(dataList[i])
+            }
+            mScrollTable.finish()
+        }
+        else {
+            label_corporateSecurityTable.alpha = 0
+            stack_corporateSecurityTable.alpha = 0
+            scroll_corporateSecurityTable.alpha = 0
+            view_feetView.superview?.addConstraint(NSLayoutConstraint(item: view_feetView, attribute: .top, relatedBy: .equal, toItem: label_corporateSecurityTable, attribute: .top, multiplier: 1.0, constant: 0))
         }
     }
     

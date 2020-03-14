@@ -9,6 +9,8 @@
 import Foundation
 
 protocol OpportunityAbstractView {
+    func setTitle(title: String)
+    func setParagraph(para: String)
 }
 
 protocol OpportunityAbstractPresenter {
