@@ -127,6 +127,6 @@ class MyScrollTable {
         let height = CGFloat(rowNum) * cellHeight! + CGFloat((rowNum - 1) * 2)
         curView.frame.size = CGSize(width: width, height: height)
         rootView.addSubview(curView)
-        (curView.superview as! UIScrollView).contentSize = curView.frame.size
+        rootView.contentSize = curView.frame.size
     }
 }

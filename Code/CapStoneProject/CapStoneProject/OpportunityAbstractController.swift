@@ -7,14 +7,48 @@
 //
 
 import UIKit
+import ActiveLabel
+
+private let lightGray = UIColor(red: 220/255, green: 220/255, blue: 220/255, alpha: 1)
 
 class OpportunityAbstractController: UIViewController {
 
     var mPresenter = OpportunityAbstractModel()
     
-    @IBOutlet weak var rootView: UIView!
+    @IBOutlet weak var view_existingFinancingChance: UIView!
+    @IBOutlet weak var view_additionalFinancingChance: UIView!
+    @IBOutlet weak var view_commitmentOptimizationChance: UIView!
+    @IBOutlet weak var view_costOptimizationChance: UIView!
+    @IBOutlet weak var view_financialStructOptimizationChance: UIView!
+    
+    @IBOutlet weak var label_existingFinancingChance: UILabel!
+    @IBOutlet weak var label_additionalFinancingChance: UILabel!
+    @IBOutlet weak var label_commitmentOptimizationChance: UILabel!
+    @IBOutlet weak var label_costOptimizationChance: UILabel!
+    @IBOutlet weak var label_financialStructOptimizationChance: UILabel!
+    
+    @IBAction func btn_existingFinancingChance(_ sender: Any) {
+        remoteSetOpportunityFirstLevel(name: "existing_financing_chance")
+    }
+    
+    @IBAction func btn_additionalFinancingChance(_ sender: Any) {
+        remoteSetOpportunityFirstLevel(name: "additional_financing_chance")
+    }
+    
+    @IBAction func btn_commitmentOptimizationChance(_ sender: Any) {
+        remoteSetOpportunityFirstLevel(name: "commitment_optimization_chance")
+    }
+    
+    @IBAction func btn_costOptimizationChance(_ sender: Any) {
+        remoteSetOpportunityFirstLevel(name: "cost_optimization_chance")
+    }
+    
+    @IBAction func btn_financialStructOptimizationChance(_ sender: Any) {
+        remoteSetOpportunityFirstLevel(name: "financial_structure_optimization_chance")
+    }
     
     private var currentViewHeight: CGFloat = 0
+    private let rootView = UIStackView()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -25,66 +59,75 @@ class OpportunityAbstractController: UIViewController {
     
     override func viewWillAppear(_ animated: Bool) {
         navigationController?.navigationBar.barTintColor = .red
-        navigationController?.navigationBar.tintColor = .lightGray
+        navigationController?.navigationBar.tintColor = lightGray
+        navigationController?.navigationBar.titleTextAttributes = [NSAttributedString.Key.foregroundColor: UIColor.white]
     }
     
     override func viewWillDisappear(_ animated: Bool) {
         navigationController?.navigationBar.barTintColor = .systemBackground
         navigationController?.navigationBar.tintColor = .systemRed
+        navigationController?.navigationBar.titleTextAttributes = [NSAttributedString.Key.foregroundColor: UIColor.label]
     }
 }
 
 extension OpportunityAbstractController: OpportunityAbstractView {
     func setCompanyName(name: String) {
-        navigationController?.title = "\(name)"
+        title = "\(name)商机"
     }
     
-    func setTitle(title: String) {
-        let titleView = UIView()
-        
-        let detail = UILabel()
-        detail.text = "详情"
-        detail.textColor = .red
-        detail.font = .systemFont(ofSize: 15)
-        detail.frame = CGRect(x: 8, y: currentViewHeight + 22.5, width: UIScreen.main.bounds.width - 16, height: 18)
-        detail.textAlignment = .right
-        titleView.addSubview(detail)
-        
-        let rectangle = UILabel()
-        rectangle.backgroundColor = .red
-        rectangle.text = " "
-        rectangle.frame = CGRect(x: 8, y: currentViewHeight + 20, width: 4.5, height: 20.5)
-        titleView.addSubview(rectangle)
-        
-        let text = UILabel()
-        text.text = title
-        text.textColor = .label
-        text.font = .systemFont(ofSize: 17)
-        text.frame = CGRect(x: 16.5, y: currentViewHeight + 20, width: UIScreen.main.bounds.width - 24.5, height: 20.5)
-        titleView.addSubview(text)
-        
-        let line = UIView()
-        line.backgroundColor = .lightGray
-        line.frame = CGRect(x: 8, y: currentViewHeight + 45.5, width: UIScreen.main.bounds.width - 16, height: 2)
-        titleView.addSubview(line)
-        
-        rootView.addSubview(titleView)
-        currentViewHeight += 47.5
-        rootView.frame.size = CGSize(width: UIScreen.main.bounds.width, height: currentViewHeight)
+    func setExistingFinancingChance(para: String) {
+        if para != "" {
+            label_existingFinancingChance.text = para
+            label_existingFinancingChance.backgroundColor = .systemBackground
+        }
+        else {
+            view_additionalFinancingChance.alpha = 0
+            view_additionalFinancingChance.superview?.addConstraint(NSLayoutConstraint(item: view_additionalFinancingChance, attribute: .top, relatedBy: .equal, toItem: view_additionalFinancingChance, attribute: .top, multiplier: 1.0, constant: 0))
+        }
     }
     
-    func setParagraph(para: String) {
-        let text = UILabel()
-        text.text = para
-        text.textColor = .label
-        text.font = .systemFont(ofSize: 17)
-        text.numberOfLines = 0
-        let maxSize = CGSize(width: UIScreen.main.bounds.width - 16, height: 9999)
-        let realSize = text.sizeThatFits(maxSize)
-        text.frame = CGRect(x: 8, y: currentViewHeight + 8, width: UIScreen.main.bounds.width - 16, height: realSize.height)
-        
-        rootView.addSubview(text)
-        currentViewHeight += realSize.height
-        rootView.frame.size = CGSize(width: UIScreen.main.bounds.width, height: currentViewHeight)
+    func setAdditionalFinancingChance(para: String) {
+        if para != "" {
+            label_additionalFinancingChance.text = para
+            label_additionalFinancingChance.backgroundColor = .systemBackground
+        }
+        else {
+            view_existingFinancingChance.alpha = 0
+            view_commitmentOptimizationChance.superview?.addConstraint(NSLayoutConstraint(item: view_commitmentOptimizationChance, attribute: .top, relatedBy: .equal, toItem: view_existingFinancingChance, attribute: .top, multiplier: 1.0, constant: 0))
+        }
     }
+    
+    func setCommitmentOptimizationChance(para: String) {
+        if para != "" {
+            label_commitmentOptimizationChance.text = para
+            label_commitmentOptimizationChance.backgroundColor = .systemBackground
+        }
+        else {
+            view_commitmentOptimizationChance.alpha = 0
+            view_costOptimizationChance.superview?.addConstraint(NSLayoutConstraint(item: view_costOptimizationChance, attribute: .top, relatedBy: .equal, toItem: view_commitmentOptimizationChance, attribute: .top, multiplier: 1.0, constant: 0))
+        }
+    }
+    
+    func setCostOptimizationChance(para: String) {
+        if para != "" {
+            label_costOptimizationChance.text = para
+            label_costOptimizationChance.backgroundColor = .systemBackground
+        }
+        else {
+            view_costOptimizationChance.alpha = 0
+            label_financialStructOptimizationChance.superview?.addConstraint(NSLayoutConstraint(item: label_financialStructOptimizationChance, attribute: .top, relatedBy: .equal, toItem: view_costOptimizationChance, attribute: .top, multiplier: 1.0, constant: 0))
+        }
+    }
+    
+    func setFinancialStructOptimizationChance(para: String) {
+        if para != "" {
+            label_financialStructOptimizationChance.text = para
+            label_financialStructOptimizationChance.backgroundColor = .systemBackground
+        }
+        else {
+            view_existingFinancingChance.alpha = 0
+        }
+    }
+    
+
 }

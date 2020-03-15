@@ -38,6 +38,9 @@
 		DD3D8515241A663F00C108F7 /* OpportunityAbstractModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD3D8514241A663F00C108F7 /* OpportunityAbstractModel.swift */; };
 		DD3D8517241A665E00C108F7 /* OpportunityAbstractController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD3D8516241A665E00C108F7 /* OpportunityAbstractController.swift */; };
 		DD3D8519241A666F00C108F7 /* OpportunityAbstractContract.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD3D8518241A666F00C108F7 /* OpportunityAbstractContract.swift */; };
+		DD51304C241E3E4300EE0BE3 /* OpportunityDetailContract.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD51304B241E3E4300EE0BE3 /* OpportunityDetailContract.swift */; };
+		DD51304E241E3E6A00EE0BE3 /* OpportunityDetailModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD51304D241E3E6A00EE0BE3 /* OpportunityDetailModel.swift */; };
+		DD513050241E3ED500EE0BE3 /* OpportunityDetailController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD51304F241E3ED500EE0BE3 /* OpportunityDetailController.swift */; };
 		DD73FA8424080AE900469726 /* TargetType.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD73FA8324080AE900469726 /* TargetType.swift */; };
 		DD73FA8624080B9E00469726 /* RequestClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD73FA8524080B9E00469726 /* RequestClient.swift */; };
 		DD73FA8824080BE900469726 /* ALTools.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD73FA8724080BE900469726 /* ALTools.swift */; };
@@ -94,6 +97,9 @@
 		DD3D8514241A663F00C108F7 /* OpportunityAbstractModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OpportunityAbstractModel.swift; sourceTree = "<group>"; };
 		DD3D8516241A665E00C108F7 /* OpportunityAbstractController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OpportunityAbstractController.swift; sourceTree = "<group>"; };
 		DD3D8518241A666F00C108F7 /* OpportunityAbstractContract.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OpportunityAbstractContract.swift; sourceTree = "<group>"; };
+		DD51304B241E3E4300EE0BE3 /* OpportunityDetailContract.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OpportunityDetailContract.swift; sourceTree = "<group>"; };
+		DD51304D241E3E6A00EE0BE3 /* OpportunityDetailModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OpportunityDetailModel.swift; sourceTree = "<group>"; };
+		DD51304F241E3ED500EE0BE3 /* OpportunityDetailController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OpportunityDetailController.swift; sourceTree = "<group>"; };
 		DD73FA8324080AE900469726 /* TargetType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TargetType.swift; sourceTree = "<group>"; };
 		DD73FA8524080B9E00469726 /* RequestClient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RequestClient.swift; sourceTree = "<group>"; };
 		DD73FA8724080BE900469726 /* ALTools.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ALTools.swift; sourceTree = "<group>"; };
@@ -226,6 +232,7 @@
 			isa = PBXGroup;
 			children = (
 				DD3D8513241A65CD00C108F7 /* OpportunityAbstract */,
+				DD51304A241E3E2400EE0BE3 /* OpportunityDetail */,
 			);
 			name = BusinessOpportunity;
 			sourceTree = "<group>";
@@ -238,6 +245,16 @@
 				DD3D8516241A665E00C108F7 /* OpportunityAbstractController.swift */,
 			);
 			name = OpportunityAbstract;
+			sourceTree = "<group>";
+		};
+		DD51304A241E3E2400EE0BE3 /* OpportunityDetail */ = {
+			isa = PBXGroup;
+			children = (
+				DD51304B241E3E4300EE0BE3 /* OpportunityDetailContract.swift */,
+				DD51304D241E3E6A00EE0BE3 /* OpportunityDetailModel.swift */,
+				DD51304F241E3ED500EE0BE3 /* OpportunityDetailController.swift */,
+			);
+			name = OpportunityDetail;
 			sourceTree = "<group>";
 		};
 		DD73FA8F24080F9500469726 /* NetworkTools */ = {
@@ -440,6 +457,7 @@
 			);
 			inputPaths = (
 				"${SRCROOT}/Pods/Target Support Files/Pods-CapstoneProject/Pods-CapstoneProject-frameworks.sh",
+				"${BUILT_PRODUCTS_DIR}/ActiveLabel/ActiveLabel.framework",
 				"${BUILT_PRODUCTS_DIR}/Alamofire/Alamofire.framework",
 				"${BUILT_PRODUCTS_DIR}/Charts/Charts.framework",
 				"${BUILT_PRODUCTS_DIR}/SVProgressHUD/SVProgressHUD.framework",
@@ -447,6 +465,7 @@
 			);
 			name = "[CP] Embed Pods Frameworks";
 			outputPaths = (
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/ActiveLabel.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Alamofire.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Charts.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SVProgressHUD.framework",
@@ -477,6 +496,7 @@
 				DD397CE6240F72E9002E28E1 /* ManagerInfoDetailController.swift in Sources */,
 				DDA905F2240BB40100D113C5 /* FinancialReportController.swift in Sources */,
 				DDA905F7240BE8BB00D113C5 /* FinancialReportModel.swift in Sources */,
+				DD513050241E3ED500EE0BE3 /* OpportunityDetailController.swift in Sources */,
 				DD397CDD240EAC2A002E28E1 /* HistoryDetailCell.swift in Sources */,
 				DD73FA8424080AE900469726 /* TargetType.swift in Sources */,
 				DDA905E62408D9F100D113C5 /* SearchCompanyContract.swift in Sources */,
@@ -484,6 +504,7 @@
 				DDA905F4240BE87F00D113C5 /* FinancialReportContract.swift in Sources */,
 				DD397CDB240EAA92002E28E1 /* HistoryDetailController.swift in Sources */,
 				DD397CDF240EB293002E28E1 /* HistoryDetailContract.swift in Sources */,
+				DD51304E241E3E6A00EE0BE3 /* OpportunityDetailModel.swift in Sources */,
 				DD397CD4240E78F4002E28E1 /* BaseInfoDetailController.swift in Sources */,
 				DD397CEA240F73F9002E28E1 /* managerInfoDetailContract.swift in Sources */,
 				DD186D392411CFD600BDEBDE /* ProductionManagementDetailModel.swift in Sources */,
@@ -507,6 +528,7 @@
 				DD73FA8D24080F2A00469726 /* CompanyItemCell.swift in Sources */,
 				DD397CE1240EB49A002E28E1 /* HistoryDetailModel.swift in Sources */,
 				DD397CF1240F9C2A002E28E1 /* HolderInfoDetailContract.swift in Sources */,
+				DD51304C241E3E4300EE0BE3 /* OpportunityDetailContract.swift in Sources */,
 				DD397CE4240F72D7002E28E1 /* ManagerInfoDetailCell.swift in Sources */,
 				DD3D8515241A663F00C108F7 /* OpportunityAbstractModel.swift in Sources */,
 				DD3D8517241A665E00C108F7 /* OpportunityAbstractController.swift in Sources */,

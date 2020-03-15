@@ -10,7 +10,7 @@ import Foundation
 import UIKit
 
 public func isNullOrEmpty(_ str: String) -> Bool {
-    if(str == "None" || str == "--" || str == "" || str == "null") {
+    if(str == "None" || str == "--" || str == "" || str == "null" || str == "-") {
         return true
     }
     return false

@@ -412,6 +412,7 @@ extension CapitalRaisingInfoDetailController: CapitalRaisingInfoDetailView {
         totalPriceChartView.legend.orientation = Legend.Orientation.horizontal  //水平排列
         totalPriceChartView.legend.form = Legend.Form.circle  //形状
         totalPriceChartView.legend.wordWrapEnabled = true  //支持自动换行
+        totalPriceChartView.legend.textColor = .label
         
         //x轴
         totalPriceChartView.xAxis.enabled = true  //启用x轴
@@ -491,6 +492,7 @@ extension CapitalRaisingInfoDetailController: CapitalRaisingInfoDetailView {
         priceRateChartView.legend.orientation = Legend.Orientation.horizontal  //水平排列
         priceRateChartView.legend.form = Legend.Form.circle  //形状
         priceRateChartView.legend.wordWrapEnabled = true  //支持自动换行
+        totalPriceChartView.legend.textColor = .label
         
         //x轴
         priceRateChartView.xAxis.enabled = true  //启用x轴

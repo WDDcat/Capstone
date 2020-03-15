@@ -1,4 +1,5 @@
 PODS:
+  - ActiveLabel (1.0.1)
   - Alamofire (4.9.1)
   - Charts (3.4.0):
     - Charts/Core (= 3.4.0)
@@ -7,6 +8,7 @@ PODS:
   - SwiftyJSON (4.3.0)
 
 DEPENDENCIES:
+  - ActiveLabel
   - Alamofire
   - Charts
   - SVProgressHUD
@@ -14,17 +16,19 @@ DEPENDENCIES:
 
 SPEC REPOS:
   https://github.com/cocoapods/specs.git:
+    - ActiveLabel
     - Alamofire
     - Charts
     - SVProgressHUD
     - SwiftyJSON
 
 SPEC CHECKSUMS:
+  ActiveLabel: b8b2396fe25308d563601437d6605bf691c3b5db
   Alamofire: 85e8a02c69d6020a0d734f6054870d7ecb75cf18
   Charts: 74c9f256eaf0460c0c416522d1cf8c634ea6b286
   SVProgressHUD: 1428aafac632c1f86f62aa4243ec12008d7a51d6
   SwiftyJSON: 6faa0040f8b59dead0ee07436cbf76b73c08fd08
 
-PODFILE CHECKSUM: 6bcbff298f2eacf3c5829ed577a4c03519d462bf
+PODFILE CHECKSUM: 398ba9bcc49a7cec9185103d9d5bb5b428ef38d2
 
 COCOAPODS: 1.5.2

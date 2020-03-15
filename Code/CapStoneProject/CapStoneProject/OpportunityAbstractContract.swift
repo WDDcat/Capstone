@@ -9,8 +9,12 @@
 import Foundation
 
 protocol OpportunityAbstractView {
-    func setTitle(title: String)
-    func setParagraph(para: String)
+    func setCompanyName(name: String)
+    func setExistingFinancingChance(para: String)
+    func setAdditionalFinancingChance(para: String)
+    func setCommitmentOptimizationChance(para: String)
+    func setCostOptimizationChance(para: String)
+    func setFinancialStructOptimizationChance(para: String)
 }
 
 protocol OpportunityAbstractPresenter {

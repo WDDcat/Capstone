@@ -14,32 +14,48 @@ class OpportunityAbstractModel: OpportunityAbstractPresenter {
     
     var mView: OpportunityAbstractView?
     
-    private var count = 0
-    
-    func getInfo(){
-        self.mView?.setTitle(title: "成本优化机会")
-        self.mView?.setParagraph(para: "uhf aowf8uh aweui fhapwe9fyh apwe9u irh31298 4y02475yqcvnou4tchilre jfpa349 7cdh 2np34i9cuwyhao 9imcfjnw knfawe9pc8 rt3qap hlxiuoawh leoir aynwp9crtaw uioeyhpaw;eicyrhlawieuhf cmpawe9 8typa;w ecofhaml wdiucg yahpwe;t9cuwec;lfz uioshlwaeiuoc mrgaowleiu ytfmapw;oui hgcmalweucyjam wueryp aw9uce gn")
-        self.mView?.setTitle(title: "成本优化机会")
-        self.mView?.setParagraph(para: "uhf aowf8uh aweui fhapwe9fyh apwe9u irh31298 4y02475yqcvnou4tchilre jfpa349 7cdh 2np34i9cuwyhao 9imcfjnw knfawe9pc8 rt3qap hlxiuoawh leoir aynwp9crtaw uioeyhpaw;eicyrhlawieuhf cmpawe9 8typa;w ecofhaml wdiucg yahpwe;t9cuwec;lfz uioshlwaeiuoc mrgaowleiu ytfmapw;oui hgcmalweucyjam wueryp aw9uce gn")
-        self.mView?.setTitle(title: "成本优化机会")
-        self.mView?.setParagraph(para: "uhf aowf8uh aweui fhapwe9fyh apwe9u irh31298 4y02475yqcvnou4tchilre jfpa349 7cdh 2np34i9cuwyhao 9imcfjnw knfawe9pc8 rt3qap hlxiuoawh leoir aynwp9crtaw uioeyhpaw;eicyrhlawieuhf cmpawe9 8typa;w ecofhaml wdiucg yahpwe;t9cuwec;lfz uioshlwaeiuoc mrgaowleiu ytfmapw;oui hgcmalweucyjam wueryp aw9uce gn")
-        self.mView?.setTitle(title: "成本优化机会")
-        self.mView?.setParagraph(para: "uhf aowf8uh aweui fhapwe9fyh apwe9u irh31298 4y02475yqcvnou4tchilre jfpa349 7cdh 2np34i9cuwyhao 9imcfjnw knfawe9pc8 rt3qap hlxiuoawh leoir aynwp9crtaw uioeyhpaw;eicyrhlawieuhf cmpawe9 8typa;w ecofhaml wdiucg yahpwe;t9cuwec;lfz uioshlwaeiuoc mrgaowleiu ytfmapw;oui hgcmalweucyjam wueryp aw9uce gn")
-        self.mView?.setTitle(title: "成本优化机会")
-        self.mView?.setParagraph(para: "uhf aowf8uh aweui fhapwe9fyh apwe9u irh31298 4y02475yqcvnou4tchilre jfpa349 7cdh 2np34i9cuwyhao 9imcfjnw knfawe9pc8 rt3qap hlxiuoawh leoir aynwp9crtaw uioeyhpaw;eicyrhlawieuhf cmpawe9 8typa;w ecofhaml wdiucg yahpwe;t9cuwec;lfz uioshlwaeiuoc mrgaowleiu ytfmapw;oui hgcmalweucyjam wueryp aw9uce gn")
-        
-//        let param:[String:Any] = ["c_id": remoteGetCompanyId()]
-//        Alamofire.request(URL(string :"\(BASEURL)search_company")!, parameters: param, headers: header)
-//            .responseJSON { response in
-//                switch response.result.isSuccess{
-//                case true:
-//                    if let data = response.result.value {
-//                        let json = JSON(data)
-//
-//                    }
-//                case false:
-//                    print("fail")
-//                }
-//        }
+    func getInfo() {
+        let param:[String:Any] = ["c_id": remoteGetCompanyId()]
+        Alamofire.request(URL(string :"\(BASEURL)opportunity_abstract")!, parameters: param, headers: header)
+            .responseJSON { response in
+                switch response.result.isSuccess{
+                case true:
+                    if let data = response.result.value {
+                        let json = JSON(data)
+                        if json["error"].int == 0 {
+                            self.mView?.setCompanyName(name: json["name"].string ?? remoteGetCompanyName())
+                            var paragraph = ""
+                            for i in 0..<json["abstract_info"].count {
+                                paragraph = ""
+                                for j in 0..<json["abstract_info"][i]["contents"].count {
+                                    if !isNullOrEmpty(notNull(json["abstract_info"][i]["contents"][j].string ?? "")) {
+                                        paragraph += json["abstract_info"][i]["contents"][j].string ?? ""
+                                        if j < (json["abstract_info"][i]["contents"].count - 1) { paragraph += "\n" }
+                                    }
+                                }
+                                switch json["abstract_info"][i]["first_level_desc"] {
+                                case "存量融资机会":
+                                    self.mView?.setExistingFinancingChance(para: paragraph)
+                                case "增量融资机会":
+                                    self.mView?.setAdditionalFinancingChance(para: paragraph)
+                                case "期限优化机会":
+                                    self.mView?.setCommitmentOptimizationChance(para: paragraph)
+                                case "成本优化机会":
+                                    self.mView?.setCostOptimizationChance(para: paragraph)
+                                case "财报结构优化机会":
+                                    self.mView?.setFinancialStructOptimizationChance(para: paragraph)
+                                default:
+                                    break
+                                }
+                            }
+                        }
+                        else {
+                            print("error")
+                        }
+                    }
+                case false:
+                    print("fail")
+                }
+        }
     }
 }
