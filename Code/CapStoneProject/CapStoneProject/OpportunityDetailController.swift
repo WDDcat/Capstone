@@ -22,28 +22,29 @@ class OpportunityDetailController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        setCompanyName(name: remoteGetCompanyName())
         mPresenter.mView = self
         mPresenter.getInfo()
+        switch remoteGetOpportunityFirstLevel() {
+        case "existing_financing_chance":
+            setCompanyName("存量融资机会")
+        case "additional_financing_chance":
+            setCompanyName("增量融资机会")
+        case "commitment_optimization_chance":
+            setCompanyName("期限优化机会")
+        case "cost_optimization_chance":
+            setCompanyName("成本优化机会")
+        case "financial_structure_optimization_chance":
+            setCompanyName("财报结构优化机会")
+        default:
+            setCompanyName("\(remoteGetCompanyName())商机")
+        }
         print(remoteGetOpportunityFirstLevel())
-    }
-    
-    override func viewWillAppear(_ animated: Bool) {
-        navigationController?.navigationBar.barTintColor = .red
-        navigationController?.navigationBar.tintColor = lightGray
-        navigationController?.navigationBar.titleTextAttributes = [NSAttributedString.Key.foregroundColor: UIColor.white]
-    }
-    
-    override func viewWillDisappear(_ animated: Bool) {
-        navigationController?.navigationBar.barTintColor = .systemBackground
-        navigationController?.navigationBar.tintColor = .systemRed
-        navigationController?.navigationBar.titleTextAttributes = [NSAttributedString.Key.foregroundColor: UIColor.label]
     }
 }
 
 extension OpportunityDetailController: OpportunityDetailView {
-    func setCompanyName(name: String) {
-        title = "\(name)商机"
+    func setCompanyName(_ name: String) {
+        title = name
     }
     
     func setTitle(title: String) {
@@ -97,18 +98,23 @@ extension OpportunityDetailController: OpportunityDetailView {
     }
     
     func setTable(dataList: [String]) {
+        let tableView = UIView()
+        
         let table = UIStackView()
         table.axis = .vertical
-        table.distribution = .equalSpacing
+        table.distribution = .fill
         let mTable = MyTable(rootView: table)
         mTable.setColumn(num: columnNum)
         for i in 0..<dataList.count {
             mTable.add(dataList[i])
         }
         
-        rootView.addArrangedSubview(table)
+        table.frame = CGRect(x: 8, y: currentViewHeight + 16, width: UIScreen.main.bounds.width - 16, height: mTable.getHeight())
         
-//        table.
+        tableView.addSubview(table)
+        
+        rootView.addArrangedSubview(tableView)
+        currentViewHeight += mTable.getHeight() + 16
     }
     
     func finishSetting() {

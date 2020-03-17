@@ -7,6 +7,25 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
+        <!--Tab Bar Controller-->
+        <scene sceneID="Fsj-IC-vWK">
+            <objects>
+                <tabBarController id="oWc-Km-HDt" sceneMemberID="viewController">
+                    <navigationItem key="navigationItem" id="3ef-t8-PGg"/>
+                    <tabBar key="tabBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="dp0-mb-6zi">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="49"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    </tabBar>
+                    <connections>
+                        <segue destination="mOq-BX-PK7" kind="relationship" relationship="viewControllers" id="j7r-HC-D9y"/>
+                        <segue destination="eQV-fP-mSY" kind="relationship" relationship="viewControllers" id="BXD-ye-o7K"/>
+                    </connections>
+                </tabBarController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="3ut-4p-B23" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-324" y="50"/>
+        </scene>
         <!--搜索结果-->
         <scene sceneID="Ffp-XG-Iu0">
             <objects>
@@ -97,6 +116,7 @@
                             <outlet property="delegate" destination="mOq-BX-PK7" id="maP-zg-6YW"/>
                         </connections>
                     </tableView>
+                    <tabBarItem key="tabBarItem" title="Item" id="PQB-AD-ML2"/>
                     <navigationItem key="navigationItem" title="搜索结果" largeTitleDisplayMode="never" id="Ylf-gr-OeF">
                         <barButtonItem key="backBarButtonItem" title="返回" id="3Fy-Q2-xpg"/>
                     </navigationItem>
@@ -320,7 +340,7 @@
                                                             <constraint firstAttribute="height" constant="21" placeholder="YES" id="QVq-Jp-ia3"/>
                                                         </constraints>
                                                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                                        <nil key="textColor"/>
+                                                        <color key="textColor" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                         <nil key="highlightedColor"/>
                                                     </label>
                                                 </subviews>
@@ -388,7 +408,7 @@
                                                             <constraint firstAttribute="height" constant="21" placeholder="YES" id="A4c-Xg-7Jo"/>
                                                         </constraints>
                                                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                                        <nil key="textColor"/>
+                                                        <color key="textColor" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                         <nil key="highlightedColor"/>
                                                     </label>
                                                 </subviews>
@@ -456,7 +476,7 @@
                                                             <constraint firstAttribute="height" constant="21" placeholder="YES" id="INl-ZM-59I"/>
                                                         </constraints>
                                                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                                        <nil key="textColor"/>
+                                                        <color key="textColor" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                         <nil key="highlightedColor"/>
                                                     </label>
                                                 </subviews>
@@ -524,7 +544,7 @@
                                                             <constraint firstAttribute="height" constant="21" placeholder="YES" id="gts-QV-mhD"/>
                                                         </constraints>
                                                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                                        <nil key="textColor"/>
+                                                        <color key="textColor" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                         <nil key="highlightedColor"/>
                                                     </label>
                                                 </subviews>
@@ -592,7 +612,7 @@
                                                             <constraint firstAttribute="height" constant="21" placeholder="YES" id="cRA-xD-apr"/>
                                                         </constraints>
                                                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                                        <nil key="textColor"/>
+                                                        <color key="textColor" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                         <nil key="highlightedColor"/>
                                                     </label>
                                                 </subviews>
@@ -669,6 +689,7 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="HIb-bB-LhM"/>
                     </view>
+                    <tabBarItem key="tabBarItem" title="Item" id="1FO-DV-Fig"/>
                     <navigationItem key="navigationItem" title="商机" id="6xi-2W-c5v">
                         <barButtonItem key="backBarButtonItem" title=" " id="y82-fK-eUD"/>
                     </navigationItem>
@@ -1365,6 +1386,7 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="xYY-0I-LpS"/>
                     </view>
+                    <tabBarItem key="tabBarItem" title="Item" id="1Rj-qT-3Tg"/>
                     <navigationItem key="navigationItem" largeTitleDisplayMode="always" id="T6N-Bo-kUB">
                         <barButtonItem key="backBarButtonItem" title=" " id="1No-ae-BFs"/>
                     </navigationItem>
@@ -2259,22 +2281,6 @@
             </objects>
             <point key="canvasLocation" x="3178" y="-247"/>
         </scene>
-        <!--View Controller-->
-        <scene sceneID="bGu-aE-rLs">
-            <objects>
-                <viewController id="OJz-SA-WfU" customClass="ViewController" customModule="CapstoneProject" customModuleProvider="target" sceneMemberID="viewController">
-                    <view key="view" contentMode="scaleToFill" id="SFY-YY-1eL">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
-                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
-                        <viewLayoutGuide key="safeArea" id="HYE-Vw-oZ4"/>
-                    </view>
-                    <navigationItem key="navigationItem" id="9H0-wa-O0W"/>
-                </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="0G1-Ah-gOh" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="-82" y="775"/>
-        </scene>
         <!--首页-->
         <scene sceneID="Wqh-gt-Nvl">
             <objects>
@@ -2287,12 +2293,12 @@
                     </navigationBar>
                     <nil name="viewControllers"/>
                     <connections>
-                        <segue destination="mOq-BX-PK7" kind="relationship" relationship="rootViewController" id="gCq-mr-cV1"/>
+                        <segue destination="oWc-Km-HDt" kind="relationship" relationship="rootViewController" id="WGO-vf-TPV"/>
                     </connections>
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="lGs-N1-V5g" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-82" y="50"/>
+            <point key="canvasLocation" x="-1258" y="50"/>
         </scene>
         <!--历史沿革-->
         <scene sceneID="Bkh-iu-URf">
@@ -3609,6 +3615,7 @@
                         <outlet property="stack_trustTable" destination="OOr-bO-UtB" id="Vjh-aI-8rz"/>
                         <outlet property="tag_company" destination="NP0-Pj-wv0" id="aue-Rt-nIf"/>
                         <outlet property="view_feetView" destination="XaH-hE-Kve" id="SQl-x2-xfu"/>
+                        <outlet property="view_group" destination="WCW-j7-kcI" id="FLF-Go-FVw"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="ZYx-ps-lbI" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
@@ -4045,6 +4052,7 @@
     </resources>
     <inferredMetricsTieBreakers>
         <segue reference="EL4-ux-eUf"/>
+        <segue reference="BXD-ye-o7K"/>
     </inferredMetricsTieBreakers>
     <color key="tintColor" systemColor="systemRedColor" red="1" green="0.23137254900000001" blue="0.18823529410000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
 </document>

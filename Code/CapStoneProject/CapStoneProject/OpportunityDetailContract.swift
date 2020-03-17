@@ -9,7 +9,6 @@
 import Foundation
 
 protocol OpportunityDetailView {
-    func setCompanyName(name: String)
     func setTitle(title: String)
     func setParagraph(para: String)
     func setPartEnd()

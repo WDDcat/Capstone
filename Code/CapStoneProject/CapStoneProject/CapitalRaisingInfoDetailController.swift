@@ -15,6 +15,7 @@ class CapitalRaisingInfoDetailController: UIViewController {
     
     @IBOutlet weak var label_overview: UILabel!
     //集团
+    @IBOutlet weak var view_group: UIView!
     //1.
     @IBOutlet weak var label_bankCreditInfo: UILabel!
     @IBOutlet weak var stack_bankCreditTable: UIStackView!
@@ -550,5 +551,9 @@ extension CapitalRaisingInfoDetailController: CapitalRaisingInfoDetailView {
         
         priceRateChartView.data = data
         priceRateChartView.animate(xAxisDuration: 1, yAxisDuration: 1)
+    }
+    
+    func removeView() {
+        view_group.removeFromSuperview()
     }
 }

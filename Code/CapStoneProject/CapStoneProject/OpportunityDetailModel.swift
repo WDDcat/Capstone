@@ -40,8 +40,8 @@ class OpportunityDetailModel: OpportunityDetailPresenter {
                                         }
                                         for k in 0..<json["opportunity_info"][i]["datas"][j]["table"].count {
                                             var tableEmpty = true
-                                            var dataList: [String] = []
                                             self.mView?.setTableColumn(column: json["opportunity_info"][i]["datas"][j]["table"][k]["tableData"]["row_name"].count)
+                                            var dataList: [String] = json["opportunity_info"][i]["datas"][j]["table"][k]["tableData"]["row_name"].arrayObject as! [String]
                                             for n in 0..<json["opportunity_info"][i]["datas"][j]["table"][k]["tableData"]["info"].count {
                                                 for l in 0..<json["opportunity_info"][i]["datas"][j]["table"][k]["tableData"]["row_name"].count {
                                                     if (json["opportunity_info"][i]["datas"][j]["table"][k]["tableData"]["info"][n][l].string ?? "") != "" {
@@ -54,7 +54,7 @@ class OpportunityDetailModel: OpportunityDetailPresenter {
                                                 }
                                             }
                                             if !tableEmpty {
-//                                                self.mView?.setTable(dataList: dataList)
+                                                self.mView?.setTable(dataList: dataList)
                                             }
                                         }
                                     }

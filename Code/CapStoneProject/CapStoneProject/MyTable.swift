@@ -20,16 +20,22 @@ public class MyTable {
     private var rowUnit: UIStackView?
     private var num_of_row = 1
     private var num_of_column = 1
+    private var tableHeight: CGFloat = 0
+    private var rowMaxHeight: CGFloat = 0
+    private var cellWidth: CGFloat = 0
     
     init(rootView: UIStackView) {
         curView = rootView
         curView.axis = .vertical
         curView.spacing = 2
         curView.distribution = .equalSpacing
+        tableHeight = 0
+        curView.frame.size.width = UIScreen.main.bounds.width - 16
     }
     
     func setColumn(num: Int) {
         columnNum = num
+        cellWidth = (curView.frame.width + 2) / CGFloat(columnNum!) - 2
     }
     
     func add(_ text: String) {
@@ -38,6 +44,7 @@ public class MyTable {
             rowUnit?.axis = .horizontal
             if num_of_row == 1 { rowUnit?.spacing = 0 }
             else { rowUnit?.spacing = 2 }
+            rowMaxHeight = 0
         }
         
         let textLabel = UILabel()
@@ -51,25 +58,31 @@ public class MyTable {
         }
         else if num_of_row % 2 == 1 { textLabel.backgroundColor = gray }
         else { textLabel.backgroundColor = lightGray }
-//        textLabel.frame.size = CGSize(width: 50, height: 50)
         textLabel.textAlignment = .center
+        
+        let maxSize = CGSize(width: cellWidth, height: 9999)
+        let realSize = textLabel.sizeThatFits(maxSize)
+        if rowMaxHeight < realSize.height { rowMaxHeight = realSize.height }
+        textLabel.frame.size = CGSize(width: realSize.width, height: realSize.height)
         
         rowUnit?.addArrangedSubview(textLabel)
         
         num_of_column += 1
         
+        
         if num_of_column > columnNum! {
-            rowUnit?.frame = CGRect(x: 0, y: 0, width: curView.frame.size.width, height: 40	)
+            rowUnit?.frame = CGRect(x: 0, y: 0, width: curView.frame.size.width, height: rowMaxHeight)
             curView.addArrangedSubview(rowUnit!)
             
-//            let horizonialDivider = UIView(frame: .zero)
-//            horizonialDivider.translatesAutoresizingMaskIntoConstraints = false
-//            horizonialDivider.heightAnchor.constraint(equalToConstant: 2).isActive = true
-//            horizonialDivider.backgroundColor = darkGray
-//            rowUnit?.addArrangedSubview(horizonialDivider)
+            print("tableHeight = \(tableHeight) + \(rowMaxHeight)")
+            tableHeight += rowMaxHeight + 2
             
             num_of_row += 1
             num_of_column = 1
         }
+    }
+    
+    func getHeight() -> CGFloat {
+        return tableHeight - 2
     }
 }

@@ -44,6 +44,8 @@ protocol CapitalRaisingInfoDetailView {
     func setTotalPriceChartData(_ yValues1: [ChartDataEntry], _ yValues2: [ChartDataEntry], _ yValues3: [ChartDataEntry], _ yValues4: [ChartDataEntry])
     func initPriceRateChart(valueSize: Int)
     func setPriceRateChartData(_ yValues1: [ChartDataEntry], _ yValues2: [ChartDataEntry], _ yValues3: [ChartDataEntry], _ yValues4: [ChartDataEntry])
+    
+    func removeView()
 }
 
 protocol CapitalRaisingInfoDetailPresent {

@@ -126,10 +126,18 @@ class FinancingInfoDetailModel: FinancingInfoDetailPresent {
                             else {
                                 dataList.append("科目")
                                 for i in (0..<json["statement_2_year"].count).reversed() {
-                                    dataList.append(json["statement_2_year"][i]["date"].string ?? "-")
+                                    var dateString: NSString = (json["statement_2_year"][i]["date"].string ?? "    -  -  ") as NSString
+                                    var date = "\(dateString.substring(to: 4).replacingOccurrences(of: "    ", with: "-"))年"
+                                    dateString = dateString.substring(from: 5) as NSString
+                                    date += "\(dateString.substring(to: 2).replacingOccurrences(of: "  ", with: "-"))月"
+                                    dataList.append(date)
                                 }
                                 if (json["statement_last"]["date"].string ?? "") != "" {
-                                    dataList.append(json["statement_last"]["date"].string ?? "")
+                                    var dateString: NSString = (json["statement_last"]["date"].string ?? "    -  -  ") as NSString
+                                    var date = "\(dateString.substring(to: 4).replacingOccurrences(of: "    ", with: "-"))年"
+                                    dateString = dateString.substring(from: 5) as NSString
+                                    date += "\(dateString.substring(to: 2).replacingOccurrences(of: "  ", with: "-"))月"
+                                    dataList.append(date)
                                 }
                                 dataList.append("行业平均值")
                                 
@@ -251,18 +259,18 @@ class FinancingInfoDetailModel: FinancingInfoDetailPresent {
                                 }
                                 if json["industry_avg_info"]["info"]["indexs"].count != 0 {
                                     let indexsJSON = json["industry_avg_info"]["info"]["indexs"]
-                                    itemList.append(unitFormat(indexsJSON[11][3].int ?? 0))
+                                    itemList.append(unitFormat(indexsJSON[11][3].double ?? 0))
                                     itemList.append("-")
-                                    itemList.append(unitFormat(indexsJSON[13][3].int ?? 0))
-                                    itemList.append(unitFormat(indexsJSON[7][3].int ?? 0))
-                                    itemList.append(unitFormat(indexsJSON[22][3].int ?? 0))
-                                    itemList.append(unitFormat(indexsJSON[6][3].int ?? 0))
-                                    itemList.append(unitFormat(indexsJSON[2][3].int ?? 0))
-                                    itemList.append(unitFormat(indexsJSON[1][3].int ?? 0))
-                                    itemList.append(unitFormat(indexsJSON[0][3].int ?? 0))
-                                    itemList.append(unitFormat(indexsJSON[17][3].int ?? 0))
-                                    itemList.append(unitFormat(indexsJSON[20][3].int ?? 0))
-                                    itemList.append(unitFormat(indexsJSON[19][3].int ?? 0))
+                                    itemList.append(unitFormat(indexsJSON[13][3].double ?? 0))
+                                    itemList.append(unitFormat(indexsJSON[7][3].double ?? 0))
+                                    itemList.append(unitFormat(indexsJSON[22][3].double ?? 0))
+                                    itemList.append(unitFormat(indexsJSON[6][3].double ?? 0))
+                                    itemList.append(unitFormat(indexsJSON[2][3].double ?? 0))
+                                    itemList.append(unitFormat(indexsJSON[1][3].double ?? 0))
+                                    itemList.append(unitFormat(indexsJSON[0][3].double ?? 0))
+                                    itemList.append(unitFormat(indexsJSON[17][3].double ?? 0))
+                                    itemList.append(unitFormat(indexsJSON[20][3].double ?? 0))
+                                    itemList.append(unitFormat(indexsJSON[19][3].double ?? 0))
                                 }
                                 else {
                                     for _ in 0..<12 {
