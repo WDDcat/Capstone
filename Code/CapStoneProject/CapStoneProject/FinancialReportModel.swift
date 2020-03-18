@@ -10,7 +10,7 @@ import Foundation
 import Alamofire
 import SwiftyJSON
 
-class FinancialReportModel: FinancialReportPresent {
+class FinancialReportModel: FinancialReportPresenter {
     
     var mView: FinancialReportView?
     

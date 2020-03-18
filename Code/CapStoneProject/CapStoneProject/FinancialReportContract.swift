@@ -23,6 +23,6 @@ protocol FinancialReportView {
     func setRaisingInfo(paragraph: String)
 }
 
-protocol FinancialReportPresent {
+protocol FinancialReportPresenter {
     func getInfo()
 }
