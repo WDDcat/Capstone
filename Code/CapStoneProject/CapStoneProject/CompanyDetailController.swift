@@ -18,6 +18,16 @@ class CompanyDetailController: UIViewController {
     @IBOutlet weak var label_financialReport: UIButton!
     @IBOutlet weak var label_businessOpportunity: UIButton!
     
+    @IBAction func btn_financialReport(_ sender: UIButton) {
+        let controller = storyboard?.instantiateViewController(withIdentifier: "FinancialReport") as! FinancialReportController
+        self.navigationController?.pushViewController(controller, animated: true)
+    }
+    
+    @IBAction func btn_businessOpportunity(_ sender: UIButton) {
+        let controller = storyboard?.instantiateViewController(withIdentifier: "OpportunityAbstract") as! OpportunityAbstractController
+        self.navigationController?.pushViewController(controller, animated: true)
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         mPresenter.mView = self

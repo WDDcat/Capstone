@@ -31,13 +31,13 @@ class MyCycleScrollView: UIView, UIScrollViewDelegate {
         }
     }
     
-    public var rollingEnable: Bool = false {
+    public var rollingEnable: Bool = true {
         willSet {
             newValue ? startTimer() : stopTimer()
         }
     }
     
-    public var duration: TimeInterval = 5.0
+    public var duration: TimeInterval = 4
     
     public weak var delegate: CycleScrollViewDelegate? {
         didSet {
@@ -52,6 +52,7 @@ class MyCycleScrollView: UIView, UIScrollViewDelegate {
         super.init(frame: frame)
         
         scrollView = UIScrollView()
+        scrollView.backgroundColor = .none
         scrollView.isPagingEnabled = true
         scrollView.bounces = false
         scrollView.showsHorizontalScrollIndicator = false
@@ -124,6 +125,19 @@ class MyCycleScrollView: UIView, UIScrollViewDelegate {
     func scrollViewDidEndDragging(_ scrollView: UIScrollView, willDecelerate decelerate: Bool) {
         if rollingEnable {
             startTimer()
+        }
+    }
+    
+    func scrollViewDidScroll(_ scrollView: UIScrollView) {
+        if scrollView.contentOffset.x <= 0 {
+            currentIndex = getLast(currentIndex)
+        }
+        else if scrollView.contentOffset.x >= 2 * scrollView.frame.width {
+            currentIndex = getNext(currentIndex)
+        }
+        
+        if scrollView.contentOffset.y != 0 {
+            scrollView.contentOffset.y = 0
         }
     }
     

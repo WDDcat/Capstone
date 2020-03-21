@@ -16,6 +16,7 @@ class LoginPageController: UIViewController {
     @IBOutlet weak var textfield_password: UITextField!
     
     @IBAction func btn_back(_ sender: UIBarButtonItem) {
+        
         self.dismiss(animated: true, completion: nil)
     }
     
@@ -49,9 +50,7 @@ class LoginPageController: UIViewController {
     }
     
     override func viewWillAppear(_ animated: Bool) {
-        if (userDefaults.object(forKey: "loginStatus")) == 1 {
-            
-        }
+        
     }
 }
 
@@ -66,6 +65,7 @@ extension LoginPageController: LoginPageView {
     }
     
     func loginSuccess() {
-        self.dismiss(animated: true, completion: nil)
+        print("success")
+        self.navigationController?.popViewController(animated: true)
     }
 }
