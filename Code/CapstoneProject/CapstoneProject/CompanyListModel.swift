@@ -10,14 +10,14 @@ import Foundation
 import Alamofire
 import SwiftyJSON
 
-class SearchCompanyModel: SearchCompanyPresenter {
+class CompanyListModel: CompanyListPresenter {
     
-    var mView: SearchCompanyView?
+    var mView: CompanyListView?
     
     private var count = 0
     
     func getPerPageInfo(keyword: String, limit:Int, page: Int){
-        let param:[String:Any] = ["keyword": "海航集团有限公司", "limit": 10, "page": page]          //海南航空控股股份有限：10 海南：2230 A:133   "HANG SANG" 北京中外名人 海航集团有限公司
+        let param:[String:Any] = ["keyword": keyword, "limit": 10, "page": page]          //海南航空控股股份有限：10 海南：2230 A:133   "HANG SANG" 北京中外名人 海航集团有限公司
         Alamofire.request(URL(string :"\(BASEURL)search_company")!, parameters: param, headers: header)
             .responseJSON { response in
                 switch response.result.isSuccess{

@@ -8,9 +8,9 @@
 
 import UIKit
 
-class SearchCompanyCell: UITableViewCell {
+class CompanyListCell: UITableViewCell {
 
-    var mPresenter:SearchCompanyModel?
+    var mPresenter:CompanyListModel?
     
     @IBOutlet var label_companyName: UILabel!
     @IBOutlet var label_address: UILabel!

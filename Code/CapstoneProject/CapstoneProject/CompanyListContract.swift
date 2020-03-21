@@ -8,12 +8,12 @@
 
 import Foundation
 
-protocol SearchCompanyView {
+protocol CompanyListView {
     func refreshCompanyList()
     func setFooterView(count: Int, total:Int)
 }
 
-protocol SearchCompanyPresenter {
+protocol CompanyListPresenter {
     func getPerPageInfo(keyword: String, limit:Int, page: Int)
     func postAddCollect(c_id: String, name: String, recordName: String) ->Bool
     func postCancelCollect(c_id: String, name: String, recordName: String) -> Bool

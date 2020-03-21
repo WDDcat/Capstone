@@ -76,10 +76,6 @@ class FinancialReportController: UIViewController {
         self.navigationController?.navigationBar.isTranslucent = true
         navigationController?.navigationBar.tintColor = .systemRed
     }
-    
-    override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
-        
-    }
 }
 
 extension FinancialReportController: FinancialReportView {

@@ -14,25 +14,22 @@ var SearchCompanyLegalPersonList:[String] = []
 var SearchCompanyStarList:[String] = []
 var SearchCompanyCidList:[String] = []
 
-class SearchCompanyController: UITableViewController, UISearchBarDelegate {
+class CompanyListController: UITableViewController, UISearchBarDelegate {
     
-    var mPresenter = SearchCompanyModel()
-    
-    @IBOutlet weak var searchBar: UISearchBar!
+    var mPresenter = CompanyListModel()
     
     private var page = 0
     
     override func viewDidLoad() {
         super.viewDidLoad()
         mPresenter.mView = self
-        searchBar.delegate = self
         
         SearchCompanyNameList.removeAll()
         SearchCompanyAddressList.removeAll()
         SearchCompanyLegalPersonList.removeAll()
         SearchCompanyStarList.removeAll()
         SearchCompanyCidList.removeAll()
-        mPresenter.getPerPageInfo(keyword: searchBar.text!, limit:10, page: page)
+        mPresenter.getPerPageInfo(keyword: remoteGetSearchKeyword(), limit:10, page: page)
     }
 
     // MARK: - Table view data source
@@ -47,8 +44,8 @@ class SearchCompanyController: UITableViewController, UISearchBarDelegate {
     }
 
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "companyItem", for: indexPath) as! SearchCompanyCell
-        cell.mPresenter = SearchCompanyModel()
+        let cell = tableView.dequeueReusableCell(withIdentifier: "companyItem", for: indexPath) as! CompanyListCell
+        cell.mPresenter = CompanyListModel()
         
         cell.label_companyName.text = SearchCompanyNameList[indexPath.row]
         cell.label_address.text = "地址：\(SearchCompanyAddressList[indexPath.row])"
@@ -64,7 +61,7 @@ class SearchCompanyController: UITableViewController, UISearchBarDelegate {
         if indexPath.row == (page * 10 + 9){
             print("refresh")
             page = page + 1
-            mPresenter.getPerPageInfo(keyword: searchBar.text!, limit:10, page: page)
+            mPresenter.getPerPageInfo(keyword: remoteGetSearchKeyword(), limit:10, page: page)
         }
     }
     
@@ -75,42 +72,33 @@ class SearchCompanyController: UITableViewController, UISearchBarDelegate {
         remoteSetCompanyName(name: SearchCompanyNameList[indexPath.row])
         print("didSelect:\(SearchCompanyNameList[indexPath.row])")
     }
-    
-    // MARK: - Search Bar set
-    func searchBarTextDidBeginEditing(_ searchBar: UISearchBar) {
-        searchBar.becomeFirstResponder()
-        searchBar.enablesReturnKeyAutomatically = true
-    }
-    
-    func searchBarCancelButtonClicked(_ searchBar: UISearchBar) {
-        searchBar.text = ""
-        searchBar.resignFirstResponder()
-    }
-    
-    func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
-        searchBar.resignFirstResponder()
-        page = 0
-        SearchCompanyNameList.removeAll()
-        SearchCompanyAddressList.removeAll()
-        SearchCompanyLegalPersonList.removeAll()
-        SearchCompanyStarList.removeAll()
-        SearchCompanyCidList.removeAll()
-        mPresenter.getPerPageInfo(keyword: searchBar.text!, limit:10, page: page)
-    }
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
-    }
-    */
-
 }
 
-extension SearchCompanyController: SearchCompanyView {
+extension CompanyListController {
+//    // MARK: - Search Bar set
+//    func searchBarTextDidBeginEditing(_ searchBar: UISearchBar) {
+//        searchBar.becomeFirstResponder()
+//        searchBar.enablesReturnKeyAutomatically = true
+//    }
+//
+//    func searchBarCancelButtonClicked(_ searchBar: UISearchBar) {
+//        searchBar.text = ""
+//        searchBar.resignFirstResponder()
+//    }
+//
+//    func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
+//        searchBar.resignFirstResponder()
+//        page = 0
+//        SearchCompanyNameList.removeAll()
+//        SearchCompanyAddressList.removeAll()
+//        SearchCompanyLegalPersonList.removeAll()
+//        SearchCompanyStarList.removeAll()
+//        SearchCompanyCidList.removeAll()
+//        mPresenter.getPerPageInfo(keyword: searchBar.text!, limit:10, page: page)
+//    }
+}
+
+extension CompanyListController: CompanyListView {
     func refreshCompanyList() {
         self.tableView.reloadData()
     }

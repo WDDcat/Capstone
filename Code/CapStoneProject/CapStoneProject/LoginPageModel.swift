@@ -23,10 +23,11 @@ class LoginPageModel: LoginPagePresenter {
                     if let data = response.result.value {
                         let json = JSON(data)
                         if (json["error"].int ?? -1) == 0 {
-                            remoteSetTokenId(id: json["token_id"].string ?? "")
+//                            remoteSetTokenId(id: json["token_id"].string ?? "")
+                            userDefaults.set(json["token_id"].string!, forKey: "token_id")
                             userDefaults.set(id, forKey: "username")
                             userDefaults.set(pwd, forKey: "password")
-                            userDefaults.set(true, forKey: "loginStatus")
+                            userDefaults.set(true, forKey: "login_status")
                             self.mView?.loginSuccess()
                         }
                         else if (json["error"].int ?? -1) == 502 {
