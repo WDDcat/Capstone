@@ -43,8 +43,10 @@
 		DD6DFE6B2429BD1200F76578 /* PreRegisterPageContract.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD6DFE6A2429BD1200F76578 /* PreRegisterPageContract.swift */; };
 		DD6DFE6E2429BDE500F76578 /* PreRegisterPageModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD6DFE6D2429BDE500F76578 /* PreRegisterPageModel.swift */; };
 		DD6DFE702429BDFC00F76578 /* PreRegisterPageController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD6DFE6F2429BDFC00F76578 /* PreRegisterPageController.swift */; };
+		DD6DFE72242BBF8200F76578 /* FavouriteCompanyListCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD6DFE71242BBF8200F76578 /* FavouriteCompanyListCell.swift */; };
+		DD6DFE74242BC0D200F76578 /* CompanyCellModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD6DFE73242BC0D200F76578 /* CompanyCellModel.swift */; };
 		DD73FA8B24080F1400469726 /* CompanyListController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD73FA8A24080F1400469726 /* CompanyListController.swift */; };
-		DD73FA8D24080F2A00469726 /* CompanyItemCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD73FA8C24080F2A00469726 /* CompanyItemCell.swift */; };
+		DD73FA8D24080F2A00469726 /* CompanyListCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD73FA8C24080F2A00469726 /* CompanyListCell.swift */; };
 		DDA905E42408D99D00D113C5 /* CompanyListModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDA905E32408D99D00D113C5 /* CompanyListModel.swift */; };
 		DDA905E62408D9F100D113C5 /* CompanyListContract.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDA905E52408D9F100D113C5 /* CompanyListContract.swift */; };
 		DDA905E9240B9AA400D113C5 /* CompanyDetailContract.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDA905E8240B9AA400D113C5 /* CompanyDetailContract.swift */; };
@@ -122,8 +124,10 @@
 		DD6DFE6A2429BD1200F76578 /* PreRegisterPageContract.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PreRegisterPageContract.swift; sourceTree = "<group>"; };
 		DD6DFE6D2429BDE500F76578 /* PreRegisterPageModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PreRegisterPageModel.swift; sourceTree = "<group>"; };
 		DD6DFE6F2429BDFC00F76578 /* PreRegisterPageController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PreRegisterPageController.swift; sourceTree = "<group>"; };
+		DD6DFE71242BBF8200F76578 /* FavouriteCompanyListCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavouriteCompanyListCell.swift; sourceTree = "<group>"; };
+		DD6DFE73242BC0D200F76578 /* CompanyCellModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CompanyCellModel.swift; sourceTree = "<group>"; };
 		DD73FA8A24080F1400469726 /* CompanyListController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CompanyListController.swift; sourceTree = "<group>"; };
-		DD73FA8C24080F2A00469726 /* CompanyItemCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CompanyItemCell.swift; sourceTree = "<group>"; };
+		DD73FA8C24080F2A00469726 /* CompanyListCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CompanyListCell.swift; sourceTree = "<group>"; };
 		DDA905E32408D99D00D113C5 /* CompanyListModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CompanyListModel.swift; sourceTree = "<group>"; };
 		DDA905E52408D9F100D113C5 /* CompanyListContract.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CompanyListContract.swift; sourceTree = "<group>"; };
 		DDA905E8240B9AA400D113C5 /* CompanyDetailContract.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CompanyDetailContract.swift; sourceTree = "<group>"; };
@@ -322,6 +326,7 @@
 			isa = PBXGroup;
 			children = (
 				DDA905EE240BA43800D113C5 /* RemoteData.swift */,
+				DD6DFE73242BC0D200F76578 /* CompanyCellModel.swift */,
 			);
 			name = NetworkTools;
 			sourceTree = "<group>";
@@ -332,7 +337,7 @@
 				DDA905E52408D9F100D113C5 /* CompanyListContract.swift */,
 				DDA905E32408D99D00D113C5 /* CompanyListModel.swift */,
 				DD73FA8A24080F1400469726 /* CompanyListController.swift */,
-				DD73FA8C24080F2A00469726 /* CompanyItemCell.swift */,
+				DD73FA8C24080F2A00469726 /* CompanyListCell.swift */,
 			);
 			name = CompanyList;
 			sourceTree = "<group>";
@@ -398,6 +403,7 @@
 				DDC4079D242353CD00105E89 /* PersonalCenterContract.swift */,
 				DDC4079F242353EC00105E89 /* PersonalCenterModel.swift */,
 				DDC407A1242353FB00105E89 /* PersonalCenterController.swift */,
+				DD6DFE71242BBF8200F76578 /* FavouriteCompanyListCell.swift */,
 			);
 			name = PersonalCenter;
 			sourceTree = "<group>";
@@ -575,7 +581,6 @@
 			inputPaths = (
 				"${SRCROOT}/Pods/Target Support Files/Pods-CapstoneProject/Pods-CapstoneProject-frameworks.sh",
 				"${BUILT_PRODUCTS_DIR}/Alamofire/Alamofire.framework",
-				"${BUILT_PRODUCTS_DIR}/AlamofireImage/AlamofireImage.framework",
 				"${BUILT_PRODUCTS_DIR}/Charts/Charts.framework",
 				"${BUILT_PRODUCTS_DIR}/SVProgressHUD/SVProgressHUD.framework",
 				"${BUILT_PRODUCTS_DIR}/SwiftyJSON/SwiftyJSON.framework",
@@ -583,7 +588,6 @@
 			name = "[CP] Embed Pods Frameworks";
 			outputPaths = (
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Alamofire.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/AlamofireImage.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Charts.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SVProgressHUD.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SwiftyJSON.framework",
@@ -617,6 +621,7 @@
 				DD186D3D2413801D00BDEBDE /* MyScrollTable.swift in Sources */,
 				DD397CE6240F72E9002E28E1 /* ManagerInfoDetailController.swift in Sources */,
 				DDA905F2240BB40100D113C5 /* FinancialReportController.swift in Sources */,
+				DD6DFE74242BC0D200F76578 /* CompanyCellModel.swift in Sources */,
 				DDA905F7240BE8BB00D113C5 /* FinancialReportModel.swift in Sources */,
 				DDC407692422334F00105E89 /* LoginPageContract.swift in Sources */,
 				DD513050241E3ED500EE0BE3 /* OpportunityDetailController.swift in Sources */,
@@ -657,7 +662,8 @@
 				DDDB7A2724078A4B0030178A /* AppDelegate.swift in Sources */,
 				DDC407B02425E74300105E89 /* SearchPageModel.swift in Sources */,
 				DD186D492418A90A00BDEBDE /* CapitalRaisingInfoDetailController.swift in Sources */,
-				DD73FA8D24080F2A00469726 /* CompanyItemCell.swift in Sources */,
+				DD73FA8D24080F2A00469726 /* CompanyListCell.swift in Sources */,
+				DD6DFE72242BBF8200F76578 /* FavouriteCompanyListCell.swift in Sources */,
 				DDC407DF24271CD900105E89 /* RegisterPageContract.swift in Sources */,
 				DD397CE1240EB49A002E28E1 /* HistoryDetailModel.swift in Sources */,
 				DD397CF1240F9C2A002E28E1 /* HolderInfoDetailContract.swift in Sources */,

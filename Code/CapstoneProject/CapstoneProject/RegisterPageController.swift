@@ -48,6 +48,7 @@ class RegisterPageController: UIViewController, UIPickerViewDelegate, UIPickerVi
     var pickerView = UIPickerView()
     
     fileprivate var pickerType: PickerType = .department
+    var from = ""
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -151,7 +152,14 @@ extension RegisterPageController: RegisterPageView {
     }
     
     func submitSuccess() {
-        navigationController?.popViewController(animated: true)
+        switch from {
+        case "personalCenter":
+            navigationController?.popViewController(animated: true)
+        case "preRegister":
+            navigationController?.popToRootViewController(animated: true)
+        default:
+            break
+        }
     }
 }
 
@@ -183,12 +191,12 @@ extension RegisterPageController {
             clearToSubmit = false
         }
         
-        let email = "^([a-z0-9A-Z]+[-|\\.]?)+[a-z0-9A-Z]@[a-z0-9A-Z]+(-[a-z0-9A-Z]+?\\.)+[a-zA-Z]{2,}$"
+        let email = "^([a-zA-Z0-9]+([._\\-])*[a-zA-Z0-9]*)+@([a-zA-Z0-9])+(.([a-zA-Z])+)+$"
         let regexEmail = NSPredicate(format: "SELF MATCHES %@",email)
         if !regexEmail.evaluate(with: field_email.text! as NSString) {
             field_email.text = ""
             field_email.attributedPlaceholder = NSAttributedString.init(string: "请输入正确的邮箱地址", attributes: [NSAttributedString.Key.foregroundColor: UIColor.red])
-//            clearToSubmit = false
+            clearToSubmit = false
         }
         
         return clearToSubmit

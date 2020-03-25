@@ -4388,7 +4388,7 @@
                                 <rect key="frame" x="8" y="211.5" width="359" height="447.5"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                                 <prototypes>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" showsReorderControl="YES" indentationWidth="10" reuseIdentifier="companyItem" rowHeight="152" id="3SC-fK-IpN" customClass="CompanyListCell" customModule="CapstoneProject" customModuleProvider="target">
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" restorationIdentifier="FavouriteCompanyItem" preservesSuperviewLayoutMargins="YES" selectionStyle="default" showsReorderControl="YES" indentationWidth="10" reuseIdentifier="FavouriteCompanyItem" rowHeight="152" id="3SC-fK-IpN" customClass="FavouriteCompanyListCell" customModule="CapstoneProject" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="28" width="359" height="152"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="3SC-fK-IpN" id="nN6-9c-sOz">
@@ -4396,7 +4396,7 @@
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="公司名称" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="YIm-wL-1Qu">
-                                                    <rect key="frame" x="15" y="11" width="329" height="70"/>
+                                                    <rect key="frame" x="15" y="11" width="329" height="68"/>
                                                     <color key="backgroundColor" systemColor="systemRedColor" red="1" green="0.23137254900000001" blue="0.18823529410000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                     <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                     <constraints>
@@ -4434,12 +4434,13 @@
                                             <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                                             <constraints>
                                                 <constraint firstItem="Bqv-zX-6SC" firstAttribute="bottom" secondItem="nN6-9c-sOz" secondAttribute="bottomMargin" id="3Rh-a1-bnX"/>
-                                                <constraint firstItem="YIm-wL-1Qu" firstAttribute="top" secondItem="nN6-9c-sOz" secondAttribute="topMargin" id="4p4-9f-rE6"/>
                                                 <constraint firstItem="AaO-EK-PqC" firstAttribute="leading" secondItem="nN6-9c-sOz" secondAttribute="leadingMargin" id="JTW-KA-Gad"/>
                                                 <constraint firstItem="j7d-wt-S3T" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="Bqv-zX-6SC" secondAttribute="trailing" constant="8" symbolic="YES" id="OHi-Dt-0tu"/>
                                                 <constraint firstItem="YIm-wL-1Qu" firstAttribute="leading" secondItem="nN6-9c-sOz" secondAttribute="leadingMargin" id="SQC-j8-NLR"/>
+                                                <constraint firstItem="YIm-wL-1Qu" firstAttribute="top" secondItem="nN6-9c-sOz" secondAttribute="topMargin" id="VMc-UN-s19"/>
                                                 <constraint firstItem="AaO-EK-PqC" firstAttribute="centerY" secondItem="nN6-9c-sOz" secondAttribute="centerY" constant="27" id="XIP-N1-Gfw"/>
                                                 <constraint firstItem="j7d-wt-S3T" firstAttribute="trailing" secondItem="nN6-9c-sOz" secondAttribute="trailingMargin" id="Yoo-SV-UFo"/>
+                                                <constraint firstItem="j7d-wt-S3T" firstAttribute="top" secondItem="YIm-wL-1Qu" secondAttribute="bottom" id="Zf2-ha-lSZ"/>
                                                 <constraint firstItem="Bqv-zX-6SC" firstAttribute="leading" secondItem="nN6-9c-sOz" secondAttribute="leadingMargin" id="c4Y-am-SaA"/>
                                                 <constraint firstItem="j7d-wt-S3T" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="AaO-EK-PqC" secondAttribute="trailing" constant="8" symbolic="YES" id="nvw-ol-WaU"/>
                                                 <constraint firstItem="j7d-wt-S3T" firstAttribute="bottom" secondItem="nN6-9c-sOz" secondAttribute="bottomMargin" id="tbb-yv-wAj"/>
@@ -4448,6 +4449,12 @@
                                         </tableViewCellContentView>
                                         <color key="backgroundColor" systemColor="quaternarySystemFillColor" red="0.4549019608" green="0.4549019608" blue="0.50196078430000002" alpha="0.080000000000000002" colorSpace="custom" customColorSpace="sRGB"/>
                                         <inset key="separatorInset" minX="5" minY="0.0" maxX="5" maxY="0.0"/>
+                                        <connections>
+                                            <outlet property="btn_star" destination="j7d-wt-S3T" id="yyt-Q4-akc"/>
+                                            <outlet property="label_address" destination="AaO-EK-PqC" id="3yz-ZD-VSu"/>
+                                            <outlet property="label_companyName" destination="YIm-wL-1Qu" id="bwY-eV-tlZ"/>
+                                            <outlet property="label_legalPerson" destination="Bqv-zX-6SC" id="Ves-H9-tMt"/>
+                                        </connections>
                                     </tableViewCell>
                                 </prototypes>
                             </tableView>
@@ -4488,11 +4495,15 @@
                         <outlet property="label_occupation" destination="UkP-rE-yeZ" id="p22-j4-ttp"/>
                         <outlet property="label_position" destination="1fO-8K-bEa" id="9Am-pJ-jVh"/>
                         <outlet property="label_realName" destination="0Bb-3P-ZCY" id="STD-rA-PMa"/>
+                        <outlet property="tableView" destination="UOW-qz-NdV" id="Wf3-af-8p0"/>
+                        <outlet property="tag_favourite" destination="j36-6D-yIa" id="gU9-pz-o8I"/>
+                        <outlet property="tag_friends" destination="qPc-KW-cDU" id="uY1-y6-TfG"/>
+                        <outlet property="tag_message" destination="w2g-Ii-D70" id="ydF-pY-TSg"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="3EY-fJ-bef" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2745" y="1567"/>
+            <point key="canvasLocation" x="2744.8000000000002" y="1566.5667166416792"/>
         </scene>
         <!--完善信息-->
         <scene sceneID="NGm-k9-p02">

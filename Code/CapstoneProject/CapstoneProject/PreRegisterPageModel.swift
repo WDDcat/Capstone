@@ -8,7 +8,6 @@
 
 import Foundation
 import Alamofire
-import AlamofireImage
 import SwiftyJSON
 
 class PreRegisterPageModel: PreRegisterPagePresenter {

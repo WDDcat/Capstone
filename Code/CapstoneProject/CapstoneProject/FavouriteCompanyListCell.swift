@@ -1,23 +1,23 @@
 //
-//  CompanyItemCell.swift
+//  FavouriteCompanyItemCell.swift
 //  CapstoneProject
 //
-//  Created by Shiyu Wang on 2020/2/27.
+//  Created by Shiyu Wang on 2020/3/26.
 //  Copyright © 2020 Shiyu Wang. All rights reserved.
 //
 
 import UIKit
 
-class CompanyListCell: UITableViewCell {
+class FavouriteCompanyListCell: UITableViewCell {
 
-    var mPresenter:CompanyListModel?
-    
+    var mPresenter:CompanyCellModel?
+        
     @IBOutlet var label_companyName: UILabel!
     @IBOutlet var label_address: UILabel!
     @IBOutlet var label_legalPerson: UILabel!
     @IBOutlet weak var btn_star: UIButton!
     var c_id:String = ""
-    
+        
     @IBAction func starOnClick(_ sender: UIButton) {
         if btn_star.image(for: .normal) == UIImage(systemName: "star") {
             if (mPresenter?.postAddCollect(c_id: c_id, name: label_companyName.text!, recordName: "iOS"))!{
@@ -30,7 +30,7 @@ class CompanyListCell: UITableViewCell {
             }
         }
     }
-    
+        
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code
@@ -38,8 +38,8 @@ class CompanyListCell: UITableViewCell {
 
     override func setSelected(_ selected: Bool, animated: Bool) {
         super.setSelected(selected, animated: animated)
-
         // Configure the view for the selected state
     }
 
 }
+

@@ -7,7 +7,6 @@
 //
 
 import UIKit
-import AlamofireImage
 
 class PreRegisterPageController: UIViewController {
 
@@ -42,7 +41,6 @@ class PreRegisterPageController: UIViewController {
         super.viewDidLoad()
         mPresenter.mView = self
         
-        image_varificationCode.af_setImage(withURL: URL(string :"\(BASEURL)img_code")!)
         image_varificationCode.isUserInteractionEnabled = true
         image_varificationCode.addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(clickVerificationCode)))
     }
@@ -57,7 +55,7 @@ class PreRegisterPageController: UIViewController {
     }
 
     @objc func clickVerificationCode() {
-        image_varificationCode.af_setImage(withURL: URL(string :"\(BASEURL)img_code")!)
+        
     }
 }
 

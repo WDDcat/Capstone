@@ -38,6 +38,53 @@ class PersonalCenterModel: PersonalCenterPresenter {
         }
     }
     
+    func getFavouriteInfo(page: Int) {
+        let param:[String:Any] = ["limit": 10, "page": page]
+        Alamofire.request(URL(string :"\(BASEURL)collection_list")!, parameters: param, headers: getHeader())
+            .responseJSON { response in
+                switch response.result.isSuccess{
+                case true:
+                    if let data = response.result.value {
+                        let json = JSON(data)
+                        let result = json["result"]
+                        print("\(result.count + (page * 10))/\(json["count"])")
+                        
+                        let count = result.count + (page * 10)
+                        let total = json["count"].int ?? 0
+                        if(count == total) {
+                            self.mView?.setFooterView(text: "共\(total)个记录")
+                        }else {
+                            self.mView?.setFooterView(text: "正在加载...")
+                        }
+                        
+                        for i in 0...9 {
+                            if i >= result.count { break }
+                            var company: [String] = []
+                            company.append(result[i][1].string ?? "")//companyName
+                            company.append(result[i][4].string ?? "")
+                            company.append(result[i][2].string ?? "")//legalPerson
+                            company.append(result[i][5].string ?? "")
+                            company.append(result[i][0].string ?? "")//cid
+                            PersonalCenterCompanyList.append(company)
+                        }
+                        self.mView?.refreshCompanyList()
+                    }
+                case false:
+                    print("fail")
+                }
+        }
+    }
+    
+    func getFriendsInfo() {
+        self.mView?.setFooterView(text: "")
+        self.mView?.refreshFriendsList()
+    }
+
+    func getMessageInfo() {
+        self.mView?.setFooterView(text: "version:1.36.b20200326")
+        self.mView?.refreshMessageList()
+    }
+    
     func logoutAttempt() {
         Alamofire.request(URL(string :"\(BASEURL)cancel_login")!, headers: getHeader())
             .responseJSON { response in
@@ -46,7 +93,9 @@ class PersonalCenterModel: PersonalCenterPresenter {
                     if let data = response.result.value {
                         let json = JSON(data)
                         if (json["error"].int ?? -1) == 0 {
+                            userDefaults.set("", forKey: "session")
                             userDefaults.set("", forKey: "token_id")
+                            
                             userDefaults.set("", forKey: "username")
                             userDefaults.set("", forKey: "password")
                             userDefaults.set(false, forKey: "login_status")

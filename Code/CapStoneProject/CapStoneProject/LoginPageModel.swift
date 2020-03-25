@@ -55,5 +55,37 @@ class LoginPageModel: LoginPagePresenter {
                 }
         }
     }
+    
+    func loginAttempt() -> Bool {
+        if userDefaults.bool(forKey: "login_status") == false { return false }
+        var success = false
+        let param:[String:Any] = ["mobile": userDefaults.string(forKey: "username") ?? "", "pwd": userDefaults.string(forKey: "password") ?? ""]
+        Alamofire.request(URL(string :"\(BASEURL)login")!, method: HTTPMethod.post, parameters: param, headers: getHeader())
+            .responseJSON { response in
+                switch response.result.isSuccess{
+                case true:
+                    if let data = response.result.value {
+                        let headerFields = response.response?.allHeaderFields as! [String: String]
+                        let cookie = headerFields["Set-Cookie"]
+                        let json = JSON(data)
+                        if (json["error"].int ?? -1) == 0 {
+                            updateSession(newSession: cookie!)
+                            print("put session: \(cookie!)")
+                            updateToken(newToken: json["token_id"].string!)
+                            print("put token: \(json["token_id"].string!)")
+                            
+                            userDefaults.set(true, forKey: "login_status")
+                            success = true
+                        }
+                        else {
+                            print("info:\(json["info"])")
+                        }
+                    }
+                case false:
+                    print("fail")
+                }
+        }
+        return success
+    }
 }
 

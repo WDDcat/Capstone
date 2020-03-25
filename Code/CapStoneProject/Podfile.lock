@@ -1,7 +1,5 @@
 PODS:
   - Alamofire (4.9.1)
-  - AlamofireImage (3.6.0):
-    - Alamofire (~> 4.9)
   - Charts (3.4.0):
     - Charts/Core (= 3.4.0)
   - Charts/Core (3.4.0)
@@ -10,7 +8,6 @@ PODS:
 
 DEPENDENCIES:
   - Alamofire
-  - AlamofireImage
   - Charts
   - SVProgressHUD (from `https://github.com/SVProgressHUD/SVProgressHUD.git`)
   - SwiftyJSON
@@ -18,7 +15,6 @@ DEPENDENCIES:
 SPEC REPOS:
   https://github.com/cocoapods/specs.git:
     - Alamofire
-    - AlamofireImage
     - Charts
     - SwiftyJSON
 
@@ -33,11 +29,10 @@ CHECKOUT OPTIONS:
 
 SPEC CHECKSUMS:
   Alamofire: 85e8a02c69d6020a0d734f6054870d7ecb75cf18
-  AlamofireImage: be9963c6582d68b39e89191f64c82a7d7bf40fdd
   Charts: 74c9f256eaf0460c0c416522d1cf8c634ea6b286
   SVProgressHUD: 6ed134667e9ebb2f33679e8273cd48fd3fa349e5
   SwiftyJSON: 6faa0040f8b59dead0ee07436cbf76b73c08fd08
 
-PODFILE CHECKSUM: 303cee16f0ef0516758b329d80fba4bcb8e5e702
+PODFILE CHECKSUM: 487873fdc6523906048c31302ca8f4f139f67f57
 
 COCOAPODS: 1.5.2

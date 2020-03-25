@@ -16,4 +16,5 @@ protocol LoginPageView {
 
 protocol LoginPagePresenter {
     func loginAttempt(id: String, pwd: String)
+    func loginAttempt() -> Bool
 }
