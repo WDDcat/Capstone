@@ -13,7 +13,8 @@ class SearchPageController: UITableViewController, UITextFieldDelegate {
 
     var mPresenter = SearchPageModel()
     
-    var clear = UIButton()
+    var clearButton = UIButton()
+    var searchButton = UIButton()
     var searchView = UIView()
     var textField = UITextField()
     
@@ -22,47 +23,56 @@ class SearchPageController: UITableViewController, UITextFieldDelegate {
         mPresenter.mView = self
         
         tableView.keyboardDismissMode = .onDrag
-        
-//        NotificationCenter.default.addObserver(self, selector: #selector(KeyBoardWillShow(notification)), name: UIResponder.keyboardWillShowNotification, object: nil)
-        
-//        userDefaults.set(["海南", "海南航空", "海澜之家", "小米", "腾讯", "航空", "海航集团", "中外名人", "上海奉贤", "hang sang"], forKey: "search_history")
     }
 
     override func viewWillAppear(_ animated: Bool) {
-        clear = UIButton(frame: CGRect(x: UIScreen.main.bounds.width - 50, y: 5, width: 30, height: 30))
-        clear.tintColor = .lightGray
-        clear.setBackgroundImage(UIImage.init(systemName: "trash.fill"), for: .normal)
-        clear.contentMode = .center
-        clear.isUserInteractionEnabled = true
-        clear.addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(clickClear)))
+        clearButton = UIButton(frame: CGRect(x: UIScreen.main.bounds.width - 50, y: 5, width: 30, height: 30))
+        clearButton.tintColor = .lightGray
+        clearButton.setBackgroundImage(UIImage.init(systemName: "trash.fill"), for: .normal)
+        clearButton.contentMode = .center
+        clearButton.isUserInteractionEnabled = true
+        clearButton.addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(clickClear)))
 
-        searchView = UIView(frame: CGRect(x: 40, y: 4, width: UIScreen.main.bounds.width - 100, height: 30))
+        searchView = UIView(frame: CGRect(x: 40, y: 4, width: UIScreen.main.bounds.width - 150, height: 30)) //UIScreen.main.bounds.width - 100
         searchView.layer.cornerRadius = 14
         searchView.backgroundColor = UIColor(red: 230/255, green: 230/255, blue: 230/255, alpha: 1)
-        textField = UITextField(frame: CGRect(x: 15, y: 0, width: UIScreen.main.bounds.width - 120, height: 30))
+        textField = UITextField(frame: CGRect(x: 15, y: 0, width: UIScreen.main.bounds.width - 70, height: 30)) //UIScreen.main.bounds.width - 120
         textField.attributedPlaceholder = NSAttributedString.init(string: "请输入企业名称", attributes: [NSAttributedString.Key.foregroundColor: UIColor.white])
         textField.clearButtonMode = .whileEditing
         textField.becomeFirstResponder()
         textField.returnKeyType = .search
         textField.textColor = .label
         searchView.addSubview(textField)
+        
+        searchButton = UIButton(frame: CGRect(x: UIScreen.main.bounds.width - 100, y: 5, width: 30, height: 30))
+        searchButton.tintColor = .lightGray
+        searchButton.setBackgroundImage(UIImage.init(systemName: "magnifyingglass"), for: .normal)
+        searchButton.contentMode = .center
+        searchButton.isUserInteractionEnabled = true
+        searchButton.addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(clickSearch)))
 
-        navigationController?.navigationBar.addSubview(clear)
+        navigationController?.navigationBar.addSubview(clearButton)
+        navigationController?.navigationBar.addSubview(searchButton)
         navigationController?.navigationBar.addSubview(searchView)
         
         tableView.reloadData()
     }
     
     override func viewWillDisappear(_ animated: Bool) {
-        clear.removeFromSuperview()
+        clearButton.removeFromSuperview()
         textField.removeFromSuperview()
         searchView.removeFromSuperview()
+        searchButton.removeFromSuperview()
     }
     
     @objc func clickClear() {
-//        userDefaults.set([] as [String], forKey: "search_history")
-//        tableView.reloadData()
+        userDefaults.set([] as [String], forKey: "search_history")
+        tableView.reloadData()
+    }
+    
+    @objc func clickSearch() {
         if (textField.text ?? "") != "" {
+            textField.resignFirstResponder()
             updateRecordList(word: textField.text!)
             remoteSetSearchKeyword(word: textField.text!)
             let controller = storyboard?.instantiateViewController(withIdentifier: "CompanyList") as! CompanyListController

@@ -31,3 +31,4 @@ class ViewController: UIViewController {
     }
 }
 
+//realName: String, nickName: String, institution: String, department: String, position: String, responsibility: String, phoneNumber: String, email: String, avator: String, card: String

@@ -16,7 +16,7 @@ class BaseInfoDetailModel: BaseInfoDetailPresent {
     
     func getInfo(){
         let param:[String:Any] = ["c_id": remoteGetCompanyId()]
-        Alamofire.request(URL(string :"\(BASEURL)baseinfo")!, parameters: param, headers: header)
+        Alamofire.request(URL(string :"\(BASEURL)baseinfo")!, parameters: param, headers: getHeader())
             .responseJSON { response in
                 switch response.result.isSuccess{
                 case true:

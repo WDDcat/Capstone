@@ -16,7 +16,7 @@ class FinancingInfoDetailModel: FinancingInfoDetailPresent {
     
     func getInfo() {
         let param:[String:Any] = ["c_id": remoteGetCompanyId(), "time": 2017]
-        Alamofire.request(URL(string :"\(BASEURL)financialstatement")!, parameters: param, headers: header)
+        Alamofire.request(URL(string :"\(BASEURL)financialstatement")!, parameters: param, headers: getHeader())
             .responseJSON { response in
                 switch response.result.isSuccess{
                 case true:

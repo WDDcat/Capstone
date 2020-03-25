@@ -13,8 +13,10 @@ protocol PersonalCenterView {
     func setOccupation(occupation: String)
     func setCompany(company: String)
     func setPosition(position: String)
+    func logoutSuccess()
 }
 
 protocol PersonalCenterPresenter {
     func getPersonalInfo()
+    func logoutAttempt()
 }

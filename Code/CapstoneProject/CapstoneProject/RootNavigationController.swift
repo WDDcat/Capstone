@@ -8,11 +8,9 @@
 
 import UIKit
 
-class NavigationController: UINavigationController, UITextFieldDelegate {
-
-    var textField = UITextField()
+class RootNavigationController: UINavigationController, UITextFieldDelegate {
     
     override func viewDidLoad() {
-        super.viewDidLoad()
+        
     }
 }

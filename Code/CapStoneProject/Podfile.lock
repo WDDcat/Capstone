@@ -1,34 +1,43 @@
 PODS:
-  - ActiveLabel (1.0.1)
   - Alamofire (4.9.1)
+  - AlamofireImage (3.6.0):
+    - Alamofire (~> 4.9)
   - Charts (3.4.0):
     - Charts/Core (= 3.4.0)
   - Charts/Core (3.4.0)
-  - SVProgressHUD (2.2.5)
+  - SVProgressHUD (2.2.6)
   - SwiftyJSON (4.3.0)
 
 DEPENDENCIES:
-  - ActiveLabel
   - Alamofire
+  - AlamofireImage
   - Charts
-  - SVProgressHUD
+  - SVProgressHUD (from `https://github.com/SVProgressHUD/SVProgressHUD.git`)
   - SwiftyJSON
 
 SPEC REPOS:
   https://github.com/cocoapods/specs.git:
-    - ActiveLabel
     - Alamofire
+    - AlamofireImage
     - Charts
-    - SVProgressHUD
     - SwiftyJSON
 
+EXTERNAL SOURCES:
+  SVProgressHUD:
+    :git: https://github.com/SVProgressHUD/SVProgressHUD.git
+
+CHECKOUT OPTIONS:
+  SVProgressHUD:
+    :commit: 4fdf3fdc8703fd9915dae33fc1363c604a06b24e
+    :git: https://github.com/SVProgressHUD/SVProgressHUD.git
+
 SPEC CHECKSUMS:
-  ActiveLabel: b8b2396fe25308d563601437d6605bf691c3b5db
   Alamofire: 85e8a02c69d6020a0d734f6054870d7ecb75cf18
+  AlamofireImage: be9963c6582d68b39e89191f64c82a7d7bf40fdd
   Charts: 74c9f256eaf0460c0c416522d1cf8c634ea6b286
-  SVProgressHUD: 1428aafac632c1f86f62aa4243ec12008d7a51d6
+  SVProgressHUD: 6ed134667e9ebb2f33679e8273cd48fd3fa349e5
   SwiftyJSON: 6faa0040f8b59dead0ee07436cbf76b73c08fd08
 
-PODFILE CHECKSUM: 398ba9bcc49a7cec9185103d9d5bb5b428ef38d2
+PODFILE CHECKSUM: 303cee16f0ef0516758b329d80fba4bcb8e5e702
 
 COCOAPODS: 1.5.2

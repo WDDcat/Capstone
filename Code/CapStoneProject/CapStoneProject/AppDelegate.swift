@@ -11,9 +11,10 @@ import UIKit
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
 
-
-
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
+        if userDefaults.bool(forKey: "login_status") && (userDefaults.string(forKey: "token_id") ?? "") != "" {
+//            LoginPageModel.loginAttempt(userDefaults.string(forKey: "username")!, userDefaults.string(forKey: "password")!)
+        }
         Thread.sleep(forTimeInterval: 1)
         return true
     }

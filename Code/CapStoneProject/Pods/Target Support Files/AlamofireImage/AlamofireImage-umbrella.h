@@ -11,6 +11,6 @@
 #endif
 
 
-FOUNDATION_EXPORT double ActiveLabelVersionNumber;
-FOUNDATION_EXPORT const unsigned char ActiveLabelVersionString[];
+FOUNDATION_EXPORT double AlamofireImageVersionNumber;
+FOUNDATION_EXPORT const unsigned char AlamofireImageVersionString[];
 

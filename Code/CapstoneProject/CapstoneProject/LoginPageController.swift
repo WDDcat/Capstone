@@ -15,28 +15,20 @@ class LoginPageController: UIViewController {
     @IBOutlet weak var textfield_userId: UITextField!
     @IBOutlet weak var textfield_password: UITextField!
     
-    @IBAction func btn_back(_ sender: UIBarButtonItem) {
-        
-        self.dismiss(animated: true, completion: nil)
-    }
-    
     private var userId = ""
     private var password = ""
     
     @IBAction func btn_login(_ sender: UIButton) {
         userId = textfield_userId.text ?? ""
         password = textfield_password.text ?? ""
-        let pattern = "^1(3|4|5|7|8)\\d{9}$"
-        let regex = try? NSRegularExpression(pattern: pattern, options: [])
-        if let results = regex?.matches(in: userId, options: [], range: NSRange(location: 0, length: userId.count)), results.count != 0 {
-            for res in results {
-                let string = (userId as NSString).substring(with: res.range)
-                if !(password == "") {
-                    mPresenter.loginAttempt(id: string, pwd: password)
-                }
-                else {
-                    setPasswordPlaceholder(text: "密码不能为空")
-                }
+        let mobile = "^1(3|4|5|7|8)\\d{9}$"
+        let regexMobile = NSPredicate(format: "SELF MATCHES %@",mobile)
+        if regexMobile.evaluate(with: userId as NSString) {
+            if password != "" {
+                mPresenter.loginAttempt(id: userId, pwd: password)
+            }
+            else {
+                setPasswordPlaceholder(text: "密码不能为空")
             }
         }
         else {
@@ -44,28 +36,35 @@ class LoginPageController: UIViewController {
         }
     }
     
+    @IBAction func btn_forget(_ sender: UIButton) {
+        remoteSetRegisterFrom(from: "forget")
+    }
+    
+    @IBAction func btn_register(_ sender: Any) {
+        remoteSetRegisterFrom(from: "register")
+    }
+    
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         mPresenter.mView = self
-    }
-    
-    override func viewWillAppear(_ animated: Bool) {
-        
     }
 }
 
 extension LoginPageController: LoginPageView {
     func setIdPlaceholder(text: String) {
-        textfield_userId.attributedPlaceholder = NSAttributedString.init(string: text, attributes: [NSAttributedString.Key.foregroundColor: UIColor.red])
+        textfield_userId.text = ""
         textfield_password.text = ""
+        textfield_userId.attributedPlaceholder = NSAttributedString.init(string: text, attributes: [NSAttributedString.Key.foregroundColor: UIColor.red])
     }
     
     func setPasswordPlaceholder(text: String) {
+        textfield_password.text = ""
         textfield_password.attributedPlaceholder = NSAttributedString.init(string: text, attributes: [NSAttributedString.Key.foregroundColor: UIColor.red])
     }
     
     func loginSuccess() {
-        print("success")
+        print("login success")
         self.navigationController?.popViewController(animated: true)
     }
 }

@@ -17,7 +17,7 @@ class CapitalRaisingInfoDetailModel: CapitalRaisingInfoDetailPresent {
     
     func getInfo() {
         let param:[String:Any] = ["c_id": remoteGetCompanyId()]
-        Alamofire.request(URL(string :"\(BASEURL)financing_info_0729")!, parameters: param, headers: header)
+        Alamofire.request(URL(string :"\(BASEURL)financing_info_0729")!, parameters: param, headers: getHeader())
             .responseJSON { response in
                 switch response.result.isSuccess{
                 case true:
@@ -434,7 +434,7 @@ class CapitalRaisingInfoDetailModel: CapitalRaisingInfoDetailPresent {
     func getGroupInfo(gName: String, gId: String) {
         let param:[String:Any] = ["g_id": gId, "g_name": gName]
         print("group: \(gName)with id:\(gId)")
-        Alamofire.request(URL(string :"\(BASEURL)financing_group_info_0729")!, parameters: param, headers: header)
+        Alamofire.request(URL(string :"\(BASEURL)financing_group_info_0729")!, parameters: param, headers: getHeader())
                     .responseJSON { response in
                         switch response.result.isSuccess{
                         case true:

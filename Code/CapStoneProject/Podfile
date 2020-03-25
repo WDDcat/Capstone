@@ -10,8 +10,9 @@ target 'CapstoneProject' do
   # Pods for CapstoneProject
   pod 'SwiftyJSON'
   pod 'Alamofire'
-  pod 'SVProgressHUD'
+  pod 'AlamofireImage'
   pod 'Charts'
-  pod 'ActiveLabel'
+  pod 'SVProgressHUD', :git => 'https://github.com/SVProgressHUD/SVProgressHUD.git'
+  #pod 'ActiveLabel'
 
 end

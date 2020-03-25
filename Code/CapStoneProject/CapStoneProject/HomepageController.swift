@@ -66,8 +66,6 @@ class HomepageController: UIViewController, CycleScrollViewDelegate {
         searchBar.attributedPlaceholder = NSAttributedString.init(string: "  请输入企业名称", attributes: [NSAttributedString.Key.foregroundColor: UIColor.white])
         searchBar.isUserInteractionEnabled = true
         searchBar.addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(clickSearchBar)))
-        
-        
 
         navigationController?.navigationBar.addSubview(icon)
         navigationController?.navigationBar.addSubview(message)

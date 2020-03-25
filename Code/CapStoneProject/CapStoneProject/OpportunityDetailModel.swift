@@ -16,7 +16,7 @@ class OpportunityDetailModel: OpportunityDetailPresenter {
     
     func getInfo() {
         let param:[String:Any] = ["c_id": remoteGetCompanyId(), "first_level_name": remoteGetOpportunityFirstLevel()]
-        Alamofire.request(URL(string :"\(BASEURL)business_opportunity")!, parameters: param, headers: header)
+        Alamofire.request(URL(string :"\(BASEURL)business_opportunity")!, parameters: param, headers: getHeader())
             .responseJSON { response in
                 switch response.result.isSuccess{
                 case true:

@@ -16,15 +16,20 @@ class LoginPageModel: LoginPagePresenter {
   
     func loginAttempt(id: String, pwd: String) {
         let param:[String:Any] = ["mobile": id, "pwd": pwd]
-        Alamofire.request(URL(string :"\(BASEURL)login")!, method: HTTPMethod.post, parameters: param, headers: header)
+        Alamofire.request(URL(string :"\(BASEURL)login")!, method: HTTPMethod.post, parameters: param, headers: getHeader())
             .responseJSON { response in
                 switch response.result.isSuccess{
                 case true:
                     if let data = response.result.value {
+                        let headerFields = response.response?.allHeaderFields as! [String: String]
+                        let cookie = headerFields["Set-Cookie"]
                         let json = JSON(data)
                         if (json["error"].int ?? -1) == 0 {
-//                            remoteSetTokenId(id: json["token_id"].string ?? "")
-                            userDefaults.set(json["token_id"].string!, forKey: "token_id")
+                            updateSession(newSession: cookie!)
+                            print("put session: \(cookie!)")
+                            updateToken(newToken: json["token_id"].string!)
+                            print("put token: \(json["token_id"].string!)")
+                            
                             userDefaults.set(id, forKey: "username")
                             userDefaults.set(pwd, forKey: "password")
                             userDefaults.set(true, forKey: "login_status")
@@ -36,12 +41,11 @@ class LoginPageModel: LoginPagePresenter {
                                 self.mView?.setPasswordPlaceholder(text: "")
                             }
                             else if (json["info"].string ?? "") == "密码错误" {
-                                self.mView?.setIdPlaceholder(text: "")
                                 self.mView?.setPasswordPlaceholder(text: "密码错误")
                             }
                             else {
-                                self.mView?.setIdPlaceholder(text: "用户或密码错误")
-                                self.mView?.setPasswordPlaceholder(text: "")
+                                self.mView?.setPasswordPlaceholder(text: "用户或密码错误")
+//                                self.mView?.setPasswordPlaceholder(text: "")
                             }
                         }
                         
