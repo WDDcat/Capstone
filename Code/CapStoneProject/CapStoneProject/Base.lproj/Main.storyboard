@@ -4429,6 +4429,9 @@
                                                     <state key="normal" image="star" catalog="system">
                                                         <preferredSymbolConfiguration key="preferredSymbolConfiguration" configurationType="pointSize" pointSize="30" scale="large"/>
                                                     </state>
+                                                    <connections>
+                                                        <action selector="starOnClick:" destination="3SC-fK-IpN" eventType="touchUpInside" id="oXh-f4-oFq"/>
+                                                    </connections>
                                                 </button>
                                             </subviews>
                                             <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
