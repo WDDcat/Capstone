@@ -32,7 +32,7 @@ class PreRegisterPageController: UIViewController {
         if checkDataValid() {
             print("attempt submit")
             if remoteGetRegisterFrom() == "forget" {
-                mPresenter.submitNewPassword(password: field_password.text!)
+                mPresenter.submitSMSCode(phone: field_phoneNumber.text!, SMSCode: field_SMSCode.text!)
             }
             else if remoteGetRegisterFrom() == "register" {
                 mPresenter.submitRegisteration(phone: field_phoneNumber.text!, password: field_password.text!, SMSCode: field_SMSCode.text!)
@@ -92,6 +92,10 @@ extension PreRegisterPageController: PreRegisterPageView {
     
     func rightVarificationCode() {
         clearToSendSMS = true
+    }
+    
+    func rightSMSCode() {
+        mPresenter.submitNewPassword(password: field_password.text!)
     }
     
     func registerSuccess() {

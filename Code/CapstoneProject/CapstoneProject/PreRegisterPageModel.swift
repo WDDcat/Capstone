@@ -57,6 +57,35 @@ class PreRegisterPageModel: PreRegisterPagePresenter {
         }
     }
     
+    func submitSMSCode(phone: String, SMSCode: String) {
+        let param:[String:Any] = ["mobile": phone, "message_code": SMSCode]
+        Alamofire.request(URL(string :"\(BASEURL)verify_mobile")!, method: HTTPMethod.post, parameters: param, headers: getHeader())
+            .responseJSON { response in
+                switch response.result.isSuccess{
+                case true:
+                    if let data = response.result.value {
+                        let headerFields = response.response?.allHeaderFields as! [String: String]
+                        let cookie = headerFields["Set-Cookie"]
+                        if cookie != nil {
+                            updateSession(newSession: cookie!)
+                            print("put session: \(cookie!)")
+                        }
+                        
+                        let json = JSON(data)
+                        print("info:\(json["info"])")
+                        if (json["error"].int ?? -1) == 0 {
+                            self.mView?.rightSMSCode()
+                        }
+                        else if (json["error"].int ?? -1) == 502 {
+                            self.mView?.setPhoneNumberPlaceholder(text: "手机号，密码或手机验证码错误")
+                        }
+                    }
+                case false:
+                    print("fail")
+                }
+        }
+    }
+    
     func submitNewPassword(password: String) {
         let param:[String:Any] = ["new_pwd": password]
         Alamofire.request(URL(string :"\(BASEURL)change_pwd")!, method: HTTPMethod.post, parameters: param, headers: getHeader())
@@ -85,7 +114,15 @@ class PreRegisterPageModel: PreRegisterPagePresenter {
     
     func validateVarificationCode(phone: String, code: String) {
         let param:[String:Any] = ["mobile": phone, "img_code": code]
-        Alamofire.request(URL(string :"\(BASEURL)message_code")!, method: HTTPMethod.post, parameters: param, headers: getHeader())
+        var url = ""
+        if remoteGetRegisterFrom() == "forget" {
+            url = "\(BASEURL)modify_code"
+        }
+        else if remoteGetRegisterFrom() == "register" {
+            url = "\(BASEURL)message_code"
+        }
+        
+        Alamofire.request(URL(string : url)!, method: HTTPMethod.post, parameters: param, headers: getHeader())
             .responseJSON { response in
                 switch response.result.isSuccess{
                 case true:
@@ -114,5 +151,4 @@ class PreRegisterPageModel: PreRegisterPagePresenter {
                 }
         }
     }
-    
 }

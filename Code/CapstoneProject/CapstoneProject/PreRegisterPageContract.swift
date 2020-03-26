@@ -14,6 +14,7 @@ protocol  PreRegisterPageView {
     func setVarificationCodePlaceholder(text: String)
     func setGraphicCode(image: UIImage)
     func rightVarificationCode()
+    func rightSMSCode()
     func registerSuccess()
     func resetPasswordSuccess()
 }
