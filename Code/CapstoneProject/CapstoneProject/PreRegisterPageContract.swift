@@ -7,15 +7,20 @@
 //
 
 import Foundation
+import UIKit
 
 protocol  PreRegisterPageView {
     func setPhoneNumberPlaceholder(text: String)
     func setVarificationCodePlaceholder(text: String)
+    func setGraphicCode(image: UIImage)
     func rightVarificationCode()
+    func registerSuccess()
+    func resetPasswordSuccess()
 }
 
 protocol PreRegisterPagePresenter {
     func getGraphicCode()
-    func submitRegisteration()
+    func submitRegisteration(phone: String, password: String, SMSCode: String)
+    func submitNewPassword(password: String)
     func validateVarificationCode(phone: String, code: String)
 }

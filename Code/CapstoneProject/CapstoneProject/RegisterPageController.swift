@@ -152,13 +152,11 @@ extension RegisterPageController: RegisterPageView {
     }
     
     func submitSuccess() {
-        switch from {
-        case "personalCenter":
+        if from == "personalCenter" {
             navigationController?.popViewController(animated: true)
-        case "preRegister":
+        }
+        else {
             navigationController?.popToRootViewController(animated: true)
-        default:
-            break
         }
     }
 }
