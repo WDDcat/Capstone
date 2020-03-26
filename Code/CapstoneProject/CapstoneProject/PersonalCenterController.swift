@@ -48,7 +48,7 @@ class PersonalCenterController: UIViewController {
     override func viewWillAppear(_ animated: Bool) {
         logout = UIButton(frame: CGRect(x: UIScreen.main.bounds.width - 50, y: 0, width: 40, height: (navigationController?.navigationBar.frame.height)!))
         logout.setTitleColor(.lightGray, for: .normal)
-        logout.titleLabel!.text = "注销"
+        logout.setTitle("注销", for: .normal)
         logout.setBackgroundImage(nil, for: .normal)
         logout.isUserInteractionEnabled = true
         logout.addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(clickLogout)))

@@ -11,7 +11,7 @@ import UIKit
 var SearchCompanyNameList:[String] = []
 var SearchCompanyAddressList:[String] = []
 var SearchCompanyLegalPersonList:[String] = []
-var SearchCompanyStarList:[String] = []
+var SearchCompanyStarList:[Int] = []
 var SearchCompanyCidList:[String] = []
 
 class CompanyListController: UITableViewController, UISearchBarDelegate {
@@ -50,7 +50,7 @@ class CompanyListController: UITableViewController, UISearchBarDelegate {
         cell.label_companyName.text = SearchCompanyNameList[indexPath.row]
         cell.label_address.text = "地址：\(SearchCompanyAddressList[indexPath.row])"
         cell.label_legalPerson.text = "法人：\(SearchCompanyLegalPersonList[indexPath.row])"
-        let image = SearchCompanyStarList[indexPath.row] == "1" ? "star.fill" : "star"
+        let image = SearchCompanyStarList[indexPath.row] == 1 ? "star.fill" : "star"
         cell.btn_star.setImage(UIImage(systemName: image), for: .normal)
         cell.c_id = SearchCompanyCidList[indexPath.row]
 

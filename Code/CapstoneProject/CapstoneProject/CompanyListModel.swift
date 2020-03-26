@@ -33,7 +33,7 @@ class CompanyListModel: CompanyListPresenter {
                             SearchCompanyNameList.append(result[i][1].string ?? "")
                             SearchCompanyLegalPersonList.append(result[i][2].string ?? "")
                             SearchCompanyAddressList.append(result[i][4].string ?? "")
-                            SearchCompanyStarList.append(result[i][5].string ?? "")
+                            SearchCompanyStarList.append(result[i][5].int ?? -1)
                         }
                         self.mView?.refreshCompanyList()
                     }

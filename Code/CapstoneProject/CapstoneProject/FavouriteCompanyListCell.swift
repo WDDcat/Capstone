@@ -20,14 +20,10 @@ class FavouriteCompanyListCell: UITableViewCell {
         
     @IBAction func starOnClick(_ sender: UIButton) {
         if btn_star.image(for: .normal) == UIImage(systemName: "star") {
-            if (mPresenter?.postAddCollect(c_id: c_id, name: label_companyName.text!, recordName: "iOS"))!{
-                btn_star.setImage(UIImage(systemName: "star.fill"), for: .normal)
-            }
+            mPresenter?.postAddCollect(c_id: c_id, name: label_companyName.text!, recordName: "iOS", button: btn_star)
         }
         else {
-            if (mPresenter?.postCancelCollect(c_id: c_id, name: label_companyName.text!, recordName: "iOS"))!{
-                btn_star.setImage(UIImage(systemName: "star"), for: .normal)
-            }
+            mPresenter?.postCancelCollect(c_id: c_id, name: label_companyName.text!, recordName: "ANDROID", button: btn_star)
         }
     }
         

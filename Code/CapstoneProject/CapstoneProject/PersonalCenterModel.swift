@@ -15,6 +15,7 @@ class PersonalCenterModel: PersonalCenterPresenter {
     var mView: PersonalCenterView?
   
     func getPersonalInfo() {
+        print(getHeader())
         Alamofire.request(URL(string :"\(BASEURL)show_user_info")!, headers: getHeader())
             .responseJSON { response in
                 switch response.result.isSuccess{
