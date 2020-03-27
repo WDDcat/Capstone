@@ -36,22 +36,18 @@ public func remoteGetRegisterFrom() -> String { return registerFrom }
 
 public let userDefaults = UserDefaults.standard
 
-func updateSession(newSession: String) -> Bool {
+func updateSession(newSession: String) {
     let session = userDefaults.string(forKey: "session")
     if session != newSession {
         userDefaults.set(newSession, forKey: "session")
-        return true
     }
-    return false
 }
 
-func updateToken(newToken: String) -> Bool {
+func updateToken(newToken: String) {
     let token = userDefaults.string(forKey: "token_id")
     if token != newToken {
         userDefaults.set(newToken, forKey: "token_id")
-        return true
     }
-    return false
 }
 
 func getHeader() -> HTTPHeaders {

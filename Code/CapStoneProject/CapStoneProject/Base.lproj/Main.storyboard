@@ -120,7 +120,7 @@
         <!--公司详情-->
         <scene sceneID="hAr-B8-K7w">
             <objects>
-                <viewController id="BWn-8i-j1j" customClass="CompanyDetailController" customModule="CapstoneProject" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="CompanyDetail" id="BWn-8i-j1j" customClass="CompanyDetailController" customModule="CapstoneProject" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="JDa-oi-v14">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -1222,6 +1222,9 @@
                                                     <constraint firstAttribute="width" constant="307" id="zbE-yA-7jj"/>
                                                 </constraints>
                                                 <state key="normal" title="生成PDF融资报告"/>
+                                                <connections>
+                                                    <segue destination="3ZJ-tf-9Nh" kind="push" id="LEJ-4n-LB8"/>
+                                                </connections>
                                             </button>
                                         </subviews>
                                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
@@ -4031,6 +4034,36 @@
             </objects>
             <point key="canvasLocation" x="1870" y="842"/>
         </scene>
+        <!--Viewer Controller-->
+        <scene sceneID="nei-dU-Y5y">
+            <objects>
+                <viewController id="3ZJ-tf-9Nh" customClass="PDFViewerController" customModule="CapstoneProject" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="dHd-Pr-z34">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <wkWebView contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="6U8-Dg-2Ab">
+                                <rect key="frame" x="0.0" y="44" width="375" height="623"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" red="0.36078431370000003" green="0.38823529410000002" blue="0.4039215686" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <wkWebViewConfiguration key="configuration">
+                                    <audiovisualMediaTypes key="mediaTypesRequiringUserActionForPlayback" none="YES"/>
+                                    <wkPreferences key="preferences"/>
+                                </wkWebViewConfiguration>
+                            </wkWebView>
+                        </subviews>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <viewLayoutGuide key="safeArea" id="dNc-Vy-1Hr"/>
+                    </view>
+                    <navigationItem key="navigationItem" id="tKR-tn-KwX"/>
+                    <connections>
+                        <outlet property="pdfView" destination="6U8-Dg-2Ab" id="6KZ-tr-c6T"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="fbT-cO-Cr4" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2744.8000000000002" y="147.97601199400302"/>
+        </scene>
         <!--Navigation Controller-->
         <scene sceneID="gO5-6J-jTc">
             <objects>
@@ -4814,10 +4847,10 @@
             </objects>
             <point key="canvasLocation" x="238" y="49"/>
         </scene>
-        <!--Root Navigation Controller-->
+        <!--Navigation Controller-->
         <scene sceneID="z1t-tk-ZVm">
             <objects>
-                <navigationController id="Geh-T5-W1e" customClass="RootNavigationController" customModule="CapstoneProject" customModuleProvider="target" sceneMemberID="viewController">
+                <navigationController id="Geh-T5-W1e" sceneMemberID="viewController">
                     <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="DU9-kh-m5M">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>

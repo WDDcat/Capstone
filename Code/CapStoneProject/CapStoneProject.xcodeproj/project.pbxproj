@@ -40,6 +40,9 @@
 		DD51304C241E3E4300EE0BE3 /* OpportunityDetailContract.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD51304B241E3E4300EE0BE3 /* OpportunityDetailContract.swift */; };
 		DD51304E241E3E6A00EE0BE3 /* OpportunityDetailModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD51304D241E3E6A00EE0BE3 /* OpportunityDetailModel.swift */; };
 		DD513050241E3ED500EE0BE3 /* OpportunityDetailController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD51304F241E3ED500EE0BE3 /* OpportunityDetailController.swift */; };
+		DD553977242DA623009DF564 /* PDFViewerContract.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD553976242DA623009DF564 /* PDFViewerContract.swift */; };
+		DD553979242DA635009DF564 /* PDFViewerModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD553978242DA635009DF564 /* PDFViewerModel.swift */; };
+		DD55397B242DA649009DF564 /* PDFViewerController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD55397A242DA649009DF564 /* PDFViewerController.swift */; };
 		DD6DFE6B2429BD1200F76578 /* PreRegisterPageContract.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD6DFE6A2429BD1200F76578 /* PreRegisterPageContract.swift */; };
 		DD6DFE6E2429BDE500F76578 /* PreRegisterPageModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD6DFE6D2429BDE500F76578 /* PreRegisterPageModel.swift */; };
 		DD6DFE702429BDFC00F76578 /* PreRegisterPageController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD6DFE6F2429BDFC00F76578 /* PreRegisterPageController.swift */; };
@@ -69,18 +72,15 @@
 		DDC4079E242353CD00105E89 /* PersonalCenterContract.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDC4079D242353CD00105E89 /* PersonalCenterContract.swift */; };
 		DDC407A0242353EC00105E89 /* PersonalCenterModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDC4079F242353EC00105E89 /* PersonalCenterModel.swift */; };
 		DDC407A2242353FB00105E89 /* PersonalCenterController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDC407A1242353FB00105E89 /* PersonalCenterController.swift */; };
-		DDC407AB2424C79600105E89 /* ViewControllertest.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDC407AA2424C79600105E89 /* ViewControllertest.swift */; };
 		DDC407AE2425E70500105E89 /* SearchPageContract.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDC407AD2425E70500105E89 /* SearchPageContract.swift */; };
 		DDC407B02425E74300105E89 /* SearchPageModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDC407AF2425E74300105E89 /* SearchPageModel.swift */; };
 		DDC407B22425E76B00105E89 /* SearchPageController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDC407B12425E76B00105E89 /* SearchPageController.swift */; };
 		DDC407B42425FDDA00105E89 /* SearchPageCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDC407B32425FDDA00105E89 /* SearchPageCell.swift */; };
-		DDC407B624262DAD00105E89 /* RootNavigationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDC407B524262DAD00105E89 /* RootNavigationController.swift */; };
 		DDC407DF24271CD900105E89 /* RegisterPageContract.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDC407DE24271CD900105E89 /* RegisterPageContract.swift */; };
 		DDC407E124271CEC00105E89 /* RegisterPageModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDC407E024271CEC00105E89 /* RegisterPageModel.swift */; };
 		DDC407E324271D0200105E89 /* RegisterPageController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDC407E224271D0200105E89 /* RegisterPageController.swift */; };
 		DDDB7A2724078A4B0030178A /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDDB7A2624078A4B0030178A /* AppDelegate.swift */; };
 		DDDB7A2924078A4B0030178A /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDDB7A2824078A4B0030178A /* SceneDelegate.swift */; };
-		DDDB7A2B24078A4B0030178A /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDDB7A2A24078A4B0030178A /* ViewController.swift */; };
 		DDDB7A2E24078A4B0030178A /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = DDDB7A2C24078A4B0030178A /* Main.storyboard */; };
 		DDDB7A3024078A4E0030178A /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = DDDB7A2F24078A4E0030178A /* Assets.xcassets */; };
 		DDE1541F2410CD97009C65A3 /* MyTable.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDE1541E2410CD97009C65A3 /* MyTable.swift */; };
@@ -121,6 +121,9 @@
 		DD51304B241E3E4300EE0BE3 /* OpportunityDetailContract.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OpportunityDetailContract.swift; sourceTree = "<group>"; };
 		DD51304D241E3E6A00EE0BE3 /* OpportunityDetailModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OpportunityDetailModel.swift; sourceTree = "<group>"; };
 		DD51304F241E3ED500EE0BE3 /* OpportunityDetailController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OpportunityDetailController.swift; sourceTree = "<group>"; };
+		DD553976242DA623009DF564 /* PDFViewerContract.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PDFViewerContract.swift; sourceTree = "<group>"; };
+		DD553978242DA635009DF564 /* PDFViewerModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PDFViewerModel.swift; sourceTree = "<group>"; };
+		DD55397A242DA649009DF564 /* PDFViewerController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PDFViewerController.swift; sourceTree = "<group>"; };
 		DD6DFE6A2429BD1200F76578 /* PreRegisterPageContract.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PreRegisterPageContract.swift; sourceTree = "<group>"; };
 		DD6DFE6D2429BDE500F76578 /* PreRegisterPageModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PreRegisterPageModel.swift; sourceTree = "<group>"; };
 		DD6DFE6F2429BDFC00F76578 /* PreRegisterPageController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PreRegisterPageController.swift; sourceTree = "<group>"; };
@@ -150,19 +153,16 @@
 		DDC4079D242353CD00105E89 /* PersonalCenterContract.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PersonalCenterContract.swift; sourceTree = "<group>"; };
 		DDC4079F242353EC00105E89 /* PersonalCenterModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PersonalCenterModel.swift; sourceTree = "<group>"; };
 		DDC407A1242353FB00105E89 /* PersonalCenterController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PersonalCenterController.swift; sourceTree = "<group>"; };
-		DDC407AA2424C79600105E89 /* ViewControllertest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewControllertest.swift; sourceTree = "<group>"; };
 		DDC407AD2425E70500105E89 /* SearchPageContract.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchPageContract.swift; sourceTree = "<group>"; };
 		DDC407AF2425E74300105E89 /* SearchPageModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchPageModel.swift; sourceTree = "<group>"; };
 		DDC407B12425E76B00105E89 /* SearchPageController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchPageController.swift; sourceTree = "<group>"; };
 		DDC407B32425FDDA00105E89 /* SearchPageCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchPageCell.swift; sourceTree = "<group>"; };
-		DDC407B524262DAD00105E89 /* RootNavigationController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RootNavigationController.swift; sourceTree = "<group>"; };
 		DDC407DE24271CD900105E89 /* RegisterPageContract.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterPageContract.swift; sourceTree = "<group>"; };
 		DDC407E024271CEC00105E89 /* RegisterPageModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterPageModel.swift; sourceTree = "<group>"; };
 		DDC407E224271D0200105E89 /* RegisterPageController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterPageController.swift; sourceTree = "<group>"; };
 		DDDB7A2324078A4B0030178A /* CapstoneProject.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = CapstoneProject.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		DDDB7A2624078A4B0030178A /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		DDDB7A2824078A4B0030178A /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
-		DDDB7A2A24078A4B0030178A /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		DDDB7A2D24078A4B0030178A /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		DDDB7A2F24078A4E0030178A /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		DDDB7A3424078A4E0030178A /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -301,6 +301,16 @@
 			name = OpportunityDetail;
 			sourceTree = "<group>";
 		};
+		DD553975242DA5AC009DF564 /* PDFViewer */ = {
+			isa = PBXGroup;
+			children = (
+				DD553976242DA623009DF564 /* PDFViewerContract.swift */,
+				DD553978242DA635009DF564 /* PDFViewerModel.swift */,
+				DD55397A242DA649009DF564 /* PDFViewerController.swift */,
+			);
+			name = PDFViewer;
+			sourceTree = "<group>";
+		};
 		DD6DFE692429BB1500F76578 /* PreRegisterPage */ = {
 			isa = PBXGroup;
 			children = (
@@ -363,6 +373,7 @@
 				DD186D352411CCAB00BDEBDE /* ProductionManagementDetail */,
 				DD186D3E24168F9000BDEBDE /* FinancingInfoDetail */,
 				DD186D3F24168FA100BDEBDE /* CapitalRaisingInfoDetail */,
+				DD553975242DA5AC009DF564 /* PDFViewer */,
 			);
 			name = "+FinancialReport";
 			sourceTree = "<group>";
@@ -450,7 +461,6 @@
 		DDDB7A2524078A4B0030178A /* CapstoneProject */ = {
 			isa = PBXGroup;
 			children = (
-				DDC407B524262DAD00105E89 /* RootNavigationController.swift */,
 				DDC40760242208AB00105E89 /* Homepage */,
 				DDC407AC2425E3F200105E89 /* SearchPage */,
 				DD73FA9124080FB500469726 /* CompanyList */,
@@ -468,8 +478,6 @@
 				DDC4075E2421FD5600105E89 /* MyCycleScrollView.swift */,
 				DD397CD0240E39B9002E28E1 /* Credit.swift */,
 				DD397CC7240CB436002E28E1 /* Judgement.swift */,
-				DDDB7A2A24078A4B0030178A /* ViewController.swift */,
-				DDC407AA2424C79600105E89 /* ViewControllertest.swift */,
 			);
 			path = CapstoneProject;
 			sourceTree = "<group>";
@@ -612,11 +620,11 @@
 				DDC4076D2422340100105E89 /* LoginPageController.swift in Sources */,
 				DD397CD1240E39B9002E28E1 /* Credit.swift in Sources */,
 				DDC4076B2422338400105E89 /* LoginPageModel.swift in Sources */,
-				DDC407AB2424C79600105E89 /* ViewControllertest.swift in Sources */,
 				DD397CEF240F9C13002E28E1 /* HolderInfoDetailModel.swift in Sources */,
 				DD397CE8240F73E7002E28E1 /* ManagerInfoDetailModel.swift in Sources */,
 				DDC407712422382400105E89 /* FinancingInfoDetailContract.swift in Sources */,
 				DD397CF32410130B002E28E1 /* PercentFormatter.swift in Sources */,
+				DD55397B242DA649009DF564 /* PDFViewerController.swift in Sources */,
 				DD397CC8240CB436002E28E1 /* Judgement.swift in Sources */,
 				DD186D3D2413801D00BDEBDE /* MyScrollTable.swift in Sources */,
 				DD397CE6240F72E9002E28E1 /* ManagerInfoDetailController.swift in Sources */,
@@ -628,16 +636,15 @@
 				DD397CDD240EAC2A002E28E1 /* HistoryDetailCell.swift in Sources */,
 				DDC40764242208DB00105E89 /* HomepageContract.swift in Sources */,
 				DDA905E62408D9F100D113C5 /* CompanyListContract.swift in Sources */,
-				DDDB7A2B24078A4B0030178A /* ViewController.swift in Sources */,
 				DD6DFE6E2429BDE500F76578 /* PreRegisterPageModel.swift in Sources */,
 				DDA905F4240BE87F00D113C5 /* FinancialReportContract.swift in Sources */,
 				DD397CDB240EAA92002E28E1 /* HistoryDetailController.swift in Sources */,
+				DD553977242DA623009DF564 /* PDFViewerContract.swift in Sources */,
 				DD397CDF240EB293002E28E1 /* HistoryDetailContract.swift in Sources */,
 				DD51304E241E3E6A00EE0BE3 /* OpportunityDetailModel.swift in Sources */,
 				DD397CD4240E78F4002E28E1 /* BaseInfoDetailController.swift in Sources */,
 				DDC407E124271CEC00105E89 /* RegisterPageModel.swift in Sources */,
 				DDC4079E242353CD00105E89 /* PersonalCenterContract.swift in Sources */,
-				DDC407B624262DAD00105E89 /* RootNavigationController.swift in Sources */,
 				DD397CEA240F73F9002E28E1 /* managerInfoDetailContract.swift in Sources */,
 				DD186D392411CFD600BDEBDE /* ProductionManagementDetailModel.swift in Sources */,
 				DDC407662422094000105E89 /* HomepageController.swift in Sources */,
@@ -665,6 +672,7 @@
 				DD73FA8D24080F2A00469726 /* CompanyListCell.swift in Sources */,
 				DD6DFE72242BBF8200F76578 /* FavouriteCompanyListCell.swift in Sources */,
 				DDC407DF24271CD900105E89 /* RegisterPageContract.swift in Sources */,
+				DD553979242DA635009DF564 /* PDFViewerModel.swift in Sources */,
 				DD397CE1240EB49A002E28E1 /* HistoryDetailModel.swift in Sources */,
 				DD397CF1240F9C2A002E28E1 /* HolderInfoDetailContract.swift in Sources */,
 				DD51304C241E3E4300EE0BE3 /* OpportunityDetailContract.swift in Sources */,

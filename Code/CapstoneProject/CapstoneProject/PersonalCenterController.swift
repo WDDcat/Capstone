@@ -188,4 +188,13 @@ extension PersonalCenterController: UITableViewDataSource, UITableViewDelegate {
             mPresenter.getFavouriteInfo(page: page)
         }
     }
+    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        tableView.deselectRow(at: indexPath, animated: true)
+        remoteSetCompanyId(id: PersonalCenterCompanyList[indexPath.row][4])
+        remoteSetCompanyName(name: PersonalCenterCompanyList[indexPath.row][0])
+        print("didSelect:\(PersonalCenterCompanyList[indexPath.row][0])")
+        let controller = storyboard?.instantiateViewController(withIdentifier: "CompanyDetail") as! CompanyDetailController
+        self.navigationController?.pushViewController(controller, animated: true)
+    }
 }
