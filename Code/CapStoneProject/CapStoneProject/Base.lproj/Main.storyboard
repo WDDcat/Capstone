@@ -4042,9 +4042,8 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <wkWebView contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="6U8-Dg-2Ab">
+                            <wkWebView contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="6U8-Dg-2Ab">
                                 <rect key="frame" x="0.0" y="44" width="375" height="623"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" red="0.36078431370000003" green="0.38823529410000002" blue="0.4039215686" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <wkWebViewConfiguration key="configuration">
                                     <audiovisualMediaTypes key="mediaTypesRequiringUserActionForPlayback" none="YES"/>
@@ -4053,6 +4052,12 @@
                             </wkWebView>
                         </subviews>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <constraints>
+                            <constraint firstItem="dNc-Vy-1Hr" firstAttribute="bottom" secondItem="6U8-Dg-2Ab" secondAttribute="bottom" id="3z6-Sh-w36"/>
+                            <constraint firstItem="6U8-Dg-2Ab" firstAttribute="top" secondItem="dNc-Vy-1Hr" secondAttribute="top" id="SRA-nG-Aem"/>
+                            <constraint firstItem="6U8-Dg-2Ab" firstAttribute="trailing" secondItem="dNc-Vy-1Hr" secondAttribute="trailing" id="gHG-Zm-nfH"/>
+                            <constraint firstItem="6U8-Dg-2Ab" firstAttribute="leading" secondItem="dNc-Vy-1Hr" secondAttribute="leading" id="q6c-q7-M4g"/>
+                        </constraints>
                         <viewLayoutGuide key="safeArea" id="dNc-Vy-1Hr"/>
                     </view>
                     <navigationItem key="navigationItem" id="tKR-tn-KwX"/>

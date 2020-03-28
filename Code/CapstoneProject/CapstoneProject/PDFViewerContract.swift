@@ -9,9 +9,10 @@
 import Foundation
 
 protocol PDFViewerView {
-    func openPDF(data: Data, url:URL)
+    func openPDF(path: String)
 }
 
 protocol PDFViewerPresenter {
     func getPDF()
+    func deletePDF()
 }

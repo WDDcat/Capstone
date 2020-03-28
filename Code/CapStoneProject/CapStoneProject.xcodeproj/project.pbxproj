@@ -43,6 +43,7 @@
 		DD553977242DA623009DF564 /* PDFViewerContract.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD553976242DA623009DF564 /* PDFViewerContract.swift */; };
 		DD553979242DA635009DF564 /* PDFViewerModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD553978242DA635009DF564 /* PDFViewerModel.swift */; };
 		DD55397B242DA649009DF564 /* PDFViewerController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD55397A242DA649009DF564 /* PDFViewerController.swift */; };
+		DD5C2F08242F4E1000F85187 /* WebKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DD5C2F07242F4E1000F85187 /* WebKit.framework */; };
 		DD6DFE6B2429BD1200F76578 /* PreRegisterPageContract.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD6DFE6A2429BD1200F76578 /* PreRegisterPageContract.swift */; };
 		DD6DFE6E2429BDE500F76578 /* PreRegisterPageModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD6DFE6D2429BDE500F76578 /* PreRegisterPageModel.swift */; };
 		DD6DFE702429BDFC00F76578 /* PreRegisterPageController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD6DFE6F2429BDFC00F76578 /* PreRegisterPageController.swift */; };
@@ -124,6 +125,7 @@
 		DD553976242DA623009DF564 /* PDFViewerContract.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PDFViewerContract.swift; sourceTree = "<group>"; };
 		DD553978242DA635009DF564 /* PDFViewerModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PDFViewerModel.swift; sourceTree = "<group>"; };
 		DD55397A242DA649009DF564 /* PDFViewerController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PDFViewerController.swift; sourceTree = "<group>"; };
+		DD5C2F07242F4E1000F85187 /* WebKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = WebKit.framework; path = System/Library/Frameworks/WebKit.framework; sourceTree = SDKROOT; };
 		DD6DFE6A2429BD1200F76578 /* PreRegisterPageContract.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PreRegisterPageContract.swift; sourceTree = "<group>"; };
 		DD6DFE6D2429BDE500F76578 /* PreRegisterPageModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PreRegisterPageModel.swift; sourceTree = "<group>"; };
 		DD6DFE6F2429BDFC00F76578 /* PreRegisterPageController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PreRegisterPageController.swift; sourceTree = "<group>"; };
@@ -175,6 +177,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				DD5C2F08242F4E1000F85187 /* WebKit.framework in Frameworks */,
 				1EEC75438D2BF77F87FEB59E /* Pods_CapstoneProject.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -194,6 +197,7 @@
 		A62E7866A331402B56D729B6 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				DD5C2F07242F4E1000F85187 /* WebKit.framework */,
 				E96DBE2538AB16B79EA0375F /* Pods_CapstoneProject.framework */,
 			);
 			name = Frameworks;

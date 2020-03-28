@@ -73,7 +73,7 @@
           NSLog(@"Data received: %@", myString);
       }] resume];
 }
-
+
 - (void)downloadPDF {
     NSString *targetUrl = [NSString stringWithFormat: PDFUrl, _c_id];
     NSMutableURLRequest *request = [[NSMutableURLRequest alloc] initWithURL:[NSURL URLWithString:targetUrl]];

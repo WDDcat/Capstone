@@ -20,11 +20,16 @@ class PDFViewerController: UIViewController {
         mPresenter.mView = self
         mPresenter.getPDF()
     }
-
+    
+    override func viewDidDisappear(_ animated: Bool) {
+        mPresenter.deletePDF()
+    }
 }
 
 extension PDFViewerController: PDFViewerView {
-    func openPDF(data: Data, url: URL) {
-        pdfView.load(data, mimeType: "application/pdf", characterEncodingName: "utf-8", baseURL: url)
+    func openPDF(path: String) {
+        let targetURL = NSURL.fileURL(withPath: path)
+        let data = NSData.init(contentsOf: targetURL)
+        pdfView.load(data! as Data, mimeType: "application/pdf", characterEncodingName: "utf-8", baseURL: targetURL.deletingLastPathComponent())
     }    
 }
