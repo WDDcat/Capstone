@@ -18,6 +18,7 @@ class PDFViewerController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         mPresenter.mView = self
+        title = "PDF融报"
         mPresenter.getPDF()
     }
     
