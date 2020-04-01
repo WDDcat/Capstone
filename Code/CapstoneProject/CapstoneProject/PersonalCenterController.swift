@@ -43,6 +43,8 @@ class PersonalCenterController: UIViewController {
         mPresenter.getPersonalInfo()
         PersonalCenterCompanyList.removeAll()
         mPresenter.getFavouriteInfo(page: page)
+        
+        homeButton.removeFromSuperview()
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -68,6 +70,16 @@ class PersonalCenterController: UIViewController {
     
     override func viewWillDisappear(_ animated: Bool) {
         logout.removeFromSuperview()
+    }
+    
+    override func viewDidDisappear(_ animated: Bool) {
+        homeButton = UIButton(frame: CGRect(x: UIScreen.main.bounds.width - 40, y: 5, width: 35, height: 32))
+        homeButton.tintColor = .lightGray
+        homeButton.setBackgroundImage(UIImage.init(systemName: "house"), for: .normal)
+        homeButton.contentMode = .scaleAspectFit
+        homeButton.isUserInteractionEnabled = true
+        homeButton.addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(clickHomeButton)))
+        navigationController?.navigationBar.addSubview(homeButton)
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
@@ -100,6 +112,10 @@ class PersonalCenterController: UIViewController {
         tag_friends.backgroundColor = .lightGray
         tag_message.backgroundColor = customLightGray
         mPresenter.getMessageInfo()
+    }
+    
+    @objc func clickHomeButton() {
+        self.navigationController?.popToRootViewController(animated: true)
     }
 }
 

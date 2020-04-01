@@ -8,6 +8,8 @@
 
 import UIKit
 
+public var homeButton = UIButton()
+
 class HomepageController: UIViewController, CycleScrollViewDelegate {
 
     var mPresenter = HomepageModel()
