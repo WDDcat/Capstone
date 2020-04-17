@@ -336,12 +336,12 @@ extension CapitalRaisingInfoDetailController: CapitalRaisingInfoDetailView {
             }
             mScrollTable.finish()
         }
-        else {
-            label_securityTable.alpha = 0
-            stack_securityTable.alpha = 0
-            scroll_securityTable.alpha = 0
-            tag_company.superview?.addConstraint(NSLayoutConstraint(item: tag_company, attribute: .top, relatedBy: .equal, toItem: label_securityTable, attribute: .top, multiplier: 1.0, constant: 0))
-        }
+//        else {
+//            label_securityTable.alpha = 0
+//            stack_securityTable.alpha = 0
+//            scroll_securityTable.alpha = 0
+//            tag_company.superview?.addConstraint(NSLayoutConstraint(item: tag_company, attribute: .top, relatedBy: .equal, toItem: label_securityTable, attribute: .top, multiplier: 1.0, constant: 0))
+//        }
     }
     
     func setCorporateTrustTable(dataList: [String]) {

@@ -17,3 +17,7 @@ protocol CompanyDetailView {
 protocol CompanyDetailPresent {
     func getInfo()
 }
+
+//protocol CompanyDetailView {
+//    func setCompanyName(name: String)   //设置公司名称
+//}

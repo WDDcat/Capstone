@@ -10,25 +10,67 @@ import Foundation
 import Alamofire
 import SwiftyJSON
 
+//class CompanyDetailModel: CompanyDetailPresent {
+//
+//    var mView: CompanyDetailView?
+//
+//    func getInfo() {
+//        let param:[String:Any] = ["c_id": remoteGetCompanyId()]
+//        Alamofire.request(URL(string :"\(BASEURL)financing_index")!, parameters: param, headers: getHeader())
+//            .responseJSON { response in
+//                switch response.result.isSuccess{
+//                case true:
+//                    if let data = response.result.value {
+//                        let json = JSON(data)
+//                        self.mView?.setCompanyName(name: json["name"].string ?? "")
+//                        self.mView?.setLegalPerson(name: json["legal_name"].string ?? "")
+//                        self.mView?.setShareHolder(name: json["first_holder_name"].string ?? "")
+//                    }
+//                case false:
+//                    print("fail")
+//                }
+//        }
+//    }
+//}
+
 class CompanyDetailModel: CompanyDetailPresent {
-    
+
     var mView: CompanyDetailView?
     
     func getInfo() {
         let param:[String:Any] = ["c_id": remoteGetCompanyId()]
-        Alamofire.request(URL(string :"\(BASEURL)financing_index")!, parameters: param, headers: getHeader())
-            .responseJSON { response in
-                switch response.result.isSuccess{
-                case true:
-                    if let data = response.result.value {
-                        let json = JSON(data)
-                        self.mView?.setCompanyName(name: json["name"].string ?? "")
-                        self.mView?.setLegalPerson(name: json["legal_name"].string ?? "")
-                        self.mView?.setShareHolder(name: json["first_holder_name"].string ?? "")
-                    }
-                case false:
-                    print("fail")
-                }
-        }
+        let json = getfinancingIndex(param: param)
+        self.mView?.setCompanyName(name: json["name"].string ?? "")
+        self.mView?.setLegalPerson(name: json["legal_name"].string ?? "")
+        self.mView?.setShareHolder(name: json["first_holder_name"].string ?? "")
     }
 }
+
+extension CompanyDetailModel {
+    func getfinancingIndex(param: [String:Any]) -> JSON {
+        let json :JSON?
+        return josn
+    }
+}
+
+//protocol getRequest {
+//    func getfinancingIndex(param: [String:Any]) -> JSON
+//}
+//
+//class CompanyDetailModel: getRequest {
+//    func getfinancingIndex(param: [String:Any]) -> JSON {
+//        var json: JSON?
+//        Alamofire.request(URL(string :"\(BASEURL)financing_index")!, parameters: param, headers: getHeader())
+//            .responseJSON { response in
+//                switch response.result.isSuccess{
+//                case true:
+//                    if let data = response.result.value {
+//                       json = JSON(data)
+//                    }
+//                case false:
+//                    print("fail")
+//                }
+//        }
+//        return json!
+//    }
+//}

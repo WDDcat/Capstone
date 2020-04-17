@@ -37,18 +37,25 @@ class CompanyDetailController: UIViewController {
 
 }
 
+//extension CompanyDetailController: CompanyDetailView {
+//    func setCompanyName(name: String) {
+//        label_companyName.text = name
+//    }
+//}
+
 extension CompanyDetailController: CompanyDetailView {
     func setCompanyName(name: String) {
         label_companyName.text = name
         label_financialReport.setTitle("\(name)融报", for: .normal)
         label_businessOpportunity.setTitle("\(name)商机", for: .normal)
     }
-    
+
     func setShareHolder(name: String) {
         label_shareHolder.text = name
     }
-    
+	
     func setLegalPerson(name: String) {
         label_legalPerson.text = name
     }
 }
+

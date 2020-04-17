@@ -670,9 +670,11 @@ class CapitalRaisingInfoDetailModel: CapitalRaisingInfoDetailPresent {
                                     var maxYear = 0
                                     for i in 0..<json["bond_detail"].count {
                                         if (json["bond_detail"][i]["list_date"].string ?? "") != "" {
-                                            let year = Int(((json["bond_detail"][i]["list_date"].string ?? "") as NSString).substring(to: 4))
-                                            if maxYear < year! { maxYear = year! }
-                                            if minYear > year! { minYear = year! }
+                                            let year = Int(((json["bond_detail"][i]["list_date"].string)! as NSString).substring(to: 4))
+                                            if year != nil {
+                                                if maxYear < year! { maxYear = year! }
+                                                if minYear > year! { minYear = year! }
+                                            }
                                         }
                                     }
                                     for i in minYear...maxYear {
@@ -685,23 +687,23 @@ class CapitalRaisingInfoDetailModel: CapitalRaisingInfoDetailPresent {
                                                 if year == i && (json["bond_detail"][j]["inter_rate"].string ?? "") != "" {
                                                     let deadline = Double(json["bond_detail"][j]["deadline"].double ?? 0)
                                                     if (deadline / 12) <= 1 {
-                                                        total_year1 += Double(json["bond_detail"][j]["total"].string ?? "0")!
-                                                        price_year1 += Double(json["bond_detail"][j]["inter_rate"].string ?? "0")!
+                                                        total_year1 += Double(json["bond_detail"][j]["total"].string ?? "0") == nil ? 0 : (Double(json["bond_detail"][j]["total"].string ?? "0")!)
+                                                        price_year1 += Double(json["bond_detail"][j]["inter_rate"].string ?? "0") == nil ? 0 : (Double(json["bond_detail"][j]["inter_rate"].string ?? "0")!)
                                                         num_1 += 1
                                                     }
                                                     else if (deadline / 12) <= 3 {
-                                                        total_year2 += Double(json["bond_detail"][j]["total"].string ?? "0")!
-                                                        price_year2 += Double(json["bond_detail"][j]["inter_rate"].string ?? "0")!
+                                                        total_year2 += Double(json["bond_detail"][j]["total"].string ?? "0") == nil ? 0 : (Double(json["bond_detail"][j]["total"].string ?? "0")!)
+                                                        price_year2 += Double(json["bond_detail"][j]["inter_rate"].string ?? "0") == nil ? 0 : (Double(json["bond_detail"][j]["inter_rate"].string ?? "0")!)
                                                         num_2 += 1
                                                     }
                                                     else if (deadline / 12) <= 5 {
-                                                        total_year3 += Double(json["bond_detail"][j]["total"].string ?? "0")!
-                                                        price_year3 += Double(json["bond_detail"][j]["inter_rate"].string ?? "0")!
+                                                        total_year3 += Double(json["bond_detail"][j]["total"].string ?? "0") == nil ? 0 : (Double(json["bond_detail"][j]["total"].string ?? "0")!)
+                                                        price_year3 += Double(json["bond_detail"][j]["inter_rate"].string ?? "0") == nil ? 0 : (Double(json["bond_detail"][j]["inter_rate"].string ?? "0")!)
                                                         num_3 += 1
                                                     }
                                                     else {
-                                                        total_year4 += Double(json["bond_detail"][j]["total"].string ?? "0")!
-                                                        price_year4 += Double(json["bond_detail"][j]["inter_rate"].string ?? "0")!
+                                                        total_year4 += Double(json["bond_detail"][j]["total"].string ?? "0") == nil ? 0 : (Double(json["bond_detail"][j]["total"].string ?? "0")!)
+                                                        price_year4 += Double(json["bond_detail"][j]["inter_rate"].string ?? "0") == nil ? 0 : (Double(json["bond_detail"][j]["inter_rate"].string ?? "0")!)
                                                         num_4 += 1
                                                     }
                                                 }
