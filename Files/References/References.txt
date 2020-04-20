@@ -1,0 +1,5 @@
+1. Hong-Jiao Ma, Meng Li, Kang Wang, Zhong Dou, Haifeng Jiang. NTP network timing technique research for Android and iOS mobile platform[C]. 2014
+2. Mark H.Goadrich, Michael P.Rogers. Smart smartphone development: iOS versus Android. ACM New York, NY, USA, 2011
+3. Zdziarski J A, IPhone open application development. O'Reilly, 2008
+4. 石国辉，基于银行凭证的金融数据分析系统设计与实现， 2017.03
+5. 韩明希，尚玉芳.新时期的互联网金融模式研究[J].商场现代化.2015
