@@ -85,6 +85,11 @@
 		DDDB7A2E24078A4B0030178A /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = DDDB7A2C24078A4B0030178A /* Main.storyboard */; };
 		DDDB7A3024078A4E0030178A /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = DDDB7A2F24078A4E0030178A /* Assets.xcassets */; };
 		DDE1541F2410CD97009C65A3 /* MyTable.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDE1541E2410CD97009C65A3 /* MyTable.swift */; };
+		DDEAD78424570159009F1FEC /* OwnershipStructureController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDEAD78324570159009F1FEC /* OwnershipStructureController.swift */; };
+		DDEAD78624570174009F1FEC /* OwnershipStructureContract.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDEAD78524570174009F1FEC /* OwnershipStructureContract.swift */; };
+		DDEAD7882457017D009F1FEC /* OwnershipStructureModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDEAD7872457017D009F1FEC /* OwnershipStructureModel.swift */; };
+		DDEAD78A245731D1009F1FEC /* MyFatherHolderList.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDEAD789245731D1009F1FEC /* MyFatherHolderList.swift */; };
+		DDEAD78C24573819009F1FEC /* MyChildHolderList.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDEAD78B24573819009F1FEC /* MyChildHolderList.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -169,6 +174,11 @@
 		DDDB7A2F24078A4E0030178A /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		DDDB7A3424078A4E0030178A /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		DDE1541E2410CD97009C65A3 /* MyTable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyTable.swift; sourceTree = "<group>"; };
+		DDEAD78324570159009F1FEC /* OwnershipStructureController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OwnershipStructureController.swift; sourceTree = "<group>"; };
+		DDEAD78524570174009F1FEC /* OwnershipStructureContract.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OwnershipStructureContract.swift; sourceTree = "<group>"; };
+		DDEAD7872457017D009F1FEC /* OwnershipStructureModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OwnershipStructureModel.swift; sourceTree = "<group>"; };
+		DDEAD789245731D1009F1FEC /* MyFatherHolderList.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyFatherHolderList.swift; sourceTree = "<group>"; };
+		DDEAD78B24573819009F1FEC /* MyChildHolderList.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyChildHolderList.swift; sourceTree = "<group>"; };
 		E96DBE2538AB16B79EA0375F /* Pods_CapstoneProject.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_CapstoneProject.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
@@ -372,6 +382,7 @@
 				DDA905F8240C0EA700D113C5 /* FinancialReport */,
 				DD397CD2240E702F002E28E1 /* BaseInfoDetail */,
 				DD397CEB240F8FFD002E28E1 /* HolderInfoDetail */,
+				DDEAD782245700BD009F1FEC /* OwnershipStructure */,
 				DD397CD9240EAA6C002E28E1 /* HistoryDetail */,
 				DD397CE2240F72A5002E28E1 /* ManagerInfoDetail */,
 				DD186D352411CCAB00BDEBDE /* ProductionManagementDetail */,
@@ -482,6 +493,8 @@
 				DDC4075E2421FD5600105E89 /* MyCycleScrollView.swift */,
 				DD397CD0240E39B9002E28E1 /* Credit.swift */,
 				DD397CC7240CB436002E28E1 /* Judgement.swift */,
+				DDEAD789245731D1009F1FEC /* MyFatherHolderList.swift */,
+				DDEAD78B24573819009F1FEC /* MyChildHolderList.swift */,
 			);
 			path = CapstoneProject;
 			sourceTree = "<group>";
@@ -495,6 +508,16 @@
 				DDC4077424232AA200105E89 /* LaunchScreen.storyboard */,
 			);
 			name = View;
+			sourceTree = "<group>";
+		};
+		DDEAD782245700BD009F1FEC /* OwnershipStructure */ = {
+			isa = PBXGroup;
+			children = (
+				DDEAD78524570174009F1FEC /* OwnershipStructureContract.swift */,
+				DDEAD7872457017D009F1FEC /* OwnershipStructureModel.swift */,
+				DDEAD78324570159009F1FEC /* OwnershipStructureController.swift */,
+			);
+			name = OwnershipStructure;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -617,12 +640,14 @@
 			buildActionMask = 2147483647;
 			files = (
 				DDA905E9240B9AA400D113C5 /* CompanyDetailContract.swift in Sources */,
+				DDEAD78A245731D1009F1FEC /* MyFatherHolderList.swift in Sources */,
 				DD3D8519241A666F00C108F7 /* OpportunityAbstractContract.swift in Sources */,
 				DDC407B42425FDDA00105E89 /* SearchPageCell.swift in Sources */,
 				DDC40762242208C800105E89 /* HomepageModel.swift in Sources */,
 				DD6DFE6B2429BD1200F76578 /* PreRegisterPageContract.swift in Sources */,
 				DDC4076D2422340100105E89 /* LoginPageController.swift in Sources */,
 				DD397CD1240E39B9002E28E1 /* Credit.swift in Sources */,
+				DDEAD78C24573819009F1FEC /* MyChildHolderList.swift in Sources */,
 				DDC4076B2422338400105E89 /* LoginPageModel.swift in Sources */,
 				DD397CEF240F9C13002E28E1 /* HolderInfoDetailModel.swift in Sources */,
 				DD397CE8240F73E7002E28E1 /* ManagerInfoDetailModel.swift in Sources */,
@@ -644,6 +669,7 @@
 				DDA905F4240BE87F00D113C5 /* FinancialReportContract.swift in Sources */,
 				DD397CDB240EAA92002E28E1 /* HistoryDetailController.swift in Sources */,
 				DD553977242DA623009DF564 /* PDFViewerContract.swift in Sources */,
+				DDEAD78624570174009F1FEC /* OwnershipStructureContract.swift in Sources */,
 				DD397CDF240EB293002E28E1 /* HistoryDetailContract.swift in Sources */,
 				DD51304E241E3E6A00EE0BE3 /* OpportunityDetailModel.swift in Sources */,
 				DD397CD4240E78F4002E28E1 /* BaseInfoDetailController.swift in Sources */,
@@ -665,6 +691,7 @@
 				DDC407E324271D0200105E89 /* RegisterPageController.swift in Sources */,
 				DDA905EF240BA43800D113C5 /* RemoteData.swift in Sources */,
 				DD186D412416932700BDEBDE /* FinancingInfoDetailModel.swift in Sources */,
+				DDEAD7882457017D009F1FEC /* OwnershipStructureModel.swift in Sources */,
 				DD186D4B2418A92A00BDEBDE /* CapitalRaisingInfoDetailContract.swift in Sources */,
 				DD397CED240F9B62002E28E1 /* HolderInfoDetailController.swift in Sources */,
 				DDC4075F2421FD5600105E89 /* MyCycleScrollView.swift in Sources */,
@@ -676,6 +703,7 @@
 				DD73FA8D24080F2A00469726 /* CompanyListCell.swift in Sources */,
 				DD6DFE72242BBF8200F76578 /* FavouriteCompanyListCell.swift in Sources */,
 				DDC407DF24271CD900105E89 /* RegisterPageContract.swift in Sources */,
+				DDEAD78424570159009F1FEC /* OwnershipStructureController.swift in Sources */,
 				DD553979242DA635009DF564 /* PDFViewerModel.swift in Sources */,
 				DD397CE1240EB49A002E28E1 /* HistoryDetailModel.swift in Sources */,
 				DD397CF1240F9C2A002E28E1 /* HolderInfoDetailContract.swift in Sources */,
