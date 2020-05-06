@@ -67,20 +67,6 @@ class SearchPageController: UITableViewController, UITextFieldDelegate {
         searchButton.removeFromSuperview()
     }
     
-    override func viewDidDisappear(_ animated: Bool) {
-        homeButton = UIButton(frame: CGRect(x: UIScreen.main.bounds.width - 50, y: 5, width: 40, height: 30))
-        homeButton.tintColor = .systemGray
-        homeButton.setBackgroundImage(UIImage.init(systemName: "house"), for: .normal)
-        homeButton.contentMode = .scaleAspectFit
-        homeButton.isUserInteractionEnabled = true
-        homeButton.addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(clickHomeButton)))
-        navigationController?.navigationBar.addSubview(homeButton)
-    }
-    
-    @objc func clickHomeButton() {
-        self.navigationController?.popToRootViewController(animated: true)
-    }
-    
     @objc func clickClear() {
         userDefaults.set([] as [String], forKey: "search_history")
         tableView.reloadData()

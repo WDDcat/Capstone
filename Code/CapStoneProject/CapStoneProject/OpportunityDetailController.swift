@@ -40,6 +40,16 @@ class OpportunityDetailController: UIViewController {
         }
         print(remoteGetOpportunityFirstLevel())
     }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        navigationController?.navigationBar.addSubview(homeButton)
+    }
+    
+    override func viewWillDisappear(_ animated: Bool) {
+        super.viewWillDisappear(animated)
+        homeButton.removeFromSuperview()
+    }
 }
 
 extension OpportunityDetailController: OpportunityDetailView {

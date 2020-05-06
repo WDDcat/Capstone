@@ -14,6 +14,7 @@ class OwnershipStructureController: UIViewController {
     
     @IBOutlet weak var label_groupCompany: UILabel!
     @IBOutlet weak var label_currentCompany: UILabel!
+    @IBOutlet weak var stack_groupCompany: UIStackView!
     @IBOutlet weak var stack_fatherList: UIStackView!
     @IBOutlet weak var stack_childList: UIStackView!
     
@@ -27,6 +28,16 @@ class OwnershipStructureController: UIViewController {
         super.viewDidLoad()
         mPresenter.mView = self
         initTree(c_id: remoteGetCompanyId())
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        navigationController?.navigationBar.addSubview(homeButton)
+    }
+    
+    override func viewWillDisappear(_ animated: Bool) {
+        super.viewWillDisappear(animated)
+        homeButton.removeFromSuperview()
     }
     
     func initTree(c_id: String) {
@@ -68,10 +79,12 @@ extension OwnershipStructureController: OwnershipStructureView {
         }
     }
     
-    func removeGroup() {    //diff
-//        print("remove")
-//        line2.alpha = 0
-//        line3.alpha = 0
-//        line4.alpha = 1
+    func removeGroup() {
+        line1.alpha = 0
+        line2.alpha = 0
+        line3.alpha = 0
+        line4.alpha = 1
+        label_currentCompany.superview?.removeConstraint(NSLayoutConstraint(item: label_currentCompany, attribute: .top, relatedBy: .equal, toItem: line1, attribute: .bottom, multiplier: 1, constant: 15))
+        label_currentCompany.superview?.addConstraint(NSLayoutConstraint(item: label_currentCompany, attribute: .top, relatedBy: .equal, toItem: stack_groupCompany, attribute: .top, multiplier: 1, constant: 0))
     }
 }

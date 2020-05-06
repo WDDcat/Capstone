@@ -27,6 +27,16 @@ class HistoryDetailController: UITableViewController {
         historyAfterList.removeAll()
         mPresenter.getInfo()
     }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        navigationController?.navigationBar.addSubview(homeButton)
+    }
+    
+    override func viewWillDisappear(_ animated: Bool) {
+        super.viewWillDisappear(animated)
+        homeButton.removeFromSuperview()
+    }
 
     // MARK: - Table view data source
 

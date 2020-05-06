@@ -27,6 +27,16 @@ class ProductionManagementDetailController: UIViewController {
         mPresenter.mView = self
         mPresenter.getInfo()
     }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        navigationController?.navigationBar.addSubview(homeButton)
+    }
+    
+    override func viewWillDisappear(_ animated: Bool) {
+        super.viewWillDisappear(animated)
+        homeButton.removeFromSuperview()
+    }
 }
 
 extension ProductionManagementDetailController: ProductionManagementDetailView {

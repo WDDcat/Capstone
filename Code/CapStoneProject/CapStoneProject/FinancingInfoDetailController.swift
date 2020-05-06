@@ -29,8 +29,13 @@ class FinancingInfoDetailController: UIViewController {
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         self.baseScrollView.contentSize = CGSize(width: self.view.frame.size.width, height: self.view.frame.size.height + 20)
+        navigationController?.navigationBar.addSubview(homeButton)
     }
-
+    
+    override func viewWillDisappear(_ animated: Bool) {
+        super.viewWillDisappear(animated)
+        homeButton.removeFromSuperview()
+    }
 }
 
 extension FinancingInfoDetailController: FinancingInfoDetailView {

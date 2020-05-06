@@ -2454,6 +2454,7 @@
                         <outlet property="line5" destination="nqx-vO-eQO" id="1Jr-hE-ZbG"/>
                         <outlet property="stack_childList" destination="CJs-Fr-1hX" id="Vvv-l7-aau"/>
                         <outlet property="stack_fatherList" destination="kIj-Ns-gm7" id="vAK-Iy-sUh"/>
+                        <outlet property="stack_groupCompany" destination="lZw-oZ-zfr" id="cLv-aG-KTh"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="JFV-Ec-DO2" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
@@ -4055,7 +4056,7 @@
                                                     <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="21" id="774-Ig-hGY"/>
                                                 </constraints>
                                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                                <color key="textColor" red="0.86274509799999999" green="0.86274509799999999" blue="0.86274509799999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                <color key="textColor" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
                                             <view contentMode="scaleToFill" ambiguous="YES" translatesAutoresizingMaskIntoConstraints="NO" id="j0O-78-r7V">

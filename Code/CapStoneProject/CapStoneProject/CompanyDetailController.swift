@@ -28,6 +28,16 @@ class CompanyDetailController: UIViewController {
         self.navigationController?.pushViewController(controller, animated: true)
     }
     
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        navigationController?.navigationBar.addSubview(homeButton)
+    }
+    
+    override func viewWillDisappear(_ animated: Bool) {
+        super.viewWillDisappear(animated)
+        homeButton.removeFromSuperview()
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         mPresenter.mView = self
@@ -36,12 +46,6 @@ class CompanyDetailController: UIViewController {
     }
 
 }
-
-//extension CompanyDetailController: CompanyDetailView {
-//    func setCompanyName(name: String) {
-//        label_companyName.text = name
-//    }
-//}
 
 extension CompanyDetailController: CompanyDetailView {
     func setCompanyName(name: String) {

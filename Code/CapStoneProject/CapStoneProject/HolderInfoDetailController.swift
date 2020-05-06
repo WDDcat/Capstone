@@ -32,7 +32,12 @@ class HolderInfoDetailController: UIViewController {
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-        self.baseScrollView.contentSize = CGSize(width: self.view.frame.size.width, height: self.view.frame.size.height + 70)
+        navigationController?.navigationBar.addSubview(homeButton)
+    }
+    
+    override func viewWillDisappear(_ animated: Bool) {
+        super.viewWillDisappear(animated)
+        homeButton.removeFromSuperview()
     }
 }
 
@@ -53,6 +58,8 @@ extension HolderInfoDetailController: HolderInfoDetailView {
             }
         }
         label_stockList.text = codeString
+        let height = 30 * (codes.count < 1 ? 1 : codes.count)
+        self.baseScrollView.contentSize = CGSize(width: self.view.frame.size.width, height: self.view.frame.size.height + CGFloat(height))
     }
     
     func setPieChartData() {

@@ -49,7 +49,7 @@ class MyChildHolderList {
         let rateLabel = UILabel()
         rateLabel.frame = CGRect(x: 5, y: 20, width: UIScreen.main.bounds.width - 51.5, height: 15)
         rateLabel.text = rate
-        rateLabel.font = UIFont.systemFont(ofSize: 13)
+        rateLabel.font = UIFont.systemFont(ofSize: 12)
         rateLabel.textColor = .darkGray
         contentView.addSubview(rateLabel)
         
@@ -89,7 +89,7 @@ class MyChildHolderList {
         let rateLabel = UILabel()
         rateLabel.frame = CGRect(x: 5, y: 20, width: UIScreen.main.bounds.width - 51.5, height: 15)
         rateLabel.text = rate
-        rateLabel.font = UIFont.systemFont(ofSize: 13)
+        rateLabel.font = UIFont.systemFont(ofSize: 12)
         rateLabel.textColor = .darkGray
         contentView.addSubview(rateLabel)
         

@@ -69,6 +69,13 @@ class HomepageController: UIViewController, CycleScrollViewDelegate {
         searchBar.isUserInteractionEnabled = true
         searchBar.addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(clickSearchBar)))
 
+        homeButton = UIButton(frame: CGRect(x: UIScreen.main.bounds.width - 40, y: 5, width: 35, height: 30))
+        homeButton.tintColor = .lightGray
+        homeButton.setBackgroundImage(UIImage.init(systemName: "house"), for: .normal)
+        homeButton.contentMode = .scaleAspectFit
+        homeButton.isUserInteractionEnabled = true
+        homeButton.addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(clickHomeButton)))
+        
         navigationController?.navigationBar.addSubview(icon)
         navigationController?.navigationBar.addSubview(message)
         navigationController?.navigationBar.addSubview(searchBar)
@@ -113,6 +120,10 @@ class HomepageController: UIViewController, CycleScrollViewDelegate {
     @objc func clickSearchBar() {
         let controller = storyboard?.instantiateViewController(withIdentifier: "SearchPage") as! SearchPageController
         self.navigationController?.pushViewController(controller, animated: true)
+    }
+    
+    @objc func clickHomeButton() {
+        self.navigationController?.popToRootViewController(animated: true)
     }
 }
 
