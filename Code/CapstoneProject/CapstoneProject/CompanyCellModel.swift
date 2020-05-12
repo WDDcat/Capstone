@@ -16,6 +16,7 @@ protocol CompanyCellModelDelegate {
 }
 
 class CompanyCellModel: CompanyCellModelDelegate {
+    
     func postAddCollect(c_id: String, name: String, recordName: String, button: UIButton) {
         print("stared company:\"\(name)\" with id:(\(c_id))")
         let param:[String:Any] = ["c_id": c_id, "name": name, "record_from": recordName]

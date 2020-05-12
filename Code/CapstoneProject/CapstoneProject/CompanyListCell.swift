@@ -20,10 +20,10 @@ class CompanyListCell: UITableViewCell {
     
     @IBAction func starOnClick(_ sender: UIButton) {
         if btn_star.image(for: .normal) == UIImage(systemName: "star") {
-            mPresenter?.postAddCollect(c_id: c_id, name: label_companyName.text!, recordName: "ANDROID", button: btn_star)
+            mPresenter?.postAddCollect(c_id: c_id, name: label_companyName.text!, recordName: "iOS", button: btn_star)
         }
         else {
-            mPresenter?.postCancelCollect(c_id: c_id, name: label_companyName.text!, recordName: "ANDROID", button: btn_star)
+            mPresenter?.postCancelCollect(c_id: c_id, name: label_companyName.text!, recordName: "iOS", button: btn_star)
         }
     }
     

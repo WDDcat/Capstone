@@ -12,10 +12,15 @@ protocol CompanyDetailView {
     func setCompanyName(name: String)
     func setShareHolder(name: String)
     func setLegalPerson(name: String)
+    func setStarStatus(status: Int)
+    func addSuccess()
+    func cancelSuccess()
 }
 
 protocol CompanyDetailPresent {
     func getInfo()
+    func postAddCollect(name: String)
+    func postCancelCollect(name: String)
 }
 
 //protocol CompanyDetailView {

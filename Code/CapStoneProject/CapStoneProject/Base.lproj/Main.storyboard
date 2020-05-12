@@ -216,6 +216,9 @@
                                 <state key="normal" image="star" catalog="system">
                                     <preferredSymbolConfiguration key="preferredSymbolConfiguration" configurationType="pointSize" pointSize="30" scale="large"/>
                                 </state>
+                                <connections>
+                                    <action selector="btn_starPressed:" destination="BWn-8i-j1j" eventType="touchUpInside" id="TBJ-9m-TaM"/>
+                                </connections>
                             </button>
                         </subviews>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
@@ -253,6 +256,7 @@
                         <barButtonItem key="backBarButtonItem" title=" " id="Yzt-s7-80E"/>
                     </navigationItem>
                     <connections>
+                        <outlet property="btn_star" destination="d5b-CW-jnh" id="xq5-Gw-JPx"/>
                         <outlet property="label_businessOpportunity" destination="toN-9T-v4D" id="2Yl-8j-YYu"/>
                         <outlet property="label_companyName" destination="Abl-0f-QlG" id="fSO-ZA-b7K"/>
                         <outlet property="label_financialReport" destination="eTK-sm-fT0" id="hWV-GX-xmN"/>

@@ -149,7 +149,13 @@ extension PersonalCenterController: PersonalCenterView {
     
     func logoutSuccess() {
         print("success")
-        self.navigationController?.popViewController(animated: true)
+        let alertController = UIAlertController(title: "注销成功", message: "", preferredStyle: .alert)
+        let okAction = UIAlertAction(title: "确认", style: .default, handler: {
+            action in
+            self.navigationController?.popViewController(animated: true)
+        })
+        alertController.addAction(okAction)
+        self.present(alertController, animated: true, completion: nil)
     }
 }
 

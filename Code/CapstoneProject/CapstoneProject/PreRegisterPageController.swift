@@ -104,7 +104,13 @@ extension PreRegisterPageController: PreRegisterPageView {
     }
     
     func resetPasswordSuccess() {
-        navigationController?.popToRootViewController(animated: true)
+        let alertController = UIAlertController(title: "密码修改成功", message: "", preferredStyle: .alert)
+        let okAction = UIAlertAction(title: "确认", style: .default, handler: {
+            action in
+            self.navigationController?.popToRootViewController(animated: true)
+        })
+        alertController.addAction(okAction)
+        self.present(alertController, animated: true, completion: nil)
     }
 }
 
